@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  printer: one
+  listing: one
+  has_job: false
+  total_price: 1.5
+  job_size: 1
+  turnaround_time: 2019-04-30
+
+two:
+  printer: two
+  listing: two
+  has_job: false
+  total_price: 1.5
+  job_size: 1
+  turnaround_time: 2019-04-30

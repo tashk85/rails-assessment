@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  description: MyString
+  budget: 1.5
+  due_date: 2019-04-30
+  has_job: false
+
+two:
+  user: two
+  description: MyString
+  budget: 1.5
+  due_date: 2019-04-30
+  has_job: false

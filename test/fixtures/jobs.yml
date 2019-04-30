@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  listing: one
+  printer: one
+  quote: one
+  status: false
+  stripe_transaction_id: 1
+  created_at: 2019-04-30
+  completed_at: 2019-04-30
+
+two:
+  listing: two
+  printer: two
+  quote: two
+  status: false
+  stripe_transaction_id: 1
+  created_at: 2019-04-30
+  completed_at: 2019-04-30
