@@ -7,3 +7,20 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
+if User.count == 0
+    users = []
+    
+    for i in 1..10
+    user = User.create(
+        first_name: Faker::Name.first_name,
+        last_name: Faker::Name.last_name,
+        email: Faker::Internet.email,
+        phone: Faker::PhoneNumber.phone_number,
+        password: Faker::Alphanumeric.alpha(10),
+        postcode: Faker::Address.postcode,
+        user_type: Random.rand(0..1),
+        )
+        users.push(user)
+        puts "Created #{i} users"
+    end
+end
