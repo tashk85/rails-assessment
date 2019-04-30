@@ -80,24 +80,24 @@ end
 
 
 
-# if Quote.count == 0
-#     quotes = []
-#     count = 0
+if Quote.count == 0
+    quotes = []
+    count = 0
     
-#     for i in 2..11
-#         quote = Quote.create(
-#             printer_id: Random.rand(2..11),
-#             listing_id: Random.rand(Listing.first.id..Listing.last.id),
-#             # Listing.find(Random.rand(Listing.first..Listing.last)),
-#             has_job: false,
-#             total_price: Random.rand(100..500).to_f,
-#             job_size: Random.rand(5..200),
-#             turnaround_time: Faker::Date.forward(Random.rand(1..14))
-#             )
-#             quotes.push(quote)
-#             puts "Created quote "
+    for i in 2..11
+        quote = Quote.create(
+            printer_id: Random.rand(Printer.first.id..Printer.last.id),
+            listing_id: Random.rand(Listing.first.id..Listing.last.id),
+            # Listing.find(Random.rand(Listing.first..Listing.last)),
+            has_job: false,
+            total_price: Random.rand(100..500).to_f,
+            job_size: Random.rand(5..200),
+            turnaround_time: Faker::Date.forward(Random.rand(1..14))
+            )
+            quotes.push(quote)
+            puts "Created quote #{i}"
 
-#         count +=1
-#     end
-#     puts "Successfully created quotes"
-# end
+        count +=1
+    end
+    puts "Successfully created #{count} quotes"
+end
