@@ -24,3 +24,24 @@ if User.count == 0
         puts "Created #{i} users"
     end
 end
+
+if Listing.count == 0
+    listings = []
+    count = 0
+    
+    for i in 2..11
+        if User.find(i).user_type == "designer"
+            listing = Listing.create(
+                user_id: User.find(i).id,
+                description: Faker::TvShows::HowIMetYourMother.catch_phrase,
+                budget: Random.rand(100..500).to_f,
+                due_date: Faker::Date.forward(Random.rand(1..14)),
+                has_job: false,
+                )
+                listings.push(listing)
+                puts "Created listing for user_id #{i}"
+        end
+        count += 1
+    end
+    puts "Successfully created #{count} listings"
+end
