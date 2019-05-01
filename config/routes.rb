@@ -14,9 +14,10 @@ Rails.application.routes.draw do
 
   get "/listings", to: "listings#index", as: "listings"
   get "/listings/new", to: "listings#new", as: "new_listing"
-
   get "/listings/:id", to: "listings#show", as: "listing"
   get "/listings/:id/edit", to: "listings#edit", as: "edit_listing"
+  
+  post "/listings/new", to: "listings#create", as: "create_listing"
 
   ### Quotes ###
 
