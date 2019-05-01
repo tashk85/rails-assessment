@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, path: "/", path_names: {sign_in: "login", sign_up: "signup"}
   # get "/", to: "pages#index", as: "root"
   root to: "pages#index"
-  
-  get "/login", to: "pages#login", as: "login"
+
+  # get "/login", to: "pages#login", as: "login"
   #display different signup page based on which link is clicked
-  get "/signup", to: "pages#signup", as: "signup"
+  # get "/signup", to: "pages#signup", as: "signup"
   # post "/signup", to: "pages#new_user"
   get "/dashboard", to: "pages#dashboard", as: "dashboard"
 
