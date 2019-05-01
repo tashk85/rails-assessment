@@ -1,1 +1,16 @@
 <h1> All Listings </h1>
+<%=link_to "Create new listing", new_listing_path%>
+
+<%@listings.each do |listing|%>
+    <div class="card">
+        <p>Listing ID: <%=listing.id%> </p>
+        <p>Description: <%=listing.description%> </p>
+        <p>Budget: <%=listing.budget%> </p>
+        <p>Due date: <%=listing.due_date%> </p>
+        <p>Has job? : <%=listing.has_job%> </p>
+        <p>Created at: <%=listing.created_at%> </p>
+        <%=link_to "Edit", edit_listing_path(listing.id)%>
+        <%=link_to "Show", listing_path(listing.id)%>
+    </div>
+
+<%end%>
