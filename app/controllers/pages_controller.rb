@@ -14,4 +14,8 @@ class PagesController < ApplicationController
     def dashboard
         render plain: "dashboard"
     end
+
+    def newuser
+        #put into database
+    end
 end

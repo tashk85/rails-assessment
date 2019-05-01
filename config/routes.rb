@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
-  get "/", to: "pages#index", as: "index"
+  # get "/", to: "pages#index", as: "root"
+  root to: "pages#index"
+  
   get "/login", to: "pages#login", as: "login"
   #display different signup page based on which link is clicked
   get "/signup", to: "pages#signup", as: "signup"
+  # post "/signup", to: "pages#new_user"
   get "/dashboard", to: "pages#dashboard", as: "dashboard"
 
   ### Listings ###
@@ -10,6 +13,7 @@ Rails.application.routes.draw do
 
   get "/listings", to: "listings#index", as: "listings"
   get "/listings/new", to: "listings#new", as: "new_listing"
+
   get "/listings/:id", to: "listings#show", as: "listing"
   get "/listings/:id/edit", to: "listings#edit", as: "edit_listing"
 
@@ -25,30 +29,5 @@ Rails.application.routes.draw do
 
   get "/jobs", to: "jobs#index", as: "jobs"
   get "/jobs/:id", to: "jobs#show", as: "job"
-
-
-  
-
-
-
-
-
-# Sign up page - designer
-# Sign up page - printer
-# Login page
-# Dashboard - when logged in and signed up “/dashboard” - up the top display ‘Hi, {name}’
-# Only accessible when logged in
-# Listings (view all listings)
-# Listing(id) - view a specific listing
-# Edit listing form (id)
-# Create new listing - view form for creating a listing (for designers)
-# View Quotes
-# Designer can see all quotes on their listings
-# Printer can see all quotes they have given
-# View specific quote (id)
-# Create Quote form (for printer)
-# Edit quote (for printer)
-# View Jobs
-# View specific job (id)
 
 end
