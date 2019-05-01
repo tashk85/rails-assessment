@@ -3,7 +3,7 @@
 <div class="card">
     <p>Printer id. <%= @quote.printer_id %></p>
     <p>Listing id. <%= @quote.listing_id %></p>
-    <p>Total Price: $<%= @quote.total_price %></p>
+    <p>Total Price: $<%= number_with_precision(@quote.total_price, precision: 2) %></p>
     <p>Job Size (cubic cm): <%= @quote.job_size %></p>
     <p>Turnaround Time: <%= @quote.turnaround_time %></p>
     <%= link_to "Edit", edit_quote_path(@quote.id) %>

@@ -12,22 +12,24 @@ class QuotesController < ApplicationController
 
     def create
         # create new listing
-        @quote = current_user.quotes.create(quote_params)
+        # @quote = current_user.quotes.create(quote_params)
     
         p params
         Quote.create(
-            printer_id: params[current_user.id], 
+            printer_id: Printer.find_by_user_id(current_user.id).id, 
             # listing_id: params[],
             total_price: params[:total_price],
             job_size: params[:job_size],
-            turnaround_time: params[:turnaround_time]
+            turnaround_time: params[:turnaround_time],
+            has_job: false
         )
+        redirect_to quotes_path
 
-        if @quote.errors.any?
-            render "new"
-        else
-            redirect_to quotes_path
-        end
+        # if @quote.errors.any?
+        #     render "new"
+        # else
+        #     redirect_to quotes_path
+        # end
     end
 
     def new
