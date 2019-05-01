@@ -1,0 +1,34 @@
+<!-- Display any errors with form -->
+
+<%= form_with model: listing, local: true do |form| %>
+    <div>
+        <%= form.label :title %>
+        <%= form.text_field :title %>
+    </div>
+    <!--description, budget, due_date, file upload -->
+    <div>
+        <%= form.label :description %>
+        <%= form.text_field :description %>
+    </div>
+
+    <div>
+        <%= form.label :budget %>
+        <%= form.number_field :budget %>
+    </div>
+
+    <div>
+        <%= form.label :due_date %>
+        <%= form.date_field :due_date %>
+    </div>
+
+    <div>
+        <%= form.label :file %>
+        <%= form.file_field :file, accept: "image/png,image/gif,image/jpeg,image/jpg" %>
+    </div>
+
+    <div>
+        <%= form.submit %>
+    </div>
+
+   
+<% end %>
