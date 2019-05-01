@@ -21,12 +21,11 @@ Rails.application.routes.draw do
   get "/quotes/:id", to: "quotes#show", as: "quote"
   get "/quotes/:id/edit", to: "quotes#edit", as: "edit_quote"
 
+  ### Jobs ###
 
+  get "/jobs", to: "jobs#index", as: "jobs"
+  get "/jobs/:id", to: "jobs#show", as: "job"
 
-
-
-
-  ####
 
   
 
