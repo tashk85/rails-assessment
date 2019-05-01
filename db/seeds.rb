@@ -29,7 +29,7 @@ if Listing.count == 0
     listings = []
     count = 0
     
-    for i in 2..11
+    for i in 1..10
         if User.find(i).user_type == "designer"
             listing = Listing.create(
                 user_id: User.find(i).id,
@@ -58,7 +58,7 @@ if Printer.count == 0
     ]
 
 
-    for i in 2..11
+    for i in 1..10
         if User.find(i).user_type == "printer"
             printer = Printer.create(
                 user_id: User.find(i).id,
@@ -76,19 +76,14 @@ if Printer.count == 0
 
 end
 
-
-
-
-
 if Quote.count == 0
     quotes = []
     count = 0
     
-    for i in 2..11
+    for i in 1..10
         quote = Quote.create(
             printer_id: Random.rand(Printer.first.id..Printer.last.id),
             listing_id: Random.rand(Listing.first.id..Listing.last.id),
-            # Listing.find(Random.rand(Listing.first..Listing.last)),
             has_job: false,
             total_price: Random.rand(100..500).to_f,
             job_size: Random.rand(5..200),
@@ -100,4 +95,39 @@ if Quote.count == 0
         count +=1
     end
     puts "Successfully created #{count} quotes"
+end
+
+if Job.count == 0
+
+    jobs = []
+    #loop through listings
+    for i in 1..Listing.count
+        current_listing = Listing.find(i)
+        #if a quote exists
+        if current_listing.quotes.count > 0
+            # make a job using the first quote on the listing, then exit loop
+            # Job.create(listing_id:2, printer_id:2, quote_id:4, status:false, stripe_transaction_id:123)
+            Job.create(
+            listing_id: current_listing.id,
+            printer_id: current_listing.quotes.first.printer_id,
+            quote_id: current_listing.quotes.first.id,
+            status: false,
+            stripe_transaction_id: Random.rand(1000..5000),
+
+            )
+            #set the job status to true on the listing and quote table
+            current_listing.update(has_job: true)
+            current_listing.quotes.first.update(has_job: true)
+
+
+            # jobs.push(job)
+            puts "Created job #{i}"
+            # break
+        end
+
+        
+
+        
+
+    end
 end
