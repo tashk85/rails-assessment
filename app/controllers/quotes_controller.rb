@@ -1,17 +1,17 @@
 class QuotesController < ApplicationController
     def index
-        render plain: "This will show all quotes"
+        #see all quotes
     end
 
     def show
-        render plain: "This will show a specific quote"
+        # view a single quote
     end
 
     def new
-        render plain: "This will show a new quote form"
+        # shows form for creating a new quote
     end
 
     def edit
-        render plain: "This will show the edit quote form"
+        # shows form for editing an existing quote
     end
 end
