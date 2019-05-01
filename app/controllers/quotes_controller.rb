@@ -10,6 +10,26 @@ class QuotesController < ApplicationController
         @quote = Quote.find(id)
     end
 
+    def create
+        # create new listing
+        @quote = current_user.quotes.create(quote_params)
+    
+        p params
+        Quote.create(
+            printer_id: params[current_user.id], 
+            # listing_id: params[],
+            total_price: params[:total_price],
+            job_size: params[:job_size],
+            turnaround_time: params[:turnaround_time]
+        )
+
+        if @quote.errors.any?
+            render "new"
+        else
+            redirect_to quotes_path
+        end
+    end
+
     def new
         # shows form for creating a new quote
         @quote = Quote.new
@@ -26,7 +46,7 @@ class QuotesController < ApplicationController
         if @quote.update(quote_params)
             redirect_to(@quote)
         else
-            render :edit
+            render "edit"
         end
     end
 
