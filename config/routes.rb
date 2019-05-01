@@ -24,6 +24,8 @@ Rails.application.routes.draw do
   get "/quotes", to: "quotes#index", as: "quotes"
   get "/quotes/new", to: "quotes#new", as: "new_quote"
   get "/quotes/:id", to: "quotes#show", as: "quote"
+  patch "/quotes/:id", to: "quotes#update"
+  put "/quotes/:id", to: "quotes#update"
   get "/quotes/:id/edit", to: "quotes#edit", as: "edit_quote"
 
   ### Jobs ###

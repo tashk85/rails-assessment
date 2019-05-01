@@ -22,6 +22,17 @@ class QuotesController < ApplicationController
 
     def update
         # updates the listing
-        
+        @quote = Quote.find(params[:id])
+        if @quote.update(quote_params)
+            redirect_to(@quote)
+        else
+            render :edit
+        end
+    end
+
+    private
+    def quote_params
+        params.require(:quote).permit(:total_price, :job_size, :turnaround_time)
+        # whitelist of what we will accept
     end
 end
