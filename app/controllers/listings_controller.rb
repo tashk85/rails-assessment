@@ -12,7 +12,20 @@ class ListingsController < ApplicationController
         # @listing = Listing.new
     end
 
+    def update
+        # updates the listing
+        @listing = Listing.find(params[:id])
+        #if the paramaters have been changed:
+        if @listing.update(listing_params)
+            redirect_to(@listing)
+        else
+            render :edit
+        end
+    end
+
     def edit
+        # shows form for editing an existing quote
+        @listing = Listing.find(params[:id])
     end
 
     def create
@@ -39,6 +52,6 @@ class ListingsController < ApplicationController
     private
 
     def listing_params
-        # params.require(:listing).permit(:title, :description, :budget, :due_date)
+        params.require(:listing).permit(:title, :description, :budget, :due_date)
     end
 end
