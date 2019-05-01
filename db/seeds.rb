@@ -7,24 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
-# if User.count == 0
-#     users = []
-    
-#     for i in 1..10
-#     user = User.create(
-#         first_name: Faker::Name.first_name,
-#         last_name: Faker::Name.last_name,
-#         email: Faker::Internet.email,
-#         phone: Faker::PhoneNumber.phone_number,
-#         password: Faker::Alphanumeric.alpha(10),
-#         postcode: Faker::Address.postcode,
-#         user_type: Random.rand(0..1),
-#         )
-#         users.push(user)
-#         puts "Created #{i} users"
-#     end
-# end
-
 if User.count == 0
     (1..10).each do |i|
       user = User.new(
@@ -89,7 +71,7 @@ if Printer.count == 0
         end
     end
 
-    puts "Successfully created #{count} listings"
+    puts "Successfully created #{count} printers"
 
 
 end
@@ -112,11 +94,11 @@ if Quote.count == 0
 
         count +=1
     end
-    puts "Successfully created #{count} quotes"
+    puts "Successfully created #{count} quotes."
 end
 
 if Job.count == 0
-
+    count = 0
     jobs = []
     #loop through listings
     for i in 1..Listing.count
@@ -137,15 +119,15 @@ if Job.count == 0
             current_listing.update(has_job: true)
             current_listing.quotes.first.update(has_job: true)
 
-
-            # jobs.push(job)
+        
             puts "Created job #{i}"
-            # break
         end
 
         
-
+    count +=1
         
 
     end
+
+    puts "Successfully created #{count} jobs."
 end
