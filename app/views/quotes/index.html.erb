@@ -1,5 +1,5 @@
 <h1>View Quotes</h1>
-<%= link_to "Add New Quote", new_quote_path %>
+<%= link_to "Add New Quote", new_quote_path(listing: params[:listing]) %>
 
 <%@amount_of_user_quotes = 0%>
 

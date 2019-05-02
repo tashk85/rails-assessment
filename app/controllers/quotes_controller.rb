@@ -23,8 +23,8 @@ class QuotesController < ApplicationController
         #     turnaround_time: "2019-05-14",
         #     has_job: false
         # )
-
-        redirect_to quotes_path
+        # byebug
+        redirect_to quote_path(params[:quote][:listing_id])
 
         # if @quote.errors.any?
         #     render "new"
