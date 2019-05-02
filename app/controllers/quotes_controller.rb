@@ -14,7 +14,7 @@ class QuotesController < ApplicationController
         # create new quote for a listing
         # byebug
         Quote.create(printer_id: Printer.find_by_user_id(current_user.id).id,listing_id: params[:quote][:listing_id], total_price: params[:quote][:total_price], job_size: params[:quote][:job_size], turnaround_time: params[:quote][:turnaround_time], has_job: false)
-        Quote.create(quote_params)
+
         # Quote.create(
         #     printer_id: Printer.first, 
         #     listing_id: 1,
