@@ -1,11 +1,9 @@
-<h1> Show Listing </h1>
-
 <h1> Listing id: <%= @listing.id %></h1>
 
 <div class="card">
         <p>Listing ID: <%=@listing.id%> </p>
         <p>Description: <%=@listing.description%> </p>
-        <p>Budget: <%=@listing.budget%> </p>
+        <p>Budget: <%=number_with_precision(@listing.budget, precision: 2)%> </p>
         <p>Due date: <%=@listing.due_date%> </p>
         <p>Has job? : <%=@listing.has_job%> </p>
         <p>Created at: <%=@listing.created_at%> </p>

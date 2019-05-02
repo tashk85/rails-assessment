@@ -9,7 +9,7 @@
 
     <div>
         <%= form.label :budget %>
-        <%= form.number_field :budget %>
+        <%= form.number_field :budget, value: number_to_currency(form.object.budget.to_f, delimiter: '', unit: ''), step: :any %>
     </div>
 
     <div>
