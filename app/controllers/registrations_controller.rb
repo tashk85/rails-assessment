@@ -8,13 +8,16 @@ class RegistrationsController < Devise::RegistrationsController
       # add custom create logic here
       super
       if current_user != nil
-        p 'There is a user'
-        p current_user.user_type
-        if current_user.user_type == 'printer'
-          Printer.create(user_id: current_user.id, abn: 123, printer_model: "Turbo")
-        end
+        # if current_user.user_type == 'printer'
+          
+            # redirect to custom printer info here instead
+            
       end
+
         
+    end
+
+    def custom
     end
         
 

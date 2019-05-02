@@ -1,0 +1,24 @@
+<h1> Printer information</h1>
+
+
+<p>Please enter your ABN and printer information.</p>
+
+<%= form_with model: @printer, local: true do |f| %>
+
+ <div class="field">
+    <%= f.label :abn %><br />
+    <%= f.number_field :abn, autofocus: true %>
+  </div>
+
+   <div class="field">
+    <%= f.label :printer_model %><br />
+    <%= f.text_field :printer_model, autofocus: true %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Submit printer information" %>
+  </div>
+
+<% end %>
+
+
