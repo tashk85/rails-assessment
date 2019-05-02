@@ -6,6 +6,9 @@
         <p>Budget: $<%= number_with_precision(@listing.budget, precision: 2) %> </p>
         <p>Due date: <%= @listing.due_date %> </p>
         <p>Created at: <%= @listing.created_at.to_time.strftime('%A, %d %b %Y') %> </p>
+        <%= image_tag @listing.design_file if @listing.design_file.attached? %>
+
+        <%= link_to "Download Design File", rails_blob_path(@listing.design_file, disposition: "attachment") %>
         <%=link_to "Edit", edit_listing_path(@listing.id)%>
         <%=link_to "Back", listings_path%>
         <%=link_to "Create Quote", new_quote_path(listing: @listing)%>
