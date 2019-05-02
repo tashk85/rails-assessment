@@ -7,7 +7,9 @@ Rails.application.routes.draw do
 
   #extra information for printers to enter:
   get "/printer_info", to: "pages#printer_info", as: "printer_info"
-  post "/printer_info", to: "pages#printer_info"
+  # get "/printers", to: "pages#printers", as: "printers"
+
+  post "/printer_info", to: "pages#create"
 
   ### Listings ###
   # todo - make this only accessible to designers

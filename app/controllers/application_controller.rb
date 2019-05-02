@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
      before_action :configure_permitted_parameters, if: :devise_controller?
      # before_action :check_for_printer -- if current user is a printer, redirect to custom_printer form
      # byebug
-     # before_action :check_if_printer, except: [:index, :printer_info]
+     # before_action :check_if_printer
 
 
     private 
@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
                #does user exist in the printer table?
                #if not, redirect them to the info form and then put them in the table
  
-               # redirect_to printer_info_path(printer: @printer)
+               redirect_to printer_info_path(printer: @printer)
            end
      end
          

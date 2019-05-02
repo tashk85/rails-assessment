@@ -14,20 +14,24 @@ class PagesController < ApplicationController
     end
 
     def printer_info
+        @printer = Printer.new
     end
 
     def create
+
         #create new a new printer model entry
         @printer = Printer.create(
-            abn: params[:abn],
-            printer_info: params[:printer_info]
-            
+            user_id: current_user.id,
+            abn: params[:printer][:abn],
+            printer_model: params[:printer][:printer_model]
         )
         redirect_to root_path
-        if @listing.errors.any?
-            render "new"
-        else
-            
-        end
+        
+    end
+
+    private 
+
+    def printer_params
+        params.require(:printer).permit(:abn, :printer_model)
     end
 end

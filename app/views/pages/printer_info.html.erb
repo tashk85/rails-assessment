@@ -3,7 +3,7 @@
 
 <p>Please enter your ABN and printer information.</p>
 
-<%= form_with model: @printer, local: true do |f| %>
+<%= form_with model: @printer, url: "/printer_info", local: true do |f| %>
 
  <div class="field">
     <%= f.label :abn %><br />
