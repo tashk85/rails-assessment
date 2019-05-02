@@ -5,24 +5,25 @@ class QuotesController < ApplicationController
     end
 
     def show
-        # view a single quotev
+        # view a single quote
         id = params[:id]
         @quote = Quote.find(id)
     end
 
     def create
-        # create new listing
-        # @quote = current_user.quotes.create(quote_params)
-    
-        p params
-        Quote.create(
-            printer_id: Printer.find_by_user_id(current_user.id).id, 
-            # listing_id: params[],
-            total_price: params[:total_price],
-            job_size: params[:job_size],
-            turnaround_time: params[:turnaround_time],
-            has_job: false
-        )
+        # create new quote for a listing
+        # byebug
+        Quote.create(printer_id: Printer.find_by_user_id(current_user.id).id, listing_id: params[:listing_id], total_price: params[:total_price],job_size: params[:job_size],turnaround_time: params[:turnaround_time],has_job: false)
+
+        # Quote.create(
+        #     printer_id: Printer.first, 
+        #     listing_id: 1,
+        #     total_price: 2,
+        #     job_size: 3,
+        #     turnaround_time: "2019-05-14",
+        #     has_job: false
+        # )
+
         redirect_to quotes_path
 
         # if @quote.errors.any?
