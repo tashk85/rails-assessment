@@ -8,10 +8,9 @@
     <div class="card">
         <p>Listing ID: <%=listing.id%> </p>
         <p>Description: <%=listing.description%> </p>
-        <p>Budget: <%= number_with_precision(listing.budget, precision: 2)%> </p>
-        <p>Due date: <%=listing.due_date%> </p>
-        <p>Has job? : <%=listing.has_job%> </p>
-        <p>Created at: <%=listing.created_at%> </p>
+        <p>Budget: $<%= number_with_precision(listing.budget, precision: 2)%> </p>
+        <p>Due date: <%=listing.due_date.to_time.strftime('%A, %d %b %Y')%> </p>
+        <p>Created at: <%=listing.created_at.to_time.strftime('%A, %d %b %Y')%> </p>
         <%=link_to "Edit", edit_listing_path(listing.id)%>
         <%=link_to "Show", listing_path(listing.id)%>
     </div>

@@ -1,4 +1,5 @@
 class ListingsController < ApplicationController
+    before_action :authenticate_user!
     before_action :set_listing, only: [:show, :edit, :update]
     before_action :authorize_user, only: [:new, :create, :edit, :update]
    
@@ -17,6 +18,7 @@ class ListingsController < ApplicationController
 
     def new
         # @listing = Listing.new
+
     end
 
     def update
