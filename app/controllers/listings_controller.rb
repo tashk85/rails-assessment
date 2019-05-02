@@ -1,7 +1,14 @@
 class ListingsController < ApplicationController
-    before_action :authenticate_user!, except: [:index, :show]
+    before_action :authenticate_user!
+    before_action :set_listing, only: [:show, :edit, :update]
+    before_action :authorize_user, only: [:new, :create, :edit, :update]
+   
     def index
-        @listings = Listing.all
+        if current_user.user_type == "printer"
+            @listings = Listing.all
+        else
+            @listings = User.find(current_user.id).listings
+        end
     end
 
     def show
@@ -10,6 +17,7 @@ class ListingsController < ApplicationController
     end
 
     def new
+        # @listing = Listing.new
     end
 
     def update
@@ -50,6 +58,17 @@ class ListingsController < ApplicationController
 
 
     private
+
+    def set_listing
+        id = params[:id]
+        @listing = Listing.find(id)
+    end
+
+    def authorize_user
+        if current_user.user_type == "printer"
+            redirect_to listings_path
+        end
+    end
 
     def listing_params
         params.require(:listing).permit(:title, :description, :budget, :due_date)
