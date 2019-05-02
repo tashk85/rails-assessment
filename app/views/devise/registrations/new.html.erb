@@ -14,6 +14,27 @@
   </div>
 
   <div class="field">
+    <%= f.label :phone %><br />
+    <%= f.number_field :phone, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :postcode %><br />
+    <%= f.number_field :postcode, autofocus: true%>
+  </div>
+
+  <div class="field">
+    
+    <%= f.radio_button(:user_type, "printer") %>
+    <%= f.label(:user_type, "Printer") %>
+    <%= f.radio_button(:user_type, "designer") %>
+    <%= f.label(:user_type, "Designer") %>
+   
+  </div>
+  
+
+
+  <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
