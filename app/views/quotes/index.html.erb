@@ -1,0 +1,16 @@
+<h1>View Quotes</h1>
+<%= link_to "Add New Quote", new_quote_path %>
+
+<% @quotes.each do |quote| %>
+    <div class="card">
+        <p>Quote Id: <%= quote.id %></p>
+        <p>Printer Id: <%= quote.printer_id %></p>
+        <p>Listing Id: <%= quote.listing_id %></p>
+        <p>Total Price: $<%= number_with_precision(quote.total_price, precision: 2) %></p>
+        <p>Job Size (cubic cm): <%= quote.job_size %></p>
+        <p>Turnaround Time: <%= quote.turnaround_time %></p>
+        <%= link_to "Edit", edit_quote_path(quote.id) %>
+        <%= link_to "Show",quote_path(quote.id) %>
+    </div>
+<% end %>
+
