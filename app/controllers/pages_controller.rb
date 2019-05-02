@@ -7,6 +7,13 @@ class PagesController < ApplicationController
     
     
     def index
+        #run the printer info check
+        if current_user != nil && current_user.user_type == "printer"
+            if Printer.find_by_user_id(current_user.id) == nil
+                redirect_to printer_info_path
+            end
+        end
+
     end
 
 
@@ -18,14 +25,19 @@ class PagesController < ApplicationController
     end
 
     def create
-
         #create new a new printer model entry
-        @printer = Printer.create(
-            user_id: current_user.id,
-            abn: params[:printer][:abn],
-            printer_model: params[:printer][:printer_model]
-        )
+        if Printer.find_by_user_id(current_user.id) == nil
+            @printer = Printer.create(
+                user_id: current_user.id,
+                abn: params[:printer][:abn],
+                printer_model: params[:printer][:printer_model]
+            )
+            
+            
+        end
+
         redirect_to root_path
+        
         
     end
 
