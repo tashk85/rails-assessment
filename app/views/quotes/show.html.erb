@@ -1,5 +1,6 @@
 <h1> Quote id. <%= @quote.id %></h1>
 
+
 <div class="card">
     <p>Printer id. <%= @quote.printer_id %></p>
     <p>Listing id. <%= @quote.listing_id %></p>
@@ -7,5 +8,5 @@
     <p>Job Size (cubic cm): <%= @quote.job_size %></p>
     <p>Turnaround Time: <%= @quote.turnaround_time %></p>
     <%= link_to "Edit", edit_quote_path(@quote.id) %>
-    <%= link_to 'Back', quotes_path %>
+    <%= link_to 'Back', listings_path%>
 </div>

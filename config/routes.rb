@@ -18,7 +18,6 @@ Rails.application.routes.draw do
   get "/listings/:id/edit", to: "listings#edit", as: "edit_listing"
   patch "/listings/:id", to: "listings#update"
   put "/listings/:id", to: "listings#update"
-
   post "/listings/new", to: "listings#create", as: "create_listing"
 
   ### Quotes ###
@@ -27,6 +26,7 @@ Rails.application.routes.draw do
   get "/quotes", to: "quotes#index", as: "quotes"
   get "/quotes/new", to: "quotes#new", as: "new_quote"
   post "/quotes", to: "quotes#create"
+  # post "/quotes/new", to: "quotes#create", as: "create_quote"
   get "/quotes/:id", to: "quotes#show", as: "quote"
   patch "/quotes/:id", to: "quotes#update"
   put "/quotes/:id", to: "quotes#update"

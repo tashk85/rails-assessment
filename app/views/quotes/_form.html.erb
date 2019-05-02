@@ -1,5 +1,7 @@
 <%= form_with model: quote, local: true do |form| %>
+    <p> This is listing <%=params[:listing]%> </p>
     <div>
+
         <%= form.label :total_price %>
         <%= form.number_field :total_price, min: 0 %>
     </div>
@@ -13,6 +15,13 @@
         <%= form.label :turnaround_time %>
         <%= form.date_field :turnaround_time %>
     </div>
+
+    <%= form.hidden_field :listing_id, value: params[:listing]%>
+    <%= form.hidden_field :printer_id, value: current_user.id %>
+
+
+
+
 
     <div>
         <%= form.submit %>
