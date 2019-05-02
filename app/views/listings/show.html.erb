@@ -11,4 +11,5 @@
         <p>Created at: <%=@listing.created_at%> </p>
         <%=link_to "Edit", edit_listing_path(@listing.id)%>
         <%=link_to "Back", listings_path%>
+        <%=link_to "Create Quote", new_quote_path(listing: @listing)%>
     </div>
