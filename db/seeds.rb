@@ -37,6 +37,7 @@ if Listing.count == 0
                 budget: Random.rand(100..500).to_f,
                 due_date: Faker::Date.forward(Random.rand(1..14)),
                 has_job: false,
+                design_file: File.open(Rails.root + "app/assets/images/cobra-48132_1280.png")
                 )
                 listings.push(listing)
                 puts "Created listing for user_id #{i}"
@@ -113,7 +114,6 @@ if Job.count == 0
             quote_id: current_listing.quotes.first.id,
             status: false,
             stripe_transaction_id: Random.rand(1000..5000),
-
             )
             #set the job status to true on the listing and quote table
             current_listing.update(has_job: true)

@@ -23,7 +23,6 @@ class ListingsController < ApplicationController
     def update
         # updates the listing
         @listing = Listing.find(params[:id])
-        attach_file
         #if the parameters have been changed:
         if @listing.update(listing_params)
             redirect_to(@listing)
@@ -40,7 +39,7 @@ class ListingsController < ApplicationController
     def create
         #create new listing
         @listing = current_user.listings.create(listing_params)
-        attach_file
+        # attach_file
         # @listing = Listing.create(
         #     user_id: current_user.id,
         #     description: params[:description],
@@ -74,10 +73,10 @@ class ListingsController < ApplicationController
     end
 
     def listing_params
-        params.permit(:user_id, :description, :budget, :due_date, :has_job, :design_file)
+        params.require(:listing).permit(:user_id, :description, :budget, :due_date, :has_job, :design_file)
     end
 
-    def attach_file
-        @listing.design_file.attach(params[:design_file])
-    end
+    # def attach_file
+    #     @listing.design_file.attach(params[:design_file])
+    # end
 end
