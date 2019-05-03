@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   # todo - make this only accessible to designers
 
   get "/listings", to: "listings#index", as: "listings"
+  post "/listings", to: "listings#create"
   get "/listings/new", to: "listings#new", as: "new_listing"
   get "/listings/:id", to: "listings#show", as: "listing"
   get "/listings/:id/edit", to: "listings#edit", as: "edit_listing"
