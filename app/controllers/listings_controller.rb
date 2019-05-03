@@ -39,22 +39,13 @@ class ListingsController < ApplicationController
     def create
         #create new listing
         @listing = current_user.listings.create(listing_params)
-        # attach_file
-        # @listing = Listing.create(
-        #     user_id: current_user.id,
-        #     description: params[:description],
-        #     budget: params[:budget],
-        #     due_date: params[:due_date],
-        #     has_job: false,
-        #     created_at: params[:created_at],
-        #     design_file: params[:design_file]
-        # )
-        
         if @listing.errors.any?
             render "new"
+            p @listing.errors.full_messages
         else
             redirect_to listing_path(@listing.id)
         end
+
     end
 
 
@@ -73,10 +64,10 @@ class ListingsController < ApplicationController
     end
 
     def listing_params
-        params.require(:listing).permit(:user_id, :description, :budget, :due_date, :has_job, :design_file)
+        # params.require(:listing).permit(:user_id, :description, :budget, :due_date, :has_job, :design_file)
+
+        params.require(:listing).permit(:description,:budget,:due_date,:has_job,:design_file)
     end
 
-    # def attach_file
-    #     @listing.design_file.attach(params[:design_file])
-    # end
+ 
 end

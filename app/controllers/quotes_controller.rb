@@ -14,6 +14,8 @@ class QuotesController < ApplicationController
         # create new quote for a listing
         if current_user.user_type == "printer"
             # byebug
+
+            
             Quote.create(
                 printer_id: Printer.find_by_user_id(current_user.id).id,
                 listing_id: params[:quote][:listing_id],
@@ -25,7 +27,6 @@ class QuotesController < ApplicationController
 
         end
         
-        byebug
         redirect_to quote_path(params[:quote][:listing_id])
 
         # if @quote.errors.any?
