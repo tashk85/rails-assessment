@@ -1,4 +1,4 @@
-<h2>Sign up</h2>
+<h2>Sign up As A <%= params[:user_type].capitalize %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
@@ -25,11 +25,12 @@
 
   <div class="field">
     
-    <%= f.radio_button(:user_type, "printer") %>
+    <!-- <%= f.radio_button(:user_type, "printer") %>
     <%= f.label(:user_type, "Printer") %>
     <%= f.radio_button(:user_type, "designer") %>
-    <%= f.label(:user_type, "Designer") %>
+    <%= f.label(:user_type, "Designer") %> -->
    
+    <%= f.hidden_field :user_type, value: params[:user_type] %>
   </div>
 
   <div class="field">
