@@ -1,13 +1,15 @@
 Rails.application.routes.draw do
-  devise_for :users, path: "/", path_names: {sign_in: "login", sign_up: "signup"}
+  #use custom registrations controller
+  devise_for :users, path: "/", path_names: {sign_in: "login", sign_up: "signup"}, controllers: {:registrations => "registrations"}
   # get "/", to: "pages#index", as: "root"
   root to: "pages#index"
-
-  # get "/login", to: "pages#login", as: "login"
-  #display different signup page based on which link is clicked
-  # get "/signup", to: "pages#signup", as: "signup"
-  # post "/signup", to: "pages#new_user"
   get "/dashboard", to: "pages#dashboard", as: "dashboard"
+
+  #extra information for printers to enter:
+  get "/printer_info", to: "pages#printer_info", as: "printer_info"
+  # get "/printers", to: "pages#printers", as: "printers"
+
+  post "/printer_info", to: "pages#create"
 
   ### Listings ###
   # todo - make this only accessible to designers
@@ -22,12 +24,18 @@ Rails.application.routes.draw do
   post "/listings/new", to: "listings#create", as: "create_listing"
 
   ### Quotes ###
-
-
+  
+  #Show quotes (from a given listing)
   get "/quotes", to: "quotes#index", as: "quotes"
+
+  #Show all quotes (from a given user)
+  get "/my_quotes", to: "quotes#my_quotes", as: "my_quotes"
+
+  #Make a new quote
   get "/quotes/new", to: "quotes#new", as: "new_quote"
   post "/quotes", to: "quotes#create"
-  # post "/quotes/new", to: "quotes#create", as: "create_quote"
+
+  #View and edit a certain quote
   get "/quotes/:id", to: "quotes#show", as: "quote"
   patch "/quotes/:id", to: "quotes#update"
   put "/quotes/:id", to: "quotes#update"
