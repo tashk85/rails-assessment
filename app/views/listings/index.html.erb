@@ -2,6 +2,7 @@
 
 <% if current_user.user_type == "designer" %>
     <%=link_to "Create new listing", new_listing_path%>
+    <%=link_to "Home", root_path%>
 <% end %>
 
 <%@listings.each do |listing|%>

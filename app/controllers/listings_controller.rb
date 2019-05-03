@@ -4,8 +4,11 @@ class ListingsController < ApplicationController
     before_action :authorize_user, only: [:new, :create, :edit, :update]
    
     def index
+        #If user is a printer, display all listings
         if current_user.user_type == "printer"
             @listings = Listing.all
+
+        #Otherwise, just show the listings that belong to the user (designer)
         else
             @listings = User.find(current_user.id).listings
         end

@@ -1,5 +1,7 @@
 <h1>View Quotes</h1>
 
+<%=link_to "Back to listing", listing_path(params[:listing])%>
+
 <%@amount_of_user_quotes = 0%>
 
 <% @quotes.each do |quote| %>
