@@ -11,7 +11,7 @@
 
     <%# If the current quote has the same listing id as the logged in user, display it%>
     <%if Listing.find(quote.listing_id).user_id == @user_id%>
-        <div class="card">
+    <div class="card">
         <p>Quote Id: <%= quote.id %></p>
         <p>Printer Id: <%= quote.printer_id %></p>
         <p>Listing Id: <%= quote.listing_id %></p>
@@ -53,8 +53,6 @@
 <%if @amount_of_user_quotes == 0%>
 
     <p>You don't have any quotes at the moment.</p>
-
-   
 
 <%end%>
 
