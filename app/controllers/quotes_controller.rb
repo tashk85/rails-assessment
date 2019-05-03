@@ -13,7 +13,7 @@ class QuotesController < ApplicationController
     def create
         # create new quote for a listing
         if current_user.user_type == "printer"
-            byebug
+            # byebug
             Quote.create(printer_id: Printer.find_by_user_id(current_user.id).id,listing_id: params[:quote][:listing_id], total_price: params[:quote][:total_price], job_size: params[:quote][:job_size], turnaround_time: params[:quote][:turnaround_time], has_job: false)
 
         end
