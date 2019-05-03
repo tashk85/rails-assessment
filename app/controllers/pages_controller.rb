@@ -16,6 +16,7 @@ class PagesController < ApplicationController
 
 
     def dashboard
+        @user_id = current_user.id
         #run the printer info check
         if current_user != nil && current_user.user_type == "printer"
             if Printer.find_by_user_id(current_user.id) == nil

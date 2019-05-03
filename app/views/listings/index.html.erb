@@ -4,15 +4,16 @@
     <h1>All Listings</h1>
 <%end%>
 
-<!--Display message if there are no listings for the user -->
-
-<%if Listing.find_by_user_id(current_user.id) == nil %>
-    <p> It looks like you don't have any listings currently. </p>
-<%end%>
 
 
 
 <% if current_user.user_type == "designer" %>
+
+    <!--Display message if there are no listings for the user -->
+    <%if Listing.find_by_user_id(current_user.id) == nil %>
+        <p> It looks like you don't have any listings currently. </p>
+    <%end%>
+    
     <%=link_to "Create new listing", new_listing_path%>
 <% end %>
 

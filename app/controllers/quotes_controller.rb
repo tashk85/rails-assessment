@@ -18,15 +18,6 @@ class QuotesController < ApplicationController
 
         end
 
-        # Quote.create(
-        #     printer_id: Printer.first, 
-        #     listing_id: 1,
-        #     total_price: 2,
-        #     job_size: 3,
-        #     turnaround_time: "2019-05-14",
-        #     has_job: false
-        # )
-        # byebug
         redirect_to quote_path(params[:quote][:listing_id])
 
         # if @quote.errors.any?
@@ -39,6 +30,11 @@ class QuotesController < ApplicationController
     def new
         # shows form for creating a new quote
         @quote = Quote.new
+    end
+
+    def my_quotes
+        @user_id = current_user.id
+        @quotes = Quote.all
     end
 
     def edit
