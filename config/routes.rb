@@ -23,12 +23,18 @@ Rails.application.routes.draw do
   post "/listings/new", to: "listings#create", as: "create_listing"
 
   ### Quotes ###
-
-
+  
+  #Show quotes (from a given listing)
   get "/quotes", to: "quotes#index", as: "quotes"
+
+  #Show all quotes (from a given user)
+  get "/my_quotes", to: "quotes#my_quotes", as: "my_quotes"
+
+  #Make a new quote
   get "/quotes/new", to: "quotes#new", as: "new_quote"
   post "/quotes", to: "quotes#create"
-  # post "/quotes/new", to: "quotes#create", as: "create_quote"
+
+  #View and edit a certain quote
   get "/quotes/:id", to: "quotes#show", as: "quote"
   patch "/quotes/:id", to: "quotes#update"
   put "/quotes/:id", to: "quotes#update"
