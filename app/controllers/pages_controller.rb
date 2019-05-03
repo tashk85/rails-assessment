@@ -7,21 +7,19 @@ class PagesController < ApplicationController
     
     
     def index
-        #run the printer info check
-        if current_user != nil && current_user.user_type == "printer"
-            if Printer.find_by_user_id(current_user.id) == nil
-                redirect_to printer_info_path
-            end
-        end
-
         if user_signed_in?
             redirect_to dashboard_path
         end
 
     end
 
-
     def dashboard
+        #run the printer info check
+        if current_user != nil && current_user.user_type == "printer"
+            if Printer.find_by_user_id(current_user.id) == nil
+                redirect_to printer_info_path
+            end
+        end
     end
 
     def printer_info
@@ -36,7 +34,6 @@ class PagesController < ApplicationController
                 abn: params[:printer][:abn],
                 printer_model: params[:printer][:printer_model]
             )
-            
             
         end
 

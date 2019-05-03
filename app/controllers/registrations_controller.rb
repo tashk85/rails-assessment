@@ -13,7 +13,6 @@ class RegistrationsController < Devise::RegistrationsController
             # redirect to custom printer info here instead
             
       end
-
         
     end
 
