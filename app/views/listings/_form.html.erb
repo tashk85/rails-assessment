@@ -1,6 +1,9 @@
 <!-- Display any errors with form -->
 <%= form_with model: listing, local: true do |form| %>
    
+    <%= form.hidden_field :user_id, value: current_user.id %>
+    <%= form.hidden_field :has_job, value: false %>    
+    
     <!--description, budget, due_date, file upload -->
     <div>
         <%= form.label :description %>
@@ -23,8 +26,8 @@
     </div>
 
     <div>
-        <%= form.label :picture %>
-        <%= form.file_field :picture, accept: "image/png,image/gif,image/jpeg,image/jpg" %>
+            <%= form.label :design_file %>
+            <%= form.file_field :design_file, accept: "image/png,image/gif,image/jpeg,image/jpg" %>
     </div>
 
     <div>
