@@ -8,7 +8,11 @@
         <p>Created at: <%= @listing.created_at.to_time.strftime('%A, %d %b %Y') %> </p>
         <%=link_to "Edit", edit_listing_path(@listing.id)%>
         <%=link_to "Back", listings_path%>
-        <%=link_to "Create Quote", new_quote_path(listing: @listing)%>
+
+        <%if current_user.user_type == "printer"%>
+                <%=link_to "Create Quote", new_quote_path(listing: @listing)%>
+        <%end%>
+        
         <!-- Make this only visible to designers -->
         <%=link_to "View Quotes", quotes_path(listing: @listing)%>
 </div>

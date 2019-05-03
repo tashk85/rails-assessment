@@ -1,9 +1,24 @@
-<h1> All Listings </h1>
+<%if current_user.user_type == "designer"%>
+    <h1>My Listings</h1>
+<%else%>
+    <h1>All Listings</h1>
+<%end%>
+
+<!--Display message if there are no listings for the user -->
+
+<%if Listing.find_by_user_id(current_user.id) == nil %>
+    <p> It looks like you don't have any listings currently. </p>
+<%end%>
+
+
 
 <% if current_user.user_type == "designer" %>
     <%=link_to "Create new listing", new_listing_path%>
 <% end %>
 
+<%= link_to 'Back to dashboard', dashboard_path%>
+
+<!-- Display listings if they exist -->
 <%@listings.each do |listing|%>
     <div class="card">
         <p>Listing ID: <%=listing.id%> </p>
