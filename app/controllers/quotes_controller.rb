@@ -2,6 +2,12 @@ class QuotesController < ApplicationController
     def index
         #shows all quotes
         @quotes = Quote.all
+
+
+        #make sure there is a listing to reference
+        if params[:listing] == nil
+            redirect_to listings_path
+        end
     end
 
     def show
@@ -40,8 +46,10 @@ class QuotesController < ApplicationController
         end
         
         if @quote.errors.any?
-            render "new"
-            # redirect_to new_quote_path(listing: params[:quote][:listing_id])
+            # render "new"
+            # byebug
+            redirect_to new_quote_path(listing: @quote.listing_id)
+
         else
             # redirect_to quote_path(@quote.id)
             redirect_to quote_path(@quote.id)
@@ -53,6 +61,11 @@ class QuotesController < ApplicationController
     def new
         # shows form for creating a new quote
         @quote = Quote.new
+        @listing = params[:listing]
+        #make sure there is a listing to reference
+        # if params[:listing] == nil
+        #     redirect_to listings_path
+        # end
     end
 
     def my_quotes
