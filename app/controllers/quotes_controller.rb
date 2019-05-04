@@ -11,6 +11,7 @@ class QuotesController < ApplicationController
     end
 
     def create
+
         # create new quote for a listing
         if current_user.user_type == "printer"
             # @quote = Quote.create(
@@ -21,21 +22,30 @@ class QuotesController < ApplicationController
             #     turnaround_time: params[:quote][:turnaround_time],
             #     has_job: false
             #     )
+            # @listing = current_user.listings.create(listing_params)
 
-            @quote = Quote.create(quote_params)
-
+            # @quote = Quote.create(quote_params)
+            @quote = Quote.create(
+                total_price: params[:quote][:total_price],
+                job_size: params[:quote][:job_size],
+                turnaround_time: params[:quote][:turnaround_time],
+                has_job: false,
+                printer_id: params[:quote][:printer_id],
+                listing_id: params[:quote][:listing_id])
+            
             # byebug
+
+
 
         end
         
         if @quote.errors.any?
-            # byebug
-            # redirect_to new_quote_path(@listing = params[:quote][:listing_id])
-            redirect_to new_quote_path(listing: params[:quote][:listing_id])
+            render "new"
+            # redirect_to new_quote_path(listing: params[:quote][:listing_id])
         else
-            # redirect_to quote_path(params[:quote][:listing_id])
+            # redirect_to quote_path(@quote.id)
             redirect_to quote_path(@quote.id)
-            # redirect_to listing_path(@listing.id)
+
 
         end
     end
@@ -67,7 +77,7 @@ class QuotesController < ApplicationController
 
     private
     def quote_params
-        params.require(:quote).permit(:total_price, :job_size, :turnaround_time, :has_job)
+        params.require(:quote).permit(:total_price, :job_size, :turnaround_time, :printer_id, :listing_id)
         # whitelist of what we will accept
     end
 end
