@@ -24,12 +24,7 @@
   </div>
 
   <div class="field">
-    
-    <!-- <%= f.radio_button(:user_type, "printer") %>
-    <%= f.label(:user_type, "Printer") %>
-    <%= f.radio_button(:user_type, "designer") %>
-    <%= f.label(:user_type, "Designer") %> -->
-   
+    <!-- Hidden field for user type depending on which link they clicked -->
     <%= f.hidden_field :user_type, value: params[:user_type] %>
   </div>
 
@@ -56,4 +51,7 @@
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+<p> Already have an account? <%=link_to "Log in"%> </p>
+
+<%=link_to "Back to dashboard", dashboard_path%>
+

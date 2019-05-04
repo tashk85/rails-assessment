@@ -7,12 +7,6 @@ class RegistrationsController < Devise::RegistrationsController
       # byebug
       # add custom create logic here
       super
-      if current_user != nil
-        # if current_user.user_type == 'printer'
-          
-            # redirect to custom printer info here instead
-            
-      end
         
     end
 

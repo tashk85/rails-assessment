@@ -41,14 +41,11 @@ class ListingsController < ApplicationController
         @listing = current_user.listings.create(listing_params)
         if @listing.errors.any?
             render "new"
-            p @listing.errors.full_messages
         else
             redirect_to listing_path(@listing.id)
         end
 
     end
-
-
 
     private
 
@@ -64,8 +61,6 @@ class ListingsController < ApplicationController
     end
 
     def listing_params
-        # params.require(:listing).permit(:user_id, :description, :budget, :due_date, :has_job, :design_file)
-
         params.require(:listing).permit(:description,:budget,:due_date,:has_job,:design_file)
     end
 

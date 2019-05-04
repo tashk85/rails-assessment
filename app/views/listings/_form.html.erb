@@ -1,4 +1,10 @@
 <!-- Display any errors with form -->
+<% if @listing.errors.any? %>
+    <% @listing.errors.full_messages.each do |error| %>
+        <p><%= error %></p>
+    <% end %>
+<% end %>
+
 <%= form_with model: listing, local: true do |form| %>
    
     <%= form.hidden_field :user_id, value: current_user.id %>
