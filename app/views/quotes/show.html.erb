@@ -7,7 +7,11 @@
     <p>Total Price: $<%= number_with_precision(@quote.total_price, precision: 2) %></p>
     <p>Job Size (cubic cm): <%= @quote.job_size %></p>
     <p>Turnaround Time: <%= @quote.turnaround_time %></p>
-    <%= link_to "Edit", edit_quote_path(@quote.id) %>
+
+    <!-- Only printers can edit quotes -->
+    <%if current_user.user_type == "printer"%>
+        <%= link_to "Edit", edit_quote_path(@quote.id) %>
+    <% end %>
     <%= link_to 'Back', listings_path%>
 </div>
 
