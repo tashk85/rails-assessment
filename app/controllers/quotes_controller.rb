@@ -8,6 +8,26 @@ class QuotesController < ApplicationController
         # view a single quote
         id = params[:id]
         @quote = Quote.find(id)
+
+        stripe_session = Stripe::Checkout::Session.create(
+            payment_method_types: ['card'],
+            client_reference_id: current_user.id,
+            line_items: [{
+                name: "Quote id: #{@quote.id}",
+                description: @quote.listing.description,
+                amount: (@quote.total_price * 100).to_i, #stripe works in cents, min. 50 cents
+                currency: 'aud',
+                quantity: 1,
+            }],
+            payment_intent_data: {
+                metadata: {
+                    listing_id: @quote.listing_id 
+                }
+            },
+            success_url: 'http://localhost:3000/success', #make these links dynamic
+            cancel_url: 'http://localhost:300/cancel',
+        )
+        byebug
     end
 
     def create
@@ -26,7 +46,7 @@ class QuotesController < ApplicationController
 
         end
         
-        byebug
+        # byebug
      if @quote.errors.any?
 
             render "new"

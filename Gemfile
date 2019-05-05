@@ -68,3 +68,5 @@ gem "devise", "~> 4.6"
 gem "aws-sdk-s3", "~> 1.36"
 
 gem "mini_magick", "~> 4.9"
+
+gem "stripe", "~> 4.16"
