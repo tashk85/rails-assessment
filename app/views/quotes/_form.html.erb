@@ -10,8 +10,17 @@
     <%if @listing%>
         <%= form.hidden_field :listing_id, value: @listing %>
 
-    <%else%>
+    <%elsif params[:listing] != nil%>
+
+        <!-- When there are no errors-->
+
         <%= form.hidden_field :listing_id, value: params[:listing] %>
+
+    <%else%>
+
+        <!-- When editing an existing quote-->
+        <%= form.hidden_field :listing_id, value: @quote[:listing_id] %>
+
 
     <%end%>
     <%= form.hidden_field :printer_id, value: Printer.find_by_user_id(current_user.id).id%> 

@@ -28,8 +28,7 @@ class QuotesController < ApplicationController
                 listing_id: params[:quote][:listing_id]
             )
                 
-            
-                if @quote.errors.any?
+            if @quote.errors.any?
                     @listing = params[:quote][:listing_id].to_i
                     #Reload page with the errors and the listing id as an argument for the quote
                     render "new", listing: @quote[:listing_id]
@@ -47,12 +46,6 @@ class QuotesController < ApplicationController
 
     end
 
-    def render_with_errors
-        @quote = params[:quote]
-        @listing = params[:listing]
-        render 'new'
-    end
-
     def new
         # shows form for creating a new quote
         @quote = Quote.new
@@ -64,7 +57,8 @@ class QuotesController < ApplicationController
     end
 
     def edit
-        # shows form for editing an existing quote
+        # shows form for editing an existing quote,
+        #    with the variable for the current quote
         @quote = Quote.find(params[:id])
     end
 
