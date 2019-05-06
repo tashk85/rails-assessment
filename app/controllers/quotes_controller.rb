@@ -5,9 +5,7 @@ class QuotesController < ApplicationController
 
 
         #make sure there is a listing to reference
-        if params[:listing] == nil
-            redirect_to listings_path
-        end
+       
     end
 
     def show
@@ -20,17 +18,7 @@ class QuotesController < ApplicationController
 
         # create new quote for a listing
         if current_user.user_type == "printer"
-            # @quote = Quote.create(
-            #     printer_id: Printer.find_by_user_id(current_user.id).id,
-            #     listing_id: params[:quote][:listing_id],
-            #     total_price: params[:quote][:total_price],
-            #     job_size: params[:quote][:job_size],
-            #     turnaround_time: params[:quote][:turnaround_time],
-            #     has_job: false
-            #     )
-            # @listing = current_user.listings.create(listing_params)
-
-            # @quote = Quote.create(quote_params)
+           
             @quote = Quote.create(
                 total_price: params[:quote][:total_price],
                 job_size: params[:quote][:job_size],
@@ -46,9 +34,13 @@ class QuotesController < ApplicationController
         end
         
         if @quote.errors.any?
-            # render "new"
+            p "Found errors"
+            # render_with_errors
             # byebug
-            redirect_to new_quote_path(listing: @quote.listing_id)
+            redirect_to new_quote_path(listing: params[:quote][:listing_id])
+            # render "new", listing: @quote.listing
+            # redirect_to new_quote_path(listing: @quote.listing.id, quote: @quote)
+            # redirect_to new_quote_path(listing: @quote.listing_id)
 
         else
             # redirect_to quote_path(@quote.id)
@@ -58,9 +50,21 @@ class QuotesController < ApplicationController
         end
     end
 
+    def render_with_errors
+        @quote = params[:quote]
+        @listing = params[:listing]
+        render 'new'
+    end
+
     def new
         # shows form for creating a new quote
-        @quote = Quote.new
+        if @quote == nil
+
+
+            @quote = Quote.new
+            
+
+        end
         @listing = params[:listing]
         #make sure there is a listing to reference
         # if params[:listing] == nil
