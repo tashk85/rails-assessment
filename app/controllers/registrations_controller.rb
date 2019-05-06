@@ -4,8 +4,6 @@ class RegistrationsController < Devise::RegistrationsController
     end
   
     def create
-      # byebug
-      # add custom create logic here
       super
         
     end

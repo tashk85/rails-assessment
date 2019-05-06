@@ -1,5 +1,4 @@
 class Listing < ApplicationRecord
-  
   belongs_to :user
   has_many :quotes
   has_one :job
@@ -10,7 +9,7 @@ class Listing < ApplicationRecord
   private  
 
   def file_attached
-
+    #add to the errors if the active storage didn't receive a file
     if !design_file.attached?
 
       errors.add(:design_file, " - please attach a file to be uploaded." )

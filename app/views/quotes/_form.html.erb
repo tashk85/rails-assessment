@@ -1,5 +1,31 @@
+<!-- Display any errors with form -->
+<% if @quote.errors.any? %>
+    <% @quote.errors.full_messages.each do |error| %>
+        <p><%= error %></p>
+    <% end %>
+<% end %>
+
 <%= form_with model: quote, local: true do |form| %>
-    <p> This is listing <%=params[:listing]%> </p>
+    <!-- If there were previous errors -->
+    <%if @listing%>
+        <%= form.hidden_field :listing_id, value: @listing %>
+
+    <%elsif params[:listing] != nil%>
+
+        <!-- When there are no errors-->
+
+        <%= form.hidden_field :listing_id, value: params[:listing] %>
+
+    <%else%>
+
+        <!-- When editing an existing quote-->
+        <%= form.hidden_field :listing_id, value: @quote[:listing_id] %>
+
+
+    <%end%>
+    <%= form.hidden_field :printer_id, value: Printer.find_by_user_id(current_user.id).id%> 
+    <%= form.hidden_field :has_job, value: "0" %>   
+
     <div>
 
         <%= form.label :total_price %>
@@ -16,8 +42,8 @@
         <%= form.date_field :turnaround_time %>
     </div>
 
-    <%= form.hidden_field :listing_id, value: params[:listing]%>
-    <%= form.hidden_field :printer_id, value: current_user.id %>
+   
+
 
     <div>
         <%= form.submit %>
