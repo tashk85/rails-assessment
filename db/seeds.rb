@@ -31,7 +31,7 @@ if Listing.count == 0
     
     for i in 1..10
         if User.find(i).user_type == "designer"
-            listing = Listing.create(
+            listing = Listing.new(
                 user_id: User.find(i).id,
                 description: Faker::TvShows::HowIMetYourMother.catch_phrase,
                 budget: Random.rand(100..500).to_f,
@@ -39,12 +39,15 @@ if Listing.count == 0
                 has_job: false,
                 design_file: File.open(Rails.root + "app/assets/images/cobra-48132_1280.png")
                 )
-                listings.push(listing)
+
+                count += 1
+
+                listing.save!(validate: false)
                 puts "Created listing for user_id #{i}"
         end
-        count += 1
+        
     end
-    puts "Successfully created #{count} listings"
+    puts "Successfully created #{count} listings."
 end
 
 

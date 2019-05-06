@@ -25,29 +25,24 @@ class QuotesController < ApplicationController
                 turnaround_time: params[:quote][:turnaround_time],
                 has_job: false,
                 printer_id: params[:quote][:printer_id],
-                listing_id: params[:quote][:listing_id])
+                listing_id: params[:quote][:listing_id]
+            )
+                
             
-            # byebug
+                if @quote.errors.any?
+                    # @listing = params[:quote][:listing_id].to_i
+
+                    render "new"
+                    
+                else
+                    redirect_to quote_path(@quote.id)
+                end
 
 
 
         end
-        
-        if @quote.errors.any?
-            p "Found errors"
-            # render_with_errors
-            # byebug
-            redirect_to new_quote_path(listing: params[:quote][:listing_id])
-            # render "new", listing: @quote.listing
-            # redirect_to new_quote_path(listing: @quote.listing.id, quote: @quote)
-            # redirect_to new_quote_path(listing: @quote.listing_id)
-
-        else
-            # redirect_to quote_path(@quote.id)
-            redirect_to quote_path(@quote.id)
 
 
-        end
     end
 
     def render_with_errors
@@ -58,18 +53,7 @@ class QuotesController < ApplicationController
 
     def new
         # shows form for creating a new quote
-        if @quote == nil
-
-
-            @quote = Quote.new
-            
-
-        end
-        @listing = params[:listing]
-        #make sure there is a listing to reference
-        # if params[:listing] == nil
-        #     redirect_to listings_path
-        # end
+        @quote = Quote.new
     end
 
     def my_quotes
