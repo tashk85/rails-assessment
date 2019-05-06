@@ -14,7 +14,11 @@
     <p>Job Size (cubic cm): <%= @job.quote.job_size %></p>
     <p>Turnaround Time: <%= @job.quote.turnaround_time %></p>
     <p>Created at: <%= @job.created_at.to_time.strftime('%A, %d %b %Y %H:%M') %></p>
-    <p>Completed at: <%= @job.updated_at.to_time.strftime('%A, %d %b %Y %H:%M') %></p>
+    <p>Completed at: 
+        <% if @job.status %>
+        <%= @job.updated_at.to_time.strftime('%A, %d %b %Y %H:%M') %> 
+        <% end %>
+    </p>
     <p>Quote id: <%= @job.quote_id %></p>
     <p>Printer Name: <%= "#{@job.printer.user.first_name} #{@job.printer.user.last_name}" %></p>
     <p>ABN: <%= @job.printer.abn %></p>
@@ -23,3 +27,8 @@
     
     <%= link_to 'Back', jobs_path%>
 </div>
+
+<!-- Printer can click on Completed Job button to show job as completed
+    Change status column to True
+    Add timestamp to completed_at column
+-->

@@ -30,7 +30,7 @@ class QuotesController < ApplicationController
         )
         
         @stripe_session_id = stripe_session.id
-        byebug
+        # byebug
     end
 
     def create
