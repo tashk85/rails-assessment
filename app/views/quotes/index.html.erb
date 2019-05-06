@@ -61,7 +61,7 @@
     <%else%>
 
         <p> You have not made any quotes for this listing. </p>
-        <%=link_to "Create Quote", new_quote_path(listing: @listing)%>
+        <%=link_to "Create Quote", new_quote_path(listing: params[:listing])%>
 
 
     <%end%>
