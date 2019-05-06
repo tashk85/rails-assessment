@@ -11,7 +11,7 @@ class QuotesController < ApplicationController
 
         stripe_session = Stripe::Checkout::Session.create(
             payment_method_types: ['card'],
-            client_reference_id: current_user.id,
+            client_reference_id: @quote.id,
             customer_email: @quote.listing.user.email,
             line_items: [{
                 name: "Quote id: #{@quote.id}",
@@ -20,12 +20,7 @@ class QuotesController < ApplicationController
                 currency: 'aud',
                 quantity: 1,
             }],
-            payment_intent_data: {
-                metadata: {
-                    listing_id: @quote.listing_id 
-                }
-            },
-            success_url: 'http://localhost:3000/payments/success', #make these links dynamic
+            success_url: "http://localhost:3000/payments/success?quote_id=#{@quote.id}", #make these links dynamic
             cancel_url: 'http://localhost:300/cancel',
         )
         
