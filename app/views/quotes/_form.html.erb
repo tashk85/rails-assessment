@@ -1,14 +1,19 @@
 <!-- Display any errors with form -->
 <% if @quote.errors.any? %>
-
     <% @quote.errors.full_messages.each do |error| %>
         <p><%= error %></p>
     <% end %>
 <% end %>
 
 <%= form_with model: quote, local: true do |form| %>
+    <!-- If there were previous errors -->
+    <%if @listing%>
+        <%= form.hidden_field :listing_id, value: @listing %>
 
-    <%= form.hidden_field :listing_id, value: params[:listing] %>
+    <%else%>
+        <%= form.hidden_field :listing_id, value: params[:listing] %>
+
+    <%end%>
     <%= form.hidden_field :printer_id, value: Printer.find_by_user_id(current_user.id).id%> 
     <%= form.hidden_field :has_job, value: "0" %>   
 

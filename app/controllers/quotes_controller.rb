@@ -30,9 +30,11 @@ class QuotesController < ApplicationController
                 
             
                 if @quote.errors.any?
-                    # @listing = params[:quote][:listing_id].to_i
-
-                    render "new"
+                    @listing = params[:quote][:listing_id].to_i
+                    #Reload page with the errors and the listing id as an argument for the quote
+                    render "new", listing: @quote[:listing_id]
+                    # p "Params after render:\n #{params[:quote]}"
+                    # redirect_to new_quote_path(listing: params[:listing_id])
                     
                 else
                     redirect_to quote_path(@quote.id)

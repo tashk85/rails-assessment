@@ -1,7 +1,6 @@
 <!-- Display any errors with form -->
 
 <% if @listing.errors.any? %>
-
     <% @listing.errors.full_messages.each do |error| %>
         <p><%= error %></p>
     <% end %>
