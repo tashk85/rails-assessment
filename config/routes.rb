@@ -46,6 +46,8 @@ Rails.application.routes.draw do
   get "/jobs", to: "jobs#index", as: "jobs"
   get "/jobs/:id", to: "jobs#show", as: "job"
   put "/jobs/:id", to: "jobs#update"
+  patch "/jobs/:id", to: "jobs#update"
+  post "/jobs/:id", to: "jobs#update"
 
   ### Stripe payment ###
   post "/payments", to: "payments#stripe"

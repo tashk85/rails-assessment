@@ -12,7 +12,7 @@ class JobsController < ApplicationController
         # updates the listing
         @job = Job.find(params[:id])
         if @job.update(status: true, completed_at: Time.now)
-            redirect_to(@job)
+            redirect_to job_path(@job)
         end
     end
 end 
