@@ -2,18 +2,26 @@
 
 <% @jobs.each do |job| %>
 
-    <div class="card">
-        <% if job.status == false %>
-            <p>Status: Active</p>
-        <% else %>
-            <p>Status: Completed</p>
-        <% end %>
-        <p><%= job.created_at.to_time.strftime('%A, %d %b %Y %H:%M') %></p>
-        <p><%= "#{job.listing.user.first_name} #{job.listing.user.last_name}" %></p>
-        <p>Job Id: <%= job.id %></p>
-        <p>Total Price: $<%= number_with_precision(job.quote.total_price, precision: 2) %></p>
-        <%= link_to "Show",job_path(job.id) %>
-    </div>
+    <%#if the current user owns the job - if they are the printer or the designer - show it%>
+    <%# If the user is the printer doing the job%>
+
+    <%if Printer.find(job.printer_id).user_id == current_user.id or Listing.find(job.listing_id).user_id == current_user.id%>
+
+        <div class="card">
+            <% if job.status == false %>
+                <p>Status: Active</p>
+            <% else %>
+                <p>Status: Completed</p>
+            <% end %>
+            <p><%= job.created_at.to_time.strftime('%A, %d %b %Y %H:%M') %></p>
+            <p><%= "#{job.listing.user.first_name} #{job.listing.user.last_name}" %></p>
+            <p>Job Id: <%= job.id %></p>
+            <p>Total Price: $<%= number_with_precision(job.quote.total_price, precision: 2) %></p>
+            <%= link_to "Show",job_path(job.id) %>
+        </div>
+    <%end%>
+
+    
 <% end %>
 
 <%= link_to "Back to dashboard", dashboard_path %>
