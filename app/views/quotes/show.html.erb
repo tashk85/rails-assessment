@@ -12,8 +12,36 @@
     <%if current_user.user_type == "printer"%>
         <%= link_to "Edit", edit_quote_path(@quote.id) %>
     <% end %>
+    <%if current_user.user_type == "designer"%>
+        <button id="stripePayment"> Accept Quote $<%= number_with_precision(@quote.total_price, precision: 2) %></button>
+    <% end %>
     <%= link_to 'Back', listings_path%>
 </div>
 
+<!-- click on Accept Quote button to make stripe payment
+    if payment successful, 
+        create Job 
+            Add stripe_transaction_id
+            Ensure status is false
+        redirect to job id show page
+    elsif payment failed,
+        show error message?
+    end
+-->
 
+<%= javascript_include_tag "payment_button" %>
 
+<script>
+    document.getElementById("stripePayment").addEventListener("click", function() {
+        var stripe = Stripe('<%= Rails.application.credentials.dig(:stripe, :public) %>');
+    
+        stripe.redirectToCheckout({
+            sessionId: '<%= @stripe_session_id %>',
+            }).then(function (result) {
+            // If `redirectToCheckout` fails due to a browser or network
+            // error, display the localized error message to your customer
+            // using `result.error.message`.
+        });
+    
+    });
+</script>
