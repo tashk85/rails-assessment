@@ -94,6 +94,33 @@ As Esperanza, I want to print a necklace with my own design so that I can give i
 
 
 ### Wireframes
+
+####Desktop
+
+#####Designer 
+![designer-desktop](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/screenshots/Wireframes/Designer-desktop.jpg "Designer desktop wireframe")
+
+
+#####Printer
+![printer-desktop](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/screenshots/Wireframes/Printer-desktop.jpg "Printer desktop wireframe")
+
+
+
+
+####Mobile
+
+#####Designer 
+![designer-mobile](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/screenshots/Wireframes/Designer-mobile.jpg "Designer mobile wireframe")
+
+
+
+#####Printer
+![printer-mobile](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/screenshots/Wireframes/Printer-mobile.jpg "Printer mobile wireframe")
+
+
+
+
+
 ### Database Entity Relationship Diagrams
 
 ## Details of Planning process including,
