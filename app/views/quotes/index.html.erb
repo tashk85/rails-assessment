@@ -4,9 +4,8 @@
 
 <%if current_user.user_type == "designer"%>
     <% @quotes.each do |quote| %>
+     <!-- if user is a designer, show all quotes for this listing -->
         <%if quote.listing_id == params[:listing].to_i%>
-
-            <!-- if user is a designer, show all quotes for this listing -->
         <div class="card">
             <p>Quote Id: <%= quote.id %></p>
             <p>Printer Id: <%= quote.printer_id %></p>
@@ -30,7 +29,8 @@
 
     <% @quotes.each do |quote| %>
         <%if quote.listing_id == params[:listing].to_i%>
-            <%if Printer.find(quote.printer_id).user_id == @user_id%>
+
+            <%if Printer.find(quote.printer_id).user_id == current_user.id%>
              <!-- if user is a printer, show all quotes they have made for this listing -->
         <div class="card">
             <p>Quote Id: <%= quote.id %></p>
@@ -40,6 +40,7 @@
             <p>Job Size (cubic cm): <%= quote.job_size %></p>
             <p>Turnaround Time: <%= quote.turnaround_time %></p>
             <%= link_to "Edit", edit_quote_path(quote.id) %>
+            <!-- Only show edit link for printers -->  
             <%= link_to "Show",quote_path(quote.id) %>
             <%@amount_of_user_quotes += 1%>
         </div>
@@ -64,7 +65,7 @@
     <%else%>
 
         <p> You have not made any quotes for this listing. </p>
-        <%=link_to "Create Quote", new_quote_path(listing: @listing)%>
+        <%=link_to "Create Quote", new_quote_path(listing: params[:listing])%>
 
 
     <%end%>

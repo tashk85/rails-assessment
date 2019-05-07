@@ -10,6 +10,8 @@ https://github.com/luketurnerdev/rails-assessment
 
 ### Problem Definition / Purpose
 
+Our app aims to bridge the gap between people who want 3D prints done and the people who are able to provide this service. Such groups as amateur designers, hobbyists and people wanting to buy gifts may find the idea of 3D printing appealing but not want to invest in a printer themselves, nor do they have access to these services already. Conversely, people with 3D printers can begin to make some extra money from a resource that they may have had sitting around for a while. The service also caters to larger-scale 3D printing businesses such as Universities by allowing variation on product size.
+
 ### Functionality / Features
 
 #### As a designer
@@ -50,8 +52,15 @@ Printers will have the ability to:
 - Stripe for payments
 - Dbeaver for database GUI
 - Heroku for deployment
+- GitKraken / Glo boards for source control and project management
 
 ### Instructions on how to setup, configure and use your App.
+
+When first opening the app, you will be taken to a landing page that has 2 links: Sign up as a Printer, and Sign up as a Designer. Users may choose either role as their account type, and this will let them sign up.
+
+####If you are a designer
+
+You can make a new listing by clicking 'Create listing', where you will enter the details of the design you need printed.
 
 ## Design Documentation including,
 ### Design Process
@@ -77,19 +86,63 @@ As Esperanza, I want to print a necklace with my own design so that I can give i
 
 1. Designer
 
-![designer-flow](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/screenshots/workflows/Designer%20Workflow%200.1%20(1).pdf "Designer workflow")
+![designer-flow](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/screenshots/workflows/Designer%20Workflow%200.1.jpg "Designer workflow")
 
 
 2. Printer
 
-![printer-flow](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/screenshots/workflows/Printer_userflow.pdf "Printer workflow")
+![printer-flow](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/screenshots/workflows/Printer_userflow%20(1).jpg "Printer workflow")
 
 
 ### Wireframes
+
+[Designer Desktop Wireframe](./docs/screenshots/Wireframes/Desktop-Wireframes_Designer.pdf)
+
+[Printer Desktop Wireframe](./docs/screenshots/Wireframes/Desktop-Wireframes_Printer%20(2).pdf)
+
+[Designer Mobile Wireframe](./docs/screenshots/Wireframes/Mobile-Wireframes_Designer.pdf)
+
+[Printer Mobile Wireframe](./docs/screenshots/Wireframes/Mobile-Wireframes_Printer.pdf)
+
+
+All 4 of our wireframes (Designer and printer, desktop and mobile) can be found in PDF form at this google drive link as a backup https://drive.google.com/drive/folders/1P3Ci6tQ2-w5G4fJ94v-8zAnKt8SM1ZVI?usp=sharing 
+
+
+
 ### Database Entity Relationship Diagrams
+![Entity relationship diagram](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/screenshots/ERD/3D%20Printing%20ERD.png "Entity relationship diagram")
+
 
 ## Details of Planning process including,
 ### Project plan & timeline
+
+For this project, we used a combination of approaches to organize tasks to be completed.
+
+We used GitKraken's Glo board for project management at a high level level of abstraction - We listed tasks for the biggest chunks of the project to be completed. This helped see everything at a glance.
+
+The glo board was separated into several cards: 
+
+1. Backlog - Tasks to be completed that haven't been given any further details such as due date or assigned to a team member
+
+2. To Do - Tasks that have been given a deadline and are being worked on by a specific person (or both of us)
+
+3. In development - This feature has started being coded, but is not functional yet.
+
+4. Testing - The feature seems to work smoothly, and will be put aside until testing begins towards the end of the project
+
+5. Finished - Features that are 100% working after testing is complete.
+
+6. Stretch goals - Features to implement if there is enough time.
+
+![Glo board screenshot 1]( "Glo board screenshot")
+
+![Glo board screenshot 1]( "Glo board screenshot")
+
+On a daily basis, we used Google Sheets to organize tasks for the day. Each day we would list the tasks to be completed by each team member by the end of the day. We coloured in the cell yellow when it was in progress, and green when it was complete. At times we shifted tasks to the next day's sheet when they weren't completed by the end of the day.
+The spreadsheet can be viewed here: https://docs.google.com/spreadsheets/d/1dflTU3Hk8w90SW6gPZDRxiEa19axQ65TlZpEr7AAzqA/edit?usp=sharing
+
+![Google sheets - daily tasks](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/screenshots/ERD/3D%20Printing%20ERD.png "Google sheets daily tasks")
+
 ### Screenshots of Trello board(s)
 
 ## Short Answer Questions

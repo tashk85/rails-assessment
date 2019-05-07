@@ -2,6 +2,10 @@ class QuotesController < ApplicationController
     def index
         #shows all quotes
         @quotes = Quote.all
+
+
+        #make sure there is a listing to reference
+       
     end
 
     def show
@@ -29,28 +33,33 @@ class QuotesController < ApplicationController
     end
 
     def create
+
         # create new quote for a listing
         if current_user.user_type == "printer"
+           
             @quote = Quote.create(
-                printer_id: Printer.find_by_user_id(current_user.id).id,
-                listing_id: params[:quote][:listing_id],
                 total_price: params[:quote][:total_price],
                 job_size: params[:quote][:job_size],
                 turnaround_time: params[:quote][:turnaround_time],
-                has_job: false
-                )
-
-            # byebug
+                has_job: false,
+                printer_id: params[:quote][:printer_id],
+                listing_id: params[:quote][:listing_id]
+            )
+                
+            if @quote.errors.any?
+                    @listing = params[:quote][:listing_id].to_i
+                    #Reload page with the errors and the listing id as an argument for the quote
+                    render "new", listing: @quote[:listing_id]
+                    # p "Params after render:\n #{params[:quote]}"
+                    # redirect_to new_quote_path(listing: params[:listing_id])
+                    
+                else
+                    redirect_to quote_path(@quote.id)
+                end
 
         end
-        
-        # byebug
-     if @quote.errors.any?
 
-            render "new"
-        else
-            redirect_to quote_path(params[:quote][:listing_id])
-        end
+
     end
 
     def new
@@ -64,7 +73,8 @@ class QuotesController < ApplicationController
     end
 
     def edit
-        # shows form for editing an existing quote
+        # shows form for editing an existing quote,
+        #    with the variable for the current quote
         @quote = Quote.find(params[:id])
     end
 
@@ -80,7 +90,7 @@ class QuotesController < ApplicationController
 
     private
     def quote_params
-        params.require(:quote).permit(:total_price, :job_size, :turnaround_time)
+        params.require(:quote).permit(:total_price, :job_size, :turnaround_time, :printer_id, :listing_id)
         # whitelist of what we will accept
     end
 end

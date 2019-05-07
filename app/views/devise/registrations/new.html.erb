@@ -1,4 +1,4 @@
-<%byebug%>
+
 <h2>Sign up As A <%= params[:user_type].capitalize %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -52,7 +52,7 @@
   </div>
 <% end %>
 
-<p> Already have an account? <%=link_to "Log in"%> </p>
+<p> Already have an account? <%=link_to "Login", new_user_session_path%> <br>
 
 <%=link_to "Back to dashboard", dashboard_path%>
 

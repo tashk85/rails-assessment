@@ -38,13 +38,15 @@ if Listing.count == 0
                 due_date: Faker::Date.forward(Random.rand(1..14)),
                 has_job: false,
                 design_file: File.open(Rails.root + "app/assets/images/cobra-48132_1280.png")
-            )
-            listing.save!(validate: false)
-            puts "Created listing for user_id #{i}"
+                )
+                count += 1
+
+                listing.save!(validate: false)
+                puts "Created listing for user_id #{i}"
         end
-        count += 1
+        
     end
-    puts "Successfully created #{count} listings"
+    puts "Successfully created #{count} listings."
 end
 
 
