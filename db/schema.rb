@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_06_044354) do
+ActiveRecord::Schema.define(version: 2019_05_02_051807) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,9 +41,9 @@ ActiveRecord::Schema.define(version: 2019_05_06_044354) do
     t.bigint "printer_id"
     t.bigint "quote_id"
     t.boolean "status"
-    t.string "stripe_transaction_id"
+    t.integer "stripe_transaction_id"
     t.datetime "created_at", null: false
-    t.datetime "completed_at"
+    t.date "completed_at"
     t.datetime "updated_at", null: false
     t.index ["listing_id"], name: "index_jobs_on_listing_id"
     t.index ["printer_id"], name: "index_jobs_on_printer_id"

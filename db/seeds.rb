@@ -23,10 +23,10 @@ if User.count == 0
         p "Created user #{i}"
         p user
     end
-end
-
+   end
 
 if Listing.count == 0
+    listings = []
     count = 0
     
     for i in 1..10
