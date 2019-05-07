@@ -16,8 +16,10 @@
 
 <%= link_to 'Back to dashboard', dashboard_path%>
 
-<!-- Display listings if they exist -->
+<!-- Display listings if they exist and don't already have a job-->
 <%@listings.each do |listing|%>
+
+<%if listing.has_job == false%>
     <div class="card">
         <p>Listing ID: <%=listing.id%> </p>
         <p>Description: <%=listing.description%> </p>
@@ -29,6 +31,8 @@
         <%=link_to "Edit", edit_listing_path(listing.id) if current_user.user_type == "designer"%>
         <%=link_to "Show", listing_path(listing.id)%>
     </div>
+
+<%end%>
 
     <%# <p>Due date: <%=listing.due_date.to_time.strftime('%A, %d %b %Y')%>
     <%#<p>Created at: <%=listing.created_at.to_time.strftime('%A, %d %b %Y')%> 
