@@ -37,8 +37,12 @@ if Listing.count == 0
                 budget: Random.rand(100..500).to_f,
                 due_date: Faker::Date.forward(Random.rand(1..14)),
                 has_job: false,
-                design_file: File.open(Rails.root + "app/assets/images/cobra-48132_1280.png")
                 )
+
+                # listing.design_file.attach(io: File.open ("#{Rails.root}/cobra-48132_1280.png", filename: "cobra-48132_1280.png")
+                
+                # post.image.attach(io: File.open(“#{Rails.root}/test.png”), filename: “test.png”)
+                listing.design_file.attach(io: File.open("#{Rails.root}/app/assets/images/cobra-48132_1280.png"), filename: "cobra-48132_1280.png")
 
                 count += 1
 

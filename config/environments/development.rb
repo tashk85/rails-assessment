@@ -61,4 +61,7 @@ Rails.application.configure do
 
   #devise gem default url options
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  
+  #Active storage
+  config.active_job.queue_adapter = :inline
 end
