@@ -31,22 +31,19 @@ if Listing.count == 0
     
     for i in 1..10
         if User.find(i).user_type == "designer"
-            listing = Listing.new(
+            listing = Listing.create(
                 user_id: User.find(i).id,
                 description: Faker::TvShows::HowIMetYourMother.catch_phrase,
                 budget: Random.rand(100..500).to_f,
                 due_date: Faker::Date.forward(Random.rand(1..14)),
                 has_job: false,
                 )
-
-                # listing.design_file.attach(io: File.open ("#{Rails.root}/cobra-48132_1280.png", filename: "cobra-48132_1280.png")
-                
-                # post.image.attach(io: File.open(“#{Rails.root}/test.png”), filename: “test.png”)
                 listing.design_file.attach(io: File.open("#{Rails.root}/app/assets/images/cobra-48132_1280.png"), filename: "cobra-48132_1280.png")
 
                 count += 1
 
                 listing.save!(validate: false)
+
                 puts "Created listing for user_id #{i}"
         end
         
