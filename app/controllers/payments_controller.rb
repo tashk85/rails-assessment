@@ -22,7 +22,7 @@ class PaymentsController < ApplicationController
                 status: false,
                 stripe_transaction_id: @stripe_transaction_id
             )
-            byebug
+
             # need to update has_job column in listing and quote tables
             @quote.update(has_job: true)
             Listing.find(@job.listing_id).update(has_job: true)
@@ -33,7 +33,8 @@ class PaymentsController < ApplicationController
     end
 
     def success
-
+        # byebug
+        redirect_to job_path(Job.find_by_quote_id(params[:quote_id]).id)
     end
 
 end 
