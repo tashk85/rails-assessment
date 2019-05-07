@@ -33,8 +33,7 @@ class QuotesController < ApplicationController
     end
 
     def create
-
-        # create new quote for a listing
+    # create new quote for a listing
         if current_user.user_type == "printer"
            
             @quote = Quote.create(
@@ -57,10 +56,7 @@ class QuotesController < ApplicationController
                     redirect_to quote_path(@quote.id)
                 end
 
-
-
         end
-
 
     end
 
