@@ -23,10 +23,10 @@ if User.count == 0
         p "Created user #{i}"
         p user
     end
-   end
+end
+
 
 if Listing.count == 0
-    listings = []
     count = 0
     
     for i in 1..10
@@ -39,7 +39,6 @@ if Listing.count == 0
                 has_job: false,
                 design_file: File.open(Rails.root + "app/assets/images/cobra-48132_1280.png")
                 )
-
                 count += 1
 
                 listing.save!(validate: false)

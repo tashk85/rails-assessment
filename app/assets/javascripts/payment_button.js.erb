@@ -1,0 +1,13 @@
+<!-- document.getElementById("stripePayment").addEventListener("click", function() {
+    var stripe = Stripe('<%= Rails.application.credentials.dig(:stripe, :public) %>');
+    // getting public key from initializer file
+
+
+    stripe.redirectToCheckout({
+        sessionId: '<%= @stripe_session_id %>',
+    }).then(function (result) {
+        // If `redirectToCheckout` fails due to a browser or network
+        // error, display the localized error message to your customer
+        // using `result.error.message`.
+    });
+}); -->
