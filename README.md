@@ -95,11 +95,16 @@ As Esperanza, I want to print a necklace with my own design so that I can give i
 
 ### Wireframes
 
-All 4 of our wireframes (Designer and printer, desktop and mobile) can be found in PDF form at this google drive link (to save uploading ~48 images to github): https://drive.google.com/drive/folders/1P3Ci6tQ2-w5G4fJ94v-8zAnKt8SM1ZVI?usp=sharing 
+[Designer Desktop Wireframe](./docs/screenshots/Wireframes/Desktop-Wireframes_Designer.pdf)
 
-Here is a backup link if that doesn't work:
+[Printer Desktop Wireframe](./docs/screenshots/Wireframes/Desktop-Wireframes_Printer%20(2).pdf)
 
-https://www.dropbox.com/sh/rmgfyh0l5a31htn/AAC1y8hAI7Vf5Z0cKLfY1Jcka?dl=0 
+[Designer Mobile Wireframe](./docs/screenshots/Wireframes/Mobile-Wireframes_Designer.pdf)
+
+[Printer Mobile Wireframe](./docs/screenshots/Wireframes/Mobile-Wireframes_Printer.pdf)
+
+
+All 4 of our wireframes (Designer and printer, desktop and mobile) can be found in PDF form at this google drive link as a backup https://drive.google.com/drive/folders/1P3Ci6tQ2-w5G4fJ94v-8zAnKt8SM1ZVI?usp=sharing 
 
 
 
@@ -110,7 +115,8 @@ https://www.dropbox.com/sh/rmgfyh0l5a31htn/AAC1y8hAI7Vf5Z0cKLfY1Jcka?dl=0
 ## Details of Planning process including,
 ### Project plan & timeline
 
-For this project, we used a combination of approaches to organize and 
+For this project, we used a combination of approaches to organize tasks to be completed. 
+
 ### Screenshots of Trello board(s)
 
 ## Short Answer Questions
