@@ -85,12 +85,12 @@ As Esperanza, I want to print a necklace with my own design so that I can give i
 
 1. Designer
 
-![designer-flow](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/screenshots/workflows/Designer%20Workflow%200.1%20(1).pdf "Designer workflow")
+![designer-flow](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/screenshots/workflows/Designer%20Workflow%200.1.jpg "Designer workflow")
 
 
 2. Printer
 
-![printer-flow](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/screenshots/workflows/Printer_userflow.pdf "Printer workflow")
+![printer-flow](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/screenshots/workflows/Printer_userflow%20(1).jpg "Printer workflow")
 
 
 ### Wireframes
