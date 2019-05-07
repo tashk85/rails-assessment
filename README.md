@@ -10,6 +10,8 @@ https://github.com/luketurnerdev/rails-assessment
 
 ### Problem Definition / Purpose
 
+Our app aims to bridge the gap between people who want 3D prints done and the people who are able to provide this service. Such groups as amateur designers, hobbyists and people wanting to buy gifts may find the idea of 3D printing appealing but not want to invest in a printer themselves, nor do they have access to these services already. Conversely, people with 3D printers can begin to make some extra money from a resource that they may have had sitting around for a while. The service also caters to larger-scale 3D printing businesses such as Universities by allowing variation on product size.
+
 ### Functionality / Features
 
 #### As a designer
@@ -52,6 +54,12 @@ Printers will have the ability to:
 - Heroku for deployment
 
 ### Instructions on how to setup, configure and use your App.
+
+When first opening the app, you will be taken to a landing page that has 2 links: Sign up as a Printer, and Sign up as a Designer. Users may choose either role as their account type, and this will let them sign up.
+
+####If you are a designer
+
+You can make a new listing by clicking 'Create listing', where you will enter the details of the design you need printed.
 
 ## Design Documentation including,
 ### Design Process
