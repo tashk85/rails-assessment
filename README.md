@@ -55,15 +55,99 @@ Printers will have the ability to:
 - GitKraken / Glo boards for source control and project management
 
 ### Instructions on how to setup, configure and use your App.
+1. Open the app in heroku [link ]
 
-When first opening the app, you will be taken to a landing page that has 2 links: Sign up as a Printer, and Sign up as a Designer. Users may choose either role as their account type, and this will let them sign up.
+2. Signing up 
 
-####If you are a designer
+When first opening the app, you will be taken to a landing page that has 2 links: Sign up as a Printer, and Sign up as a Designer. Users may choose either role as their account type, and this will take them to a signup page. From here, you will need to enter the following:
 
-You can make a new listing by clicking 'Create listing', where you will enter the details of the design you need printed.
+* First name
+* Last name
+* Phone number
+* Postcode
+* Email
+* Password (and confirmation)
+
+If you have chosen to sign up as a printer, you will be taken to an additional page, where you must enter your printer model and your ABN. Once this step is complete, you will be taken to your dashboard.
+
+3. Using the dashboard as a designer
+
+If you are a designer, you will be given the options of viewing existing listings, viewing quotes made to you by printers, and viewing ongoing jobs.
+
+#### Viewing listings
+
+This page will display listings that you have personally created. As a designer, you are not able to view other listings. There is also a link for creating a new listing.
+
+#### Creating a new listing
+
+On the create listing page, you will be asked to enter some information about your listing: 
+
+* A description (what the product is, and any details you want to include about it)
+* Your budget (the maximum amount you'd like to spend on the print)
+* Due date (when you need the print to be completed by)
+* Design file (the file you want to be printed, created in a program such as CAD).
+
+After entering this information correctly, you will be taken to the listing you have just created. If there are errors, they will be displayed and you must fix them before proceeding.
+
+#### Viewing a created listing
+
+On a particular listing page, you will see the description, budget, due date and picture you have uploaded (design file), as well as the date and time that the listing was created. From here you can edit the listing, view any quotes on the listing, or go back to view all your listings.
+
+#### Editing a listing
+
+Clicking the edit button on a listing takes you to the same form that was used to create the listing initially, but you may alter any details as you wish. When you are done, you can click 'Update Listing' and see your altered changes.
+
+#### Viewing quotes on a listing
+
+If you click on 'view quotes', you will be taken to a page where all the quote offers that have been made on this listing are displayed. You will be able to see the price of the quote, the size that the printer states the print will be, and when they are able to complete it by.
+
+#### Viewing a specific quote
+
+Viewing a particular quote shows the same information, but with a button to accept the payment. Clicking this button takes you to Stripe, where you will be able to enter your credit card details in order to complete the transaction.
+
+#### Once the transaction is complete
+
+If your stripe payment is successful, you will be taken to a page indicating that the payment has worked. A job will have then been created. From your dashboard, you can view all the jobs that have been created for your listings. These jobs will display all the relevant information that was listed in the quote, plus an additional status indicator telling you whether or not the job is complete.
+
+4. Using the dashboard as a printer
+
+The printer's dashboard looks quite similar to the designer's - however, certain actions are restricted, and some others are enabled.
+
+#### Viewing listings
+
+As a printer, you are able to view all listings made on the app. 
+
+#### Viewing a specific listing
+
+Clicking on any listing will bring up the listing in question, with the relevant information displayed. From here you are able to create a new quote, or view quotes that you personally have created for this listing.
+
+#### Creating a new quote
+
+Clicking the 'create quote' button brings you to a screen to enter all the relevant information for your quote:
+
+* Total price you will charge for the job
+* The size of the job (in cm^3) that you have determined after looking at the design file
+* The time that you will be able to complete the job by (turnaround time)
+
+Once the information has been entered (if there are no errors), you will be taken to the quote you have just created. From here you are able to edit the quote, or go back.
+
+#### Editing a quote
+
+Editing an existing quote takes you to the same form as creating a new one, and you may amend any information that you wish to. You will need to fill in all fields.
+
+5. Viewing 'My Quotes'
+
+As either type of user, you are able to view 'My Quotes' from the dashboard, which will bring up:
+
+* All quotes on any of your listings (as a designer)
+* All quotes that you have made on any listings (as a printer)
+
+
 
 ## Design Documentation including,
 ### Design Process
+
+
 ### User Stories
 
 #### User Story 1
@@ -113,8 +197,13 @@ All 4 of our wireframes (Designer and printer, desktop and mobile) can be found 
 ![Entity relationship diagram](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/screenshots/ERD/3D%20Printing%20ERD.png "Entity relationship diagram")
 
 
-## Details of Planning process including,
+## Details of Planning process
 ### Project plan & timeline
+
+
+
+### Screenshots of Trello board(s)
+
 
 For this project, we used a combination of approaches to organize tasks to be completed.
 
@@ -134,16 +223,15 @@ The glo board was separated into several cards:
 
 6. Stretch goals - Features to implement if there is enough time.
 
-![Glo board screenshot 1]( "Glo board screenshot")
+![Glo board screenshot 1](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/screenshots/Planning/Glo1.png "Glo board screenshot")
 
-![Glo board screenshot 1]( "Glo board screenshot")
+![Glo board screenshot 1]https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/screenshots/Planning/Glo2.png( "Glo board screenshot")
 
 On a daily basis, we used Google Sheets to organize tasks for the day. Each day we would list the tasks to be completed by each team member by the end of the day. We coloured in the cell yellow when it was in progress, and green when it was complete. At times we shifted tasks to the next day's sheet when they weren't completed by the end of the day.
 The spreadsheet can be viewed here: https://docs.google.com/spreadsheets/d/1dflTU3Hk8w90SW6gPZDRxiEa19axQ65TlZpEr7AAzqA/edit?usp=sharing
 
-![Google sheets - daily tasks](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/screenshots/ERD/3D%20Printing%20ERD.png "Google sheets daily tasks")
+![Google sheets - daily tasks](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/screenshots/Planning/Daily%20Tasks%20Sheet.png "Google sheets daily tasks")
 
-### Screenshots of Trello board(s)
 
 ## Short Answer Questions
 #### 1. What is the need (i.e. challenge) that you will be addressing in your project?
