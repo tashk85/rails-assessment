@@ -95,36 +95,22 @@ As Esperanza, I want to print a necklace with my own design so that I can give i
 
 ### Wireframes
 
-####Desktop
+All 4 of our wireframes (Designer and printer, desktop and mobile) can be found in PDF form at this google drive link (to save uploading ~48 images to github): https://drive.google.com/drive/folders/1P3Ci6tQ2-w5G4fJ94v-8zAnKt8SM1ZVI?usp=sharing 
 
-#####Designer 
-![designer-desktop](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/screenshots/Wireframes/Designer-desktop.jpg "Designer desktop wireframe")
+Here is a backup link if that doesn't work:
 
-
-#####Printer
-![printer-desktop](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/screenshots/Wireframes/Printer-desktop.jpg "Printer desktop wireframe")
-
-
-
-
-####Mobile
-
-#####Designer 
-![designer-mobile](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/screenshots/Wireframes/Designer-mobile.jpg "Designer mobile wireframe")
-
-
-
-#####Printer
-![printer-mobile](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/screenshots/Wireframes/Printer-mobile.jpg "Printer mobile wireframe")
-
-
+https://www.dropbox.com/sh/rmgfyh0l5a31htn/AAC1y8hAI7Vf5Z0cKLfY1Jcka?dl=0 
 
 
 
 ### Database Entity Relationship Diagrams
+![Entity relationship diagram](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/screenshots/ERD/3D%20Printing%20ERD.png "Entity relationship diagram")
+
 
 ## Details of Planning process including,
 ### Project plan & timeline
+
+For this project, we used a combination of approaches to organize and 
 ### Screenshots of Trello board(s)
 
 ## Short Answer Questions
