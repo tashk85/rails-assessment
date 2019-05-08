@@ -87,9 +87,6 @@ class QuotesController < ApplicationController
 
 
 
-        
-
-        
     end
 
     def edit
