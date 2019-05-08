@@ -4,7 +4,15 @@ class RegistrationsController < Devise::RegistrationsController
     end
   
     def create
-      super
+      #Add authentication to see if user exists - this needs to be stated because we 
+      #have custom signup params(:user_type)
+
+      # if user exists already
+        #redirect_to(root) - with error
+      #else
+        #super
+
+
     end
 
     def custom
