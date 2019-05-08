@@ -1,4 +1,6 @@
 footer {
+    background-color: #276EF1;
+    color: white;
     padding: 2rem 1.5rem;
     display: flex;
     flex-wrap: wrap-reverse;
@@ -14,6 +16,7 @@ footer {
     }
 
     a {
+        color: white;
         text-decoration: none;
     }
 }

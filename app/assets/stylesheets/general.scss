@@ -58,7 +58,7 @@ h2 {
     margin: 0 auto;
 }
 
-.how_it_works {
+.method {
     margin: 36px auto;
     display: flex;
     flex-direction: column;
@@ -90,8 +90,47 @@ h2 {
 
 .what-is-3d-printing {
     margin: 0 auto;
-    padding: 36px 0;
+    padding: 36px;
     background-color: #bedef7;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    p {
+        margin-bottom: 12px;
+    }
+}
+
+.secondary_signup {
+    width: 90%;
+    margin: 16px auto;
+    text-align: center;
+
+    .button_link {
+        width: 50%;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .signup_buttons {
+        display: flex;
+        justify-content: space-around;
+    }
+    
+    .hero_signup {
+        width: 40%;
+    }
+
+    .method {
+        flex-direction: row;
+        justify-content: space-around;
+
+        div {
+            width: 30%;
+        }
+    }
+    
+
 }
 
 .card {

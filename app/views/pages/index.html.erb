@@ -1,67 +1,100 @@
 <main>
+    <!-- Main banner image and buttons -->
     <section>
         <div class="hero_image"></div>
         <div>
             <h1>Connecting Printers &amp; Designers</h1>
         </div>
 
-        <div class="hero_signup">
-            <div>
-                <h2>Printer</h2>
+        <div class="signup_buttons">
+            <div class="hero_signup">
+                <div>
+                    <h2>Printer</h2>
+                </div>
+                <div>
+                    <p>Find opportunities to use your 3D printer and turn it into your side job.</p>
+                </div>
+                <div>
+                    <a class="button_link" href="<%= new_user_registration_path(user_type: "printer") %>">
+                        Sign Up As a Printer <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
             </div>
-            <div>
-                <p>Find opportunities to use your 3D printer and turn it into your side job.</p>
-            </div>
-            <div>
-                <a class="button_link" href="<%= new_user_registration_path(user_type: "printer") %>">Sign Up As a Printer</a>
+            <div class="hero_signup">
+                <div>
+                    <h2>Designer</h2>
+                </div>
+                <div>
+                    <p>Upload your 3D design and find a reliable printer to bring it to life!</p>
+                </div>
+                <div>
+                    <a class="button_link" href="<%= new_user_registration_path(user_type: "designer") %>">
+                        Sign Up As a Designer <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
             </div>
         </div>
-        <div class="hero_signup">
-            <div>
-                <h2>Designer</h2>
-            </div>
-            <div>
-                <p>Upload your 3D design and find a reliable printer to bring it to life!</p>
-            </div>
-            <div>
-                <a class="button_link" href="<%= new_user_registration_path(user_type: "designer") %>">Sign Up As a Designer</a>
-            </div>
-        </div>
+        
     </section>
 
     <div class="divider"></div>
 
+    <!-- How it works section -->
     <section id="howItWorks" class="how_it_works">
         <h2>How It Works</h2>
-        <div>
-            <div class="howItWorks_image"></div>
+        <div class="method">
             <div>
-                <p>Upload your design</p>
-                <p>Provide some details and upload your file.</p>
+                <div class="howItWorks_image"></div>
+                <div>
+                    <p>Upload your design</p>
+                    <p>Provide some details and upload your file.</p>
+                </div>
             </div>
-        </div>
-        <div>
-            <div class="howItWorks_image"></div>
             <div>
-                <p>Choose a quote</p>
-                <p>Receive multiple quotes from 3D printers to get your job done.</p>
+                <div class="howItWorks_image"></div>
+                <div>
+                    <p>Choose a quote</p>
+                    <p>Receive multiple quotes from 3D printers to get your job done.</p>
+                </div>
             </div>
-        </div>
-        <div>
-            <div class="howItWorks_image"></div>
             <div>
-                <p>Get it printed</p>
-                <p>Complete the transaction and bring your design to life!</p>
+                <div class="howItWorks_image"></div>
+                <div>
+                    <p>Get it printed</p>
+                    <p>Complete the transaction and bring your design to life!</p>
+                </div>
             </div>
         </div>
     </section>
 
+    <!-- What is 3D printing section -->
     <section>
         <div class="what-is-3d-printing">
             <h2>What is 3D Printing?</h2>
             <p>Ut labore et dolore roipi mana aliqua. Enim adeop minim veeniam nostruklad Ut labore et dolore roipi mana aliqua. Enim adeop minim veeniam nostruklad Ut labore et dolore roipi mana aliqua.</p>
             <iframe width="560" height="315" src="https://www.youtube.com/embed/3LBTkLsjHGQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
+    </section>
+
+    <section>
+        <div class="signup_buttons">
+            <div class="secondary_signup">
+                <div>
+                    <a class="button_link" href="<%= new_user_registration_path(user_type: "printer") %>">
+                        Sign Up As a Printer <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        
+            <div class="secondary_signup">
+                <div>
+                    <a class="button_link" href="<%= new_user_registration_path(user_type: "designer") %>">
+                        Sign Up As a Designer <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
     </section>
     
         
