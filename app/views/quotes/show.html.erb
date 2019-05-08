@@ -4,10 +4,12 @@
 
 <div class="card">
     <p>Printer id. <%= @quote.printer_id %></p>
+    <p>Printer Postcode: <%=@quote.printer.user.postcode%><p>
     <p>Listing id. <%= @quote.listing_id %></p>
     <p>Total Price: $<%= number_with_precision(@quote.total_price, precision: 2) %></p>
     <p>Job Size (cubic cm): <%= @quote.job_size %></p>
     <p>Turnaround Time: <%= @quote.turnaround_time %></p>
+
 
     <!-- Only printers can edit quotes -->
     <%if current_user.user_type == "printer"%>

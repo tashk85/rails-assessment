@@ -1,4 +1,5 @@
-# 3D PRINTING RAILS APP
+# 3Directions Rails Application
+## By Natasha Khatri and Luke Turner
 
 ## App URL
 
@@ -6,7 +7,9 @@
 https://github.com/luketurnerdev/rails-assessment
 
 ## Description Of Project
-[3D printing service] is a 2 way marketplace that connects designers wishing to print their designs with people who own 3D printing facilities. Users are able to sign up either as a designer or a printer, and [3D printing service] will connect the two parties together, enabling 3D printing transactions to be made.
+3Directions is a 2 way marketplace that connects designers wishing to print their designs with people who own 3D printing facilities. Users are able to sign up either as a designer or a printer, and 3Directions will connect the two parties together, enabling 3D printing transactions to be made.
+
+* These 2 parties will henceforth be referred to as 'designers' and 'printers'.
 
 ### Problem Definition / Purpose
 
@@ -14,7 +17,7 @@ Our app aims to bridge the gap between people who want 3D prints done and the pe
 
 ### Functionality / Features
 
-#### As a designer
+#### Functionality as a designer
 
 Designers will have the ability to:
     
@@ -28,7 +31,7 @@ Designers will have the ability to:
     * Once the payment has been made, they can view the progress of their job as it is being printed, as well as view past jobs
     * The designer can pickup their job from the printer or optionally have it mailed out.
 
-#### As a printer
+#### Functionality as a printer
 
 Printers will have the ability to:
 
@@ -42,6 +45,8 @@ Printers will have the ability to:
 
 ### Screenshots
 
+
+
 ### Tech Stack (e.g. html, css, deployment platform, etc)
 
 - Ruby/Rails
@@ -53,9 +58,10 @@ Printers will have the ability to:
 - Dbeaver for database GUI
 - Heroku for deployment
 - GitKraken / Glo boards for source control and project management
+- Google Sheets / Google docs for extra day planning and organization
 
 ### Instructions on how to setup, configure and use your App.
-1. Open the app in heroku [link ]
+1. Open the app in heroku.
 
 2. Signing up 
 
@@ -146,6 +152,8 @@ As either type of user, you are able to view 'My Quotes' from the dashboard, whi
 
 ## Design Documentation including,
 ### Design Process
+
+
 
 
 ### User Stories
