@@ -1,5 +1,5 @@
 .Navbar {
-    background-color: #46ACC2;
+    background: linear-gradient(90deg,#40ceff 0%,#5a2ff1 100%);
     display: flex;
     padding: 16px;
     font-family: sans-serif;
@@ -18,6 +18,10 @@
 .Navbar__Link {
     padding: 8px;
     text-align: center;
+
+    &:hover, &:active {
+        color: #000;
+    }
 
     &.Navbar__Link-brand {
         text-align: left;
