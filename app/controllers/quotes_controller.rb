@@ -2,10 +2,6 @@ class QuotesController < ApplicationController
     def index
         #shows all quotes
         @quotes = Quote.all
-
-
-
-       
     end
 
     def show
@@ -77,16 +73,11 @@ class QuotesController < ApplicationController
         @user_id = current_user.id
         @quotes = Quote.all
 
-        #Determine which quotes have been made into a job by searching the relevant tables
-
+        #Determine which quotes have been made into a job
         set_quote_arrays
 
+        #Set total quote amounts so we can display a message if it = 0
         @amount_of_user_quotes = @past_quotes.count + @open_quotes.count
-        # p @amount_of_user_quotes
-
-
-
-
     end
 
     def edit
