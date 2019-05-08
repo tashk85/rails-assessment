@@ -24,7 +24,11 @@
     <p>ABN: <%= @job.printer.abn %></p>
     <p>Printer Model: <%= @job.printer.printer_model %></p>
 
-    <%= link_to 'Back', jobs_path%>
+    <%= link_to 'Back to Jobs', jobs_path%> <br><br>
+    <%= link_to 'Back to Dashboard', dashboard_path%>
+    <%= link_to 'Back to My Quotes', my_quotes_path%>
+
+
     
     <% if current_user.user_type == "printer" && @job.status == false %>
         <%= form_for :job do |form| %>

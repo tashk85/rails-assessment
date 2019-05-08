@@ -13,10 +13,16 @@
     <%if current_user.user_type == "printer"%>
         <%= link_to "Edit", edit_quote_path(@quote.id) %>
     <% end %>
-    <%if current_user.user_type == "designer"%>
+
+    <!-- Check if user is a designer and the job hasn't already been accepted -->
+    <%if current_user.user_type == "designer" and @past_quotes.include?(Quote.find(@quote.id)) == false%>
         <button id="stripePayment"> Accept Quote $<%= number_with_precision(@quote.total_price, precision: 2) %></button>
     <% end %>
-    <%= link_to 'Back', listings_path%>
+    <%= link_to 'Back to listings', listings_path%>
+    <%= link_to 'Back to My Quotes', my_quotes_path%>
+    <%= link_to 'Back to Dashboard', dashboard_path%>
+
+
 </div>
 
 

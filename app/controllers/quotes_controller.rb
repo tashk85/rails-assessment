@@ -9,9 +9,11 @@ class QuotesController < ApplicationController
     end
 
     def show
-        # view a single quote
+        # view a single quote by setting id from params
         id = params[:id]
         @quote = Quote.find(id)
+
+        ### Create stripe session ###
 
         stripe_session = Stripe::Checkout::Session.create(
             payment_method_types: ['card'],
@@ -28,8 +30,14 @@ class QuotesController < ApplicationController
             # success_url: "http://localhost:3000/jobs/#{Job.find_by_quote_id(@quote.id).id}", #make these links dynamic
             cancel_url: 'http://localhost:3000/cancel',
         )
-        
         @stripe_session_id = stripe_session.id
+
+
+        ### Assign quotes to past or active quotes arrays ###
+
+        set_quote_arrays
+
+
     end
 
     def create
@@ -71,24 +79,7 @@ class QuotesController < ApplicationController
 
         #Determine which quotes have been made into a job by searching the relevant tables
 
-        if current_user.user_type == "printer"
-            #return quotes with an active job
-            @past_quotes = Quote.joins(:printer).where(printers:{user_id:current_user.id}, has_job:true)
-            @open_quotes = Quote.joins(:printer).where(printers:{user_id:current_user.id}, has_job:false)
-
-
-        elsif current_user.user_type == "designer"
-            @past_quotes = Quote.joins(:listing).where(listings:{user_id:current_user.id}, has_job:true)
-            @open_quotes = Quote.joins(:listing).where(listings:{user_id:current_user.id}, has_job:false)
-
-
-        
-        #kick them out if not logged into either type
-        else
-            redirect_to root_path
-
-        
-        end 
+        set_quote_arrays
 
         @amount_of_user_quotes = @past_quotes.count + @open_quotes.count
         # p @amount_of_user_quotes
@@ -121,6 +112,27 @@ class QuotesController < ApplicationController
     def quote_params
         params.require(:quote).permit(:total_price, :job_size, :turnaround_time, :printer_id, :listing_id)
         # whitelist of what we will accept
+    end
+
+    def set_quote_arrays
+        #Determine which quotes have been made into a job by searching the relevant tables
+
+        if current_user.user_type == "printer"
+            #return quotes with an active job
+            @past_quotes = Quote.joins(:printer).where(printers:{user_id:current_user.id}, has_job:true)
+            @open_quotes = Quote.joins(:printer).where(printers:{user_id:current_user.id}, has_job:false)
+
+
+        elsif current_user.user_type == "designer"
+            @past_quotes = Quote.joins(:listing).where(listings:{user_id:current_user.id}, has_job:true)
+            @open_quotes = Quote.joins(:listing).where(listings:{user_id:current_user.id}, has_job:false)
+
+        #Kick them out if not logged into either type
+        # byebug
+
+        else
+            redirect_to root_path
+        end 
     end
 
 

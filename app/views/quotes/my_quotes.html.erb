@@ -5,8 +5,9 @@
 <!-- if the quote has a job, DO NOT display it here -->
 
 
-<%=@open_quotes.each do |quote| %>
- <div class="card">
+<%@open_quotes.each do |quote| %>
+
+    <div class="card">
         <p>Quote Id: <%= quote.id %></p>
         <p>Printer Id: <%= quote.printer_id %></p>
         <p>Listing Id: <%= quote.listing_id %></p>
@@ -26,10 +27,12 @@
 
 
 
+
 <h2> Past Quotes </h2>
 
 
 <!-- if the quote has a job, DO display it here -->
+
 
 <%@past_quotes.each do |quote|%>
 
@@ -40,15 +43,19 @@
         <p>Total Price: $<%= number_with_precision(quote.total_price, precision: 2) %></p>
         <p>Job Size (cubic cm): <%= quote.job_size %></p>
         <p>Turnaround Time: <%= quote.turnaround_time %></p>
+
         
         <%if current_user.user_type == "printer"%>
             <%= link_to "Edit", edit_quote_path(quote.id) %>
         <% end %>
         <%= link_to "Show",quote_path(quote.id) %>
+        <%= link_to "Go To Job", job_path(Job.find_by_quote_id(quote.id))%>
         <%@amount_of_user_quotes += 1%>
     </div>
 
 <%end%>
+
+
 
 
 <!-- Display no quotes message -->
