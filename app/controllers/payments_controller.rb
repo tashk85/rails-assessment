@@ -33,7 +33,6 @@ class PaymentsController < ApplicationController
     end
 
     def success
-        # byebug
         redirect_to job_path(Job.find_by_quote_id(params[:quote_id]).id)
     end
 

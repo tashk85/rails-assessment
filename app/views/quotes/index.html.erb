@@ -1,5 +1,9 @@
 <h1>View Quotes for this listing</h1>
 
+<%= link_to 'Back to dashboard', root_path%>
+<%= link_to 'Back to listings', listings_path%>
+
+
 <%@amount_of_user_quotes = 0%>
 
 <%if current_user.user_type == "designer"%>

@@ -4,7 +4,7 @@ class QuotesController < ApplicationController
         @quotes = Quote.all
 
 
-        #make sure there is a listing to reference
+
        
     end
 
@@ -68,6 +68,21 @@ class QuotesController < ApplicationController
     def my_quotes
         @user_id = current_user.id
         @quotes = Quote.all
+
+        if current_user.user_type == "printer"
+            #return quotes with an active job
+            @past_quotes = Quote.joins(:printer).where(printers:{user_id:current_user.id}, has_job:true)
+            @open_quotes = Quote.joins(:printer).where(printers:{user_id:current_user.id}, has_job:false)
+
+
+        elsif current_user.user_type == "designer"
+            @past_quotes = Quote.joins(:listing).where(listings:{user_id:current_user.id}, has_job:true)
+            @open_quotes = Quote.joins(:listing).where(listings:{user_id:current_user.id}, has_job:false)
+
+        end
+        
+
+        
     end
 
     def edit
@@ -90,5 +105,15 @@ class QuotesController < ApplicationController
     def quote_params
         params.require(:quote).permit(:total_price, :job_size, :turnaround_time, :printer_id, :listing_id)
         # whitelist of what we will accept
+    end
+
+    def display_quotes()
+
+        # if @quote.has_job = true
+        #   p "has a job"
+        # else
+        #   p "doesn't have a job"
+        # end
+    
     end
 end

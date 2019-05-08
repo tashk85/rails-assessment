@@ -1,6 +1,7 @@
 <h1> Quote id. <%= @quote.id %></h1>
 
 
+
 <div class="card">
     <p>Printer id. <%= @quote.printer_id %></p>
     <p>Listing id. <%= @quote.listing_id %></p>
@@ -18,16 +19,6 @@
     <%= link_to 'Back', listings_path%>
 </div>
 
-<!-- click on Accept Quote button to make stripe payment
-    if payment successful, 
-        create Job 
-            Add stripe_transaction_id
-            Ensure status is false
-        redirect to job id show page
-    elsif payment failed,
-        show error message?
-    end
--->
 
 <%= javascript_include_tag "payment_button" %>
 

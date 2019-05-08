@@ -3,8 +3,27 @@
 
 <%@amount_of_user_quotes = 0%>
 
-<!-- Display all quotes that belong to this user-->
+<h2> Open Quotes </h2>
 
+<!-- for each quote, check if the quote has a job, and if so, do NOT display it here -->
+
+
+<%=@open_quotes%>
+
+
+<h2> Past Quotes </h2>
+
+
+<!-- for each quote, check if the quote has a job, and if so, DO display it here -->
+
+<%=@past_quotes%>
+
+
+
+
+
+<!-- Display all quotes that belong to this user, both accepted and open -->
+<h1> rest   <h1>
 <%@quotes.each do |quote|%>
 
     <!--For designers -->
