@@ -1,4 +1,29 @@
-<h1> Landing Page </h1>
+<header>
+    <div class="Navbar">
+        <div class="Navbar__Link Navbar__Link-brand">
+        3Directions
+        </div>
+        <div class="Navbar__Link Navbar__Link-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+        <nav class="Navbar__Items">
+            <a class="Navbar__Link" href="#howItWorks">How It Works</a>
+        </nav>
+        <nav class="Navbar__Items Navbar__Items--right">
+            <a class="Navbar__Link" href="<%= new_user_registration_path(user_type: "printer") %>">
+            Sign Up As A Printer
+            </a>
+            <a class="Navbar__Link" href="<%= new_user_registration_path(user_type: "designer") %>">
+            Sign Up As A Designer
+            </a>
+            <a class="Navbar__Link" href="<%= new_user_session_path %>">
+            Login
+            </a>
+        </nav>
+    </div>
+</header>
+
+<h1> Connecting Printers &amp; Designers </h1>
 
 
 <%=link_to "Sign Up As a Printer", new_user_registration_path(user_type: "printer")%> <br>
@@ -7,3 +32,11 @@
 <%=link_to "Login", new_user_session_path%>
 
 
+<script>
+    function classToggle() {
+        const navs = document.querySelectorAll('.Navbar__Items')
+        
+        navs.forEach(nav => nav.classList.toggle('Navbar__ToggleShow'));
+    }
+    document.querySelector('.Navbar__Link-toggle').addEventListener('click', classToggle);
+</script>
