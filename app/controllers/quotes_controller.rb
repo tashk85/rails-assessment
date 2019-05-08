@@ -69,6 +69,8 @@ class QuotesController < ApplicationController
         @user_id = current_user.id
         @quotes = Quote.all
 
+        #Determine which quotes have been made into a job by searching the relevant tables
+
         if current_user.user_type == "printer"
             #return quotes with an active job
             @past_quotes = Quote.joins(:printer).where(printers:{user_id:current_user.id}, has_job:true)
@@ -79,7 +81,21 @@ class QuotesController < ApplicationController
             @past_quotes = Quote.joins(:listing).where(listings:{user_id:current_user.id}, has_job:true)
             @open_quotes = Quote.joins(:listing).where(listings:{user_id:current_user.id}, has_job:false)
 
-        end
+
+        
+        #kick them out if not logged into either type
+        else
+            redirect_to root_path
+
+        
+        end 
+
+        @amount_of_user_quotes = @past_quotes.count + @open_quotes.count
+        # p @amount_of_user_quotes
+
+
+
+
         
 
         
@@ -107,13 +123,5 @@ class QuotesController < ApplicationController
         # whitelist of what we will accept
     end
 
-    def display_quotes()
 
-        # if @quote.has_job = true
-        #   p "has a job"
-        # else
-        #   p "doesn't have a job"
-        # end
-    
-    end
 end

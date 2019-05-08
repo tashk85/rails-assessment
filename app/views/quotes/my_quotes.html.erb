@@ -1,35 +1,38 @@
 <h1> My Quotes </h1>
 
-
-<%@amount_of_user_quotes = 0%>
-
 <h2> Open Quotes </h2>
 
-<!-- for each quote, check if the quote has a job, and if so, do NOT display it here -->
+<!-- if the quote has a job, DO NOT display it here -->
 
 
-<%=@open_quotes%>
+<%=@open_quotes.each do |quote| %>
+ <div class="card">
+        <p>Quote Id: <%= quote.id %></p>
+        <p>Printer Id: <%= quote.printer_id %></p>
+        <p>Listing Id: <%= quote.listing_id %></p>
+        <p>Total Price: $<%= number_with_precision(quote.total_price, precision: 2) %></p>
+        <p>Job Size (cubic cm): <%= quote.job_size %></p>
+        <p>Turnaround Time: <%= quote.turnaround_time %></p>
+        
+        <%if current_user.user_type == "printer"%>
+            <%= link_to "Edit", edit_quote_path(quote.id) %>
+        <% end %>
+        <%= link_to "Show",quote_path(quote.id) %>
+        <%@amount_of_user_quotes += 1%>
+    </div>
+
+   
+<%end%>
+
 
 
 <h2> Past Quotes </h2>
 
 
-<!-- for each quote, check if the quote has a job, and if so, DO display it here -->
+<!-- if the quote has a job, DO display it here -->
 
-<%=@past_quotes%>
+<%@past_quotes.each do |quote|%>
 
-
-
-
-
-<!-- Display all quotes that belong to this user, both accepted and open -->
-<h1> rest   <h1>
-<%@quotes.each do |quote|%>
-
-    <!--For designers -->
-
-    <%# If the current quote has the same listing id as the logged in user, display it%>
-    <%if Listing.find(quote.listing_id).user_id == @user_id%>
     <div class="card">
         <p>Quote Id: <%= quote.id %></p>
         <p>Printer Id: <%= quote.printer_id %></p>
@@ -44,31 +47,9 @@
         <%= link_to "Show",quote_path(quote.id) %>
         <%@amount_of_user_quotes += 1%>
     </div>
-    
-
-    <%end%>
-
-    <!--For printers -->
-
-    <%# If the current quote has the same printer id as the logged in user, display it%>
-    <%if Printer.find(quote.printer_id).user_id == @user_id%>
-        <div class="card">
-        <p>Quote Id: <%= quote.id %></p>
-        <p>Printer Id: <%= quote.printer_id %></p>
-        <p>Listing Id: <%= quote.listing_id %></p>
-        <p>Total Price: $<%= number_with_precision(quote.total_price, precision: 2) %></p>
-        <p>Job Size (cubic cm): <%= quote.job_size %></p>
-        <p>Turnaround Time: <%= quote.turnaround_time %></p>
-        <%= link_to "Edit", edit_quote_path(quote.id) %>
-        <%= link_to "Show",quote_path(quote.id) %>
-        <%@amount_of_user_quotes += 1%>
-    </div>
-    
-
-    <%end%>
-
 
 <%end%>
+
 
 <!-- Display no quotes message -->
 
