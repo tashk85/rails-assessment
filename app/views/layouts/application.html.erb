@@ -12,9 +12,13 @@
   </head>
 
   <body>
+    <header>
+      <%= render "shared/top_nav" %>
+    </header>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= link_to "logout", destroy_user_session_path, method: "DELETE" if user_signed_in? %>
     <%= yield %>
+    <%= render "shared/footer" %>
   </body>
 </html>

@@ -42,15 +42,19 @@
         flex-direction: row;
     }
     .Navbar__Link {
-    padding-right: 8px;
+        padding-right: 8px;
     }
     .Navbar__Items {
-    display: flex;
+        display: flex;
+
+        &.Desktop {
+            display: none;
+        }        
     }
     .Navbar__Items--right {
-    margin-left:auto;
+        margin-left:auto;
     }
     .Navbar__Link-toggle {
-    display: none;
+        display: none;
     }
 }

@@ -1,0 +1,19 @@
+footer {
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-wrap: wrap-reverse;
+    justify-content: space-between;
+}
+
+.footer_links ul {
+    list-style-type: none;
+    display: flex;
+    
+    li {
+        padding-left: 2rem;
+    }
+
+    a {
+        text-decoration: none;
+    }
+}
