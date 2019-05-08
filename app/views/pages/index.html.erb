@@ -1,9 +1,61 @@
 <main>
-        <h1> Connecting Printers &amp; Designers </h1>
+    <section>
+        <div class="hero_image"></div>
+        <div>
+            <h1>Connecting Printers &amp; Designers</h1>
+        </div>
 
+        <div class="hero_signup">
+            <div>
+                <h2>Printer</h2>
+            </div>
+            <div>
+                <p>Find opportunities to use your 3D printer and turn it into your side job.</p>
+            </div>
+            <div>
+                <a class="button_link" href="<%= new_user_registration_path(user_type: "printer") %>">Sign Up As a Printer</a>
+            </div>
+        </div>
+        <div class="hero_signup">
+            <div>
+                <h2>Designer</h2>
+            </div>
+            <div>
+                <p>Upload your 3D design and find a reliable printer to bring it to life!</p>
+            </div>
+            <div>
+                <a class="button_link" href="<%= new_user_registration_path(user_type: "designer") %>">Sign Up As a Designer</a>
+            </div>
+        </div>
+    </section>
 
-        <%=link_to "Sign Up As a Printer", new_user_registration_path(user_type: "printer")%> <br>
-        <%=link_to "Sign Up As A Designer", new_user_registration_path(user_type: "designer")%> <br>
+    <div class="divider"></div>
+
+    <section>
+        <h2>How It Works</h2>
+        <div>
+            <div class="howItWorks_image"></div>
+            <div>
+                <p>Subtitle</p>
+                <p>Lorem ipsum dorem sdkafkadfk</p>
+            </div>
+        </div>
+        <div>
+            <div class="howItWorks_image"></div>
+            <div>
+                <p>Subtitle</p>
+                <p>Lorem ipsum dorem sdkafkadfk</p>
+            </div>
+        </div>
+        <div>
+            <div class="howItWorks_image"></div>
+            <div>
+                <p>Subtitle</p>
+                <p>Lorem ipsum dorem sdkafkadfk</p>
+            </div>
+        </div>
+    </section>
+    
         
 </main>
 

@@ -1,4 +1,69 @@
-@import 'reset';
+body {
+
+    a {
+        text-decoration: none;
+    }
+}
+
+h1 {
+    font-size: 36px;
+    text-align: center;
+    padding-bottom: 36px;
+}
+
+h2 {
+    font-size: 24px;
+    padding-bottom: 12px;
+}
+
+.hero_image {
+    background-image: url(asset-path('hero_image_3d_printing.jpg'));
+    background-position: center;
+    margin: 0 auto 36px auto;
+    width: 90%;
+    height: 450px;
+}
+
+.hero_signup {
+    background-color: rgb(211, 218, 230);
+    width: 90%;
+    padding: 36px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    margin-bottom: 36px;
+
+    p {
+        font-size: 16px;
+        margin-bottom: 36px;
+    }
+}
+
+.button_link {
+    background-color: #276EF1;
+    color: #fff;
+    padding: 15px 25px;
+    text-align: center;
+    display: inline-block;
+    min-width: 150px;
+
+    &:hover, &:active {
+        background-color: #000;
+      }
+}
+
+.divider {
+    background-color: #276EF1;
+    height: 2px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.howItWorks_image {
+    background-color: #276EF1;
+    width: 80px;
+    height: 80px;
+    border-radius: 40px;
+}
 
 .card {
     border: 2px solid black;
@@ -6,6 +71,6 @@
     padding: 0 10px;
 }
 
-@import 'navbar';
+
 
 @import 'footer';
