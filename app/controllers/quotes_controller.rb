@@ -23,7 +23,6 @@ class QuotesController < ApplicationController
                 quantity: 1,
             }],
             success_url: "http://localhost:3000/payments/success?quote_id=#{@quote.id}", #make these links dynamic
-            # success_url: "http://localhost:3000/jobs/#{Job.find_by_quote_id(@quote.id).id}", #make these links dynamic
             cancel_url: 'http://localhost:3000/cancel',
         )
         @stripe_session_id = stripe_session.id
