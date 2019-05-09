@@ -7,8 +7,9 @@ $light-blue: #9becff;
 $white: #fff;
 
 html {
-    font-family: 'Raleway', sans-serif;
+    font-family: $body_text;
     font-size: 16px;
+    text-align: center;
     box-sizing: border-box;
 }
 
@@ -17,7 +18,7 @@ main {
     // overflow:auto;
 }
 
-h1, h2, h3 {
+.h1, .h2, .h3 {
     font-family: $headings;
 }
 
@@ -27,7 +28,13 @@ h1 {
     line-height: 1.1;
     padding-bottom: 1.25rem;
 }
-  
+
+@media (min-width: 768px) {
+    h1 {
+        text-align: left;
+    }
+}
+
 h2 {
     font-size: 2rem;
     line-height: 1.1;
@@ -48,6 +55,7 @@ p, a {
 a {
     display: block;
 }
+
 .btn-primary {
     padding: 16px;
 
@@ -55,17 +63,15 @@ a {
 .hero_image {
     background-image: url(asset-path('hero_image_3d_printing.jpg'));
     background-position: center;
-    // margin: 0 auto 36px auto;
-    // width: 90%;
     height: 450px;
 }
 
 .hero_signup {
     background-color: #bedef7;
-    // width: 90%;
-    padding: 36px;
+    margin: 1.5rem 1rem 0;
+    padding: 2rem;
     box-sizing: border-box;
-    // margin-bottom: 36px;
+    text-align: left;
 
     p {
         font-size: 16px;
@@ -73,28 +79,28 @@ a {
     }
 }
 
+.btn.btn-primary.btn-block,
 .button_link {
-    background-color: #276EF1;
+    background-color: $dark-blue;
     color: #fff;
     padding: 15px 25px;
     text-align: center;
-    // display: inline-block;
-    // min-width: 150px;
+    margin-bottom: 1rem;
+    border: none;
+    border-radius: 0;
 
     &:hover, &:active {
-        background-color: #000;
+        background-color: $mid-blue;
       }
 }
 
 .divider {
     background-color: #276EF1;
     height: 2px;
-    width: 90%;
-    margin: 0 auto;
+    margin: 2rem auto;
 }
 
-.method {
-    margin: 36px auto;
+.howItWorks {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -104,7 +110,7 @@ a {
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin: 16px 0;
+        margin: 0.75rem 0;
 
         p:first-child {
             font-size: 18px;
@@ -119,14 +125,19 @@ a {
     width: 150px;
     height: 150px;
     border-radius: 75px;
-    margin-bottom: 16px;
-    align-self: center;
+    margin: 1rem auto;
 }
 
-.what-is-3d-printing {
-    margin: 0 auto;
-    padding: 36px;
-    background-color: #bedef7;
+@media (min-width: 768px) {
+    .howItWorks {
+        flex-direction: row;
+    }
+}
+
+.whatIs {
+    margin: 2rem auto;
+    padding: 3rem 2rem 4rem 2rem;
+    background-color: $light-blue;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -175,21 +186,27 @@ a {
     display: none;
 }
 
-@media only screen and (min-width: 768px) {
+.hidden-sm-down {
+    display: none;
+}
+
+@media (min-width: 768px) {
     .sidebar {
         display: block;
         float: left;
         padding: 36px;
-        // width: inherit;
-        // min-width: 220px;
-        // max-width: 220px;
         min-height: 100vh;
         background-color:#f5f5f5;
-        // float: left;
         height:100%;
-        // position:relative;
-        // overflow-y:auto;
-        // overflow-x:hidden;
+    }
+
+    .user_avatar {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .hidden-sm-up {
+        display: none;
     }
 }
 
@@ -199,6 +216,21 @@ a {
     padding: 0 10px;
 }
 
+.my_summary {
+    text-align: center;
+    
+    .row {
+        margin: 15px;
+    }
+}
+
+.summary {
+    padding: 1rem 0;
+    background-color: $light-blue;
+    text-align: center;
+    
+    
+}
 
 
 @import 'footer';

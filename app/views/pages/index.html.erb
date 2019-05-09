@@ -8,10 +8,10 @@
                 </div>
                 <div class="col-md-6 col-md-pull-6">
                     <div>
-                        <h1>Connecting Printers &amp; Designers</h1>
+                        <h1 class="h1">Connecting Printers &amp; Designers</h1>
                     </div>
                     <div class="row">
-                        <div class="col-md-3 hero_signup">
+                        <div class="col-sm-6 hero_signup">
                             <div>
                                 <h2>Printer</h2>
                             </div>
@@ -24,7 +24,7 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="col-md-3 hero_signup">
+                        <div class="col-sm-6 hero_signup">
                             <div>
                                 <h2>Designer</h2>
                             </div>
@@ -43,47 +43,14 @@
                 
         </div>
         
-        <div>
-            <h1>Connecting Printers &amp; Designers</h1>
-        </div>
-
-        <div class="signup_buttons">
-            <div class="hero_signup">
-                <div>
-                    <h2>Printer</h2>
-                </div>
-                <div>
-                    <p>Find opportunities to use your 3D printer and turn it into your side job.</p>
-                </div>
-                <div>
-                    <a class="button_link" href="<%= new_user_registration_path(user_type: "printer") %>">
-                        Sign Up As a Printer <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="hero_signup">
-                <div>
-                    <h2>Designer</h2>
-                </div>
-                <div>
-                    <p>Upload your 3D design and find a reliable printer to bring it to life!</p>
-                </div>
-                <div>
-                    <a class="button_link" href="<%= new_user_registration_path(user_type: "designer") %>">
-                        Sign Up As a Designer <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-        
     </section>
 
-    <div class="divider"></div>
+    <div role="separator" class="divider col-xs-12"></div>
 
     <!-- How it works section -->
-    <section id="howItWorks" class="how_it_works">
-        <h2>How It Works</h2>
-        <div class="row">
+    <section id="howItWorks" class="mx-auto">
+        <h2 class="h2">How It Works</h2>
+        <div class="row howItWorks">
             <div class="col-sm-4">
                 <div class="howItWorks_image"></div>
                 <div>
@@ -109,23 +76,27 @@
     </section>
 
     <!-- What is 3D printing section -->
-    <section>
-        <div class="jumbotron">
-            <h2>What is 3D Printing?</h2>
-            <p>Ut labore et dolore roipi mana aliqua. Enim adeop minim veeniam nostruklad Ut labore et dolore roipi mana aliqua. Enim adeop minim veeniam nostruklad Ut labore et dolore roipi mana aliqua.</p>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/3LBTkLsjHGQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <section class="whatIs">
+        <div class="row">
+            <div class="col-xs-12 col-md-5">
+                <h2 class="h2">What is 3D Printing?</h2>
+                <p>Ut labore et dolore roipi mana aliqua. Enim adeop minim veeniam nostruklad Ut labore et dolore roipi mana aliqua. Enim adeop minim veeniam nostruklad Ut labore et dolore roipi mana aliqua.</p>
+            </div>
+            <div class="col-xs-12 col-md-7">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/3LBTkLsjHGQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
         </div>
     </section>
 
     <section>
         <div class="row">
-            <div class="col-sm-6 secondary_signup">
+            <div class="col-xs-12 col-sm-6 secondary_signup">
                 <a class="btn btn-primary btn-block" href="<%= new_user_registration_path(user_type: "printer") %>">
                     Sign Up As a Printer <i class="fas fa-arrow-right"></i>
                 </a>
             </div>
         
-            <div class="col-sm-6 secondary_signup">
+            <div class="col-xs-12 col-sm-6 secondary_signup">
                 <a class="btn btn-primary btn-block" href="<%= new_user_registration_path(user_type: "designer") %>">
                     Sign Up As a Designer <i class="fas fa-arrow-right"></i>
                 </a>
