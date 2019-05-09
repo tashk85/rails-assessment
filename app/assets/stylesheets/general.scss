@@ -1,8 +1,12 @@
 body {
-
     a {
         text-decoration: none;
     }
+}
+
+main {
+    height: 100%;
+    overflow:auto;
 }
 
 h1, h2 {
@@ -146,6 +150,26 @@ h1 {
 
 @media only screen and (min-width: 1024px) {
 
+}
+
+#sidebar {
+    display: none;
+}
+
+@media only screen and (min-width: 768px) {
+    #sidebar {
+        display: block;
+        width: inherit;
+        min-width: 220px;
+        max-width: 220px;
+        min-height: 100vh;
+        background-color:#f5f5f5;
+        float: left;
+        height:100%;
+        position:relative;
+        overflow-y:auto;
+        overflow-x:hidden;
+    }
 }
 
 .card {

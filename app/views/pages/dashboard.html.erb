@@ -1,17 +1,14 @@
+
 <div id="sidebar" class="sidebar-offcanvas">
     <div class="col-md-12">
+        
+        <div class="howItWorks_image"></div>
         <h3><%= "#{current_user.first_name.capitalize} #{current_user.last_name.capitalize}"%></h3>
         <ul class="nav nav-pills nav-stacked">
-        <li class="active"><a href="#">Section</a></li>
-        <li><a href="#">Section</a></li>
-        <li><a href="#">Section</a></li>
-        <li><a href="#">Section</a></li>
-        <li><a href="#">Section</a></li>
-        <li><a href="#">Section</a></li>
-        <li><a href="#">Section</a></li>
-        <li><a href="#">Section</a></li>
-        <li><a href="#">Section</a></li>
-        <li><a href="#">Section</a></li>
+            <li><a href="<% dashboard_path %>">Dashboard</a></li>
+            <li><a href="<% listings_path %>">View My Listings</a></li>
+            <li><a href="<% my_quotes_path(@user_id) %>">View My Quotes</a></li>
+            <li><a href="<% jobs_path %>">View My Jobs</a></li>
         </ul>
     </div>
 </div>
