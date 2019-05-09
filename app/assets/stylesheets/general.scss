@@ -5,32 +5,44 @@ body {
     }
 }
 
+h1, h2 {
+    font-family: 'Didact Gothic', sans-serif;
+}
+
+p, a {
+    font-family: 'Open Sans', sans-serif;
+}
+
+
 h1 {
     font-size: 36px;
     text-align: center;
     padding-bottom: 36px;
 }
 
-h2 {
-    font-size: 24px;
-    padding-bottom: 12px;
-}
+// h2 {
+//     font-size: 24px;
+//     padding-bottom: 12px;
+// }
 
+.btn-primary {
+    padding: 16px;
+
+}
 .hero_image {
     background-image: url(asset-path('hero_image_3d_printing.jpg'));
     background-position: center;
-    margin: 0 auto 36px auto;
-    width: 90%;
+    // margin: 0 auto 36px auto;
+    // width: 90%;
     height: 450px;
 }
 
 .hero_signup {
     background-color: #bedef7;
-    width: 90%;
+    // width: 90%;
     padding: 36px;
-    margin: 0 auto;
     box-sizing: border-box;
-    margin-bottom: 36px;
+    // margin-bottom: 36px;
 
     p {
         font-size: 16px;
@@ -43,8 +55,8 @@ h2 {
     color: #fff;
     padding: 15px 25px;
     text-align: center;
-    display: inline-block;
-    min-width: 150px;
+    // display: inline-block;
+    // min-width: 150px;
 
     &:hover, &:active {
         background-color: #000;
@@ -102,23 +114,23 @@ h2 {
 }
 
 .secondary_signup {
-    width: 90%;
-    margin: 16px auto;
+    // width: 90%;
+    // margin: 16px auto;
     text-align: center;
 
     .button_link {
-        width: 50%;
+        // width: 50%;
     }
 }
 
 @media only screen and (min-width: 768px) {
     .signup_buttons {
-        display: flex;
-        justify-content: space-around;
+        // display: flex;
+        // justify-content: space-around;
     }
     
     .hero_signup {
-        width: 40%;
+        // width: 40%;
     }
 
     .method {
@@ -126,10 +138,13 @@ h2 {
         justify-content: space-around;
 
         div {
-            width: 30%;
+            // width: 30%;
         }
     }
-    
+
+}
+
+@media only screen and (min-width: 1024px) {
 
 }
 

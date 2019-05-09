@@ -2,14 +2,16 @@ footer {
     background-color: #276EF1;
     color: white;
     padding: 2rem 1.5rem;
-    display: flex;
-    flex-wrap: wrap-reverse;
-    justify-content: space-between;
+}
+
+.copyright {
+    text-align: center;
 }
 
 .footer_links ul {
     list-style-type: none;
     display: flex;
+    justify-content: center;
     
     li {
         padding-left: 2rem;
@@ -18,5 +20,14 @@ footer {
     a {
         color: white;
         text-decoration: none;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .copyright {
+        text-align: left;
+    }
+    .footer_links ul {
+        justify-content: flex-end;
     }
 }

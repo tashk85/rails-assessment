@@ -1,69 +1,86 @@
-.Navbar {
+.navbar {
     background: linear-gradient(90deg,#40ceff 0%,#5a2ff1 100%);
-    display: flex;
-    padding: 16px;
-    font-family: sans-serif;
-    color: white;
-
-    a {
-        text-decoration: none;
-        color: white;
-    }
+    border: none;
+    border-radius: 0;
+    
+    
 }
-
-.Navbar__Items,
-.Navbar {
-    flex-direction: column;
+.nav.navbar-nav a {
+    color: #fff;
 }
-
-.Navbar__Link {
-    padding: 8px;
-    text-align: center;
-
-    &:hover, &:active {
-        color: #000;
-    }
-
-    &.Navbar__Link-brand {
-        text-align: left;
-    }
-}
-.Navbar__Items {
-    display:none;
-}
-.Navbar__Items--right {
-    margin-left:0;
-}
-.Navbar__ToggleShow {
-    display: flex;
-}
-.Navbar__Link-toggle {
-    align-self: flex-end;
-    display: initial;
-    position: absolute;
-    cursor: pointer;
-} 
-
 
 @media only screen and (min-width: 768px) {
-    .Navbar__Items,
-    .Navbar {
-        flex-direction: row;
-    }
-    .Navbar__Link {
-        padding-right: 8px;
-    }
-    .Navbar__Items {
-        display: flex;
-
-        &.Desktop {
-            display: none;
-        }        
-    }
-    .Navbar__Items--right {
-        margin-left:auto;
-    }
-    .Navbar__Link-toggle {
+    .nav.navbar-nav.desktop {
         display: none;
     }
 }
+
+// .Navbar {
+//     background: linear-gradient(90deg,#40ceff 0%,#5a2ff1 100%);
+//     display: flex;
+//     padding: 16px;
+//     font-family: sans-serif;
+//     color: white;
+
+//     a {
+//         text-decoration: none;
+//         color: white;
+//     }
+// }
+
+// .Navbar__Items,
+// .Navbar {
+//     flex-direction: column;
+// }
+
+// .Navbar__Link {
+//     padding: 8px;
+//     text-align: center;
+
+//     &:hover, &:active {
+//         color: #000;
+//     }
+
+//     &.Navbar__Link-brand {
+//         text-align: left;
+//     }
+// }
+// .Navbar__Items {
+//     display:none;
+// }
+// .Navbar__Items--right {
+//     margin-left:0;
+// }
+// .Navbar__ToggleShow {
+//     display: flex;
+// }
+// .Navbar__Link-toggle {
+//     align-self: flex-end;
+//     display: initial;
+//     position: absolute;
+//     cursor: pointer;
+// } 
+
+
+// @media only screen and (min-width: 768px) {
+//     .Navbar__Items,
+//     .Navbar {
+//         flex-direction: row;
+//     }
+//     .Navbar__Link {
+//         padding-right: 8px;
+//     }
+//     .Navbar__Items {
+//         display: flex;
+
+//         &.Desktop {
+//             display: none;
+//         }        
+//     }
+//     .Navbar__Items--right {
+//         margin-left:auto;
+//     }
+//     .Navbar__Link-toggle {
+//         display: none;
+//     }
+// }
