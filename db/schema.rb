@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_06_044354) do
+ActiveRecord::Schema.define(version: 2019_05_09_020326) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -79,6 +79,7 @@ ActiveRecord::Schema.define(version: 2019_05_06_044354) do
     t.date "turnaround_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "rejected"
     t.index ["listing_id"], name: "index_quotes_on_listing_id"
     t.index ["printer_id"], name: "index_quotes_on_printer_id"
   end
