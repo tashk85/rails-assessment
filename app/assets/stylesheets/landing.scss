@@ -1,0 +1,103 @@
+@import 'general';
+
+.hero_image {
+    background-image: url(asset-path('hero_image_3d_printing.jpg'));
+    background-position: center;
+    height: 450px;
+}
+
+.hero_signup {
+    background-color: $pale-blue;
+    margin: 1.5rem 1rem 0;
+    padding: 2rem;
+    box-sizing: border-box;
+    text-align: left;
+
+    p {
+        font-size: 16px;
+        margin-bottom: 36px;
+    }
+}
+
+@media (min-width: 768px) {
+    .h1 {
+        margin-top: 3.85rem;
+    }
+    .hero_signup {
+        min-height: 280px;
+        margin: 0;
+        padding: 1.5rem;
+        background-color: $white;
+    }
+}
+
+.divider {
+    background-color: $dark-blue;
+    height: 2px;
+    margin: 2rem auto;
+}
+
+.howItWorks {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0.75rem 0;
+
+        p:first-child {
+            font-size: 18px;
+            font-weight:600;
+            margin-bottom: 12px;
+        }
+    }
+}
+
+.howItWorks_image {
+    background-color: #276EF1;
+    width: 150px;
+    height: 150px;
+    border-radius: 75px;
+    margin: 1rem auto;
+}
+
+@media (min-width: 768px) {
+    .howItWorks {
+        flex-direction: row;
+    }
+}
+
+.whatIs {
+    margin: 2rem auto;
+    padding: 3rem 2rem 4rem 2rem;
+    background-color: $pale-blue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    p {
+        margin-bottom: 12px;
+    }
+}
+
+.secondary_signup {
+    text-align: center;
+}
+
+@media only screen and (min-width: 768px) {
+    .whatIs {
+        .h2, p {
+            text-align: left;
+        }
+    }
+
+    .method {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+}

@@ -1,12 +1,9 @@
-$dark-blue: #01b0f5;
-$mid-blue: #00cafa;
-$light-blue: #9becff;
-$white: #fff;
+@import 'general';
 
 footer {
     background-color: $dark-blue;
     color: $white;
-    padding: 0 1.5rem;
+    padding: 2rem;
     position: relative;
     bottom: 0;
     width: 100%;
