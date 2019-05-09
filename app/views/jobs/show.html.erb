@@ -28,7 +28,10 @@
     <%= link_to 'Back to Dashboard', dashboard_path%>
     <%= link_to 'Back to My Quotes', my_quotes_path%>
 
-
+    <!-- Printer can click on Completed Job button to show job as completed
+        Change status column to True
+        Add timestamp to completed_at column
+    -->
     
     <% if current_user.user_type == "printer" && @job.status == false %>
         <%= form_for :job do |form| %>
@@ -40,7 +43,3 @@
     
 </div>
 
-<!-- Printer can click on Completed Job button to show job as completed
-    Change status column to True
-    Add timestamp to completed_at column
--->

@@ -106,10 +106,11 @@ class QuotesController < ApplicationController
         #Determine which quotes have been made into a job by searching the relevant tables
 
         if current_user.user_type == "printer"
-            #return quotes with an active job
+            #return quotes that belong to the user, and the associated job also belong to the user
             @past_quotes = Quote.joins(:printer).where(printers:{user_id:current_user.id}, has_job:true)
             @open_quotes = Quote.joins(:printer).where(printers:{user_id:current_user.id}, has_job:false)
-
+           
+            #Check if a quote has been assigned to a job that belongs to another printer
 
         elsif current_user.user_type == "designer"
             @past_quotes = Quote.joins(:listing).where(listings:{user_id:current_user.id}, has_job:true)
