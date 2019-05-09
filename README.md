@@ -45,7 +45,7 @@ Printers will have the ability to:
 
 ### Screenshots
 
-
+[insert once styling is done]
 
 ### Tech Stack (e.g. html, css, deployment platform, etc)
 
@@ -152,6 +152,8 @@ As either type of user, you are able to view 'My Quotes' from the dashboard, whi
 
 ## Design Documentation including,
 ### Design Process
+
+![whiteboard-ideas](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/app-idea-brainstorm.jpg "Whiteboard ideas")
 
 
 

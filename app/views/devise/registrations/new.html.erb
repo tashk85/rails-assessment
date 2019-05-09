@@ -20,7 +20,7 @@
 
   <div class="field">
     <%= f.label :postcode %><br />
-    <%= f.number_field :postcode, autofocus: true%>
+    <%= f.text_field :postcode, minlength:4, autofocus: true%>
   </div>
 
   <div class="field">

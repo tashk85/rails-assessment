@@ -20,16 +20,17 @@
     <div>
         <% if link_to "New" %>
             <%= form.label :budget %>
-            <%= form.number_field :budget, step: :any %>
+            <%= form.number_field :budget, min:5, step: :any %>
         <% else %>
             <%= form.label :budget %>
-            <%= form.number_field :budget, value: number_to_currency(form.object.budget.to_f, delimiter: '', unit: ''), step: :any %>
+            <%= form.number_field :budget, min:5, value: number_to_currency(form.object.budget.to_f, delimiter: '', unit: ''), step: :any%>
+
         <% end %>
     </div>
 
     <div>
         <%= form.label :due_date %>
-        <%= form.date_field :due_date %>
+        <%= form.date_field :due_date, min: Date.today %>
     </div>
 
     <div>
