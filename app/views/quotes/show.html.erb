@@ -1,0 +1,47 @@
+<h1> Quote id. <%= @quote.id %></h1>
+
+
+
+<div class="card">
+    <p>Printer id. <%= @quote.printer_id %></p>
+    <p>Printer Postcode: <%=@quote.printer.user.postcode%><p>
+    <p>Listing id. <%= @quote.listing_id %></p>
+    <p>Total Price: $<%= number_with_precision(@quote.total_price, precision: 2) %></p>
+    <p>Job Size (cubic cm): <%= @quote.job_size %></p>
+    <p>Turnaround Time: <%= @quote.turnaround_time %></p>
+
+
+    <!-- Only printers can edit quotes -->
+    <%if current_user.user_type == "printer"%>
+        <%= link_to "Edit", edit_quote_path(@quote.id) %>
+    <% end %>
+
+    <!-- Check if user is a designer and the job hasn't already been accepted -->
+    <%if current_user.user_type == "designer" and @past_quotes.include?(Quote.find(@quote.id)) == false%>
+        <button id="stripePayment"> Accept Quote $<%= number_with_precision(@quote.total_price, precision: 2) %></button>
+    <% end %>
+    <%= link_to 'Back to listings', listings_path%>
+    <%= link_to 'Back to My Quotes', my_quotes_path%>
+    <%= link_to 'Back to Dashboard', dashboard_path%>
+
+
+</div>
+
+
+<%= javascript_include_tag "payment_button" %>
+
+<script>
+    document.getElementById("stripePayment").addEventListener("click", function() {
+        var stripe = Stripe('<%= Rails.application.credentials.dig(:stripe, :public) %>');
+    
+        stripe.redirectToCheckout({
+            sessionId: '<%= @stripe_session_id %>',
+            }).then(function (result) {
+            // If `redirectToCheckout` fails due to a browser or network
+            // error, display the localized error message to your customer
+            // using `result.error.message`.
+        });
+    
+    });
+</script>
+

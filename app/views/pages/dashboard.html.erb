@@ -1,0 +1,27 @@
+<h1><%=current_user.user_type.capitalize%> Dashboard</h1>
+
+<!--What the designer sees -->
+
+<%if current_user.user_type == "designer"%>
+    <div class="card">
+        <%=link_to "View My Listings", listings_path%>
+        <%=link_to "Create New Listing", new_listing_path%>
+    </div>
+
+    <div class="card">
+       <%=link_to "View My Quotes", my_quotes_path(@user_id)%>
+   </div>
+
+<!--What the printer sees -->
+<%else%>
+
+    <div class="card">
+       <%=link_to "View All Listings", listings_path%>
+   </div>
+
+   <div class="card">
+       <%=link_to "View My Quotes", my_quotes_path(@user_id)%>
+   </div>
+        
+    
+<%end%>

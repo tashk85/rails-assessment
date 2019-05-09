@@ -1,0 +1,46 @@
+<!-- Display any errors with form -->
+
+<% if @listing.errors.any? %>
+    <% @listing.errors.full_messages.each do |error| %>
+        <p><%= error %></p>
+    <% end %>
+<% end %>
+
+<%= form_with model: listing, local: true do |form| %>
+   
+    <%= form.hidden_field :user_id, value: current_user.id %>
+    <%= form.hidden_field :has_job, value: false %>    
+    
+    <!--description, budget, due_date, file upload -->
+    <div>
+        <%= form.label :description %>
+        <%= form.text_field :description %>
+    </div>
+
+    <div>
+        <% if link_to "New" %>
+            <%= form.label :budget %>
+            <%= form.number_field :budget, min:5, step: :any %>
+        <% else %>
+            <%= form.label :budget %>
+            <%= form.number_field :budget, min:5, value: number_to_currency(form.object.budget.to_f, delimiter: '', unit: ''), step: :any%>
+
+        <% end %>
+    </div>
+
+    <div>
+        <%= form.label :due_date %>
+        <%= form.date_field :due_date, min: Date.today %>
+    </div>
+
+    <div>
+            <%= form.label :design_file %>
+            <%= form.file_field :design_file, accept: "image/png,image/gif,image/jpeg,image/jpg" %>
+    </div>
+
+    <div>
+        <%= form.submit %>
+    </div>
+
+   
+<% end %>

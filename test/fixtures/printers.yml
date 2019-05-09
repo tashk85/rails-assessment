@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  abn: MyString
+  printer_model: MyString
+
+two:
+  user: two
+  abn: MyString
+  printer_model: MyString

@@ -1,0 +1,45 @@
+<h1> Job id. <%= @job.id %></h1>
+
+
+<div class="card">
+    <% if @job.status == false %>
+        <p>Status: Active</p>
+    <% else %>
+        <p>Status: Completed</p>
+    <% end %>
+    <p>Listing id. <%= @job.listing_id %></p>
+    <p>Designer Name: <%= "#{@job.listing.user.first_name} #{@job.listing.user.last_name}" %></p>
+    <p>Description: <%= @job.listing.description %></p>
+    <p>Total Price: $<%= number_with_precision(@job.quote.total_price, precision: 2) %>
+    <p>Job Size (cubic cm): <%= @job.quote.job_size %></p>
+    <p>Turnaround Time: <%= @job.quote.turnaround_time %></p>
+    <p>Created at: <%= @job.created_at.to_time.strftime('%A, %d %b %Y %H:%M') %></p>
+    <p>Completed at: 
+        <% if @job.status %>
+        <%= @job.updated_at.to_time.strftime('%A, %d %b %Y %H:%M') %> 
+        <% end %>
+    </p>
+    <p>Quote id: <%= @job.quote_id %></p>
+    <p>Printer Name: <%= "#{@job.printer.user.first_name} #{@job.printer.user.last_name}" %></p>
+    <p>ABN: <%= @job.printer.abn %></p>
+    <p>Printer Model: <%= @job.printer.printer_model %></p>
+
+    <%= link_to 'Back to Jobs', jobs_path%> <br><br>
+    <%= link_to 'Back to Dashboard', dashboard_path%>
+    <%= link_to 'Back to My Quotes', my_quotes_path%>
+
+    <!-- Printer can click on Completed Job button to show job as completed
+        Change status column to True
+        Add timestamp to completed_at column
+    -->
+    
+    <% if current_user.user_type == "printer" && @job.status == false %>
+        <%= form_for :job do |form| %>
+            <%= form.hidden_field :status, value: true %>
+            <%= form.hidden_field :completed_at, value: Time.now %>
+            <%= form.submit 'Completed Job' %>
+        <% end %>
+    <% end %>
+    
+</div>
+
