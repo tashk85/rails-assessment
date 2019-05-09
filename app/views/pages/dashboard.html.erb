@@ -1,41 +1,83 @@
-
-<div id="sidebar" class="sidebar-offcanvas">
-    <div class="col-md-12">
-        
-        <div class="howItWorks_image"></div>
-        <h3><%= "#{current_user.first_name.capitalize} #{current_user.last_name.capitalize}"%></h3>
-        <ul class="nav nav-pills nav-stacked">
-            <li><a href="<% dashboard_path %>">Dashboard</a></li>
-            <li><a href="<% listings_path %>">View My Listings</a></li>
-            <li><a href="<% my_quotes_path(@user_id) %>">View My Quotes</a></li>
-            <li><a href="<% jobs_path %>">View My Jobs</a></li>
-        </ul>
+<main class="row">
+    <!-- start of sidebar -->
+    <div class="col-md-3 sidebar">
+        <div class="col-md-12">
+            <div class="howItWorks_image"></div>
+            <h3><%= "#{current_user.first_name.capitalize} #{current_user.last_name.capitalize}"%></h3>
+            <ul class="nav nav-pills nav-stacked">
+                <li><a href="<% dashboard_path %>">Dashboard</a></li>
+                <li><a href="<% listings_path %>">View My Listings</a></li>
+                <li><a href="<% my_quotes_path(@user_id) %>">View My Quotes</a></li>
+                <li><a href="<% jobs_path %>">View My Jobs</a></li>
+            </ul>
+        </div>
     </div>
-</div>
-<h1><%=current_user.user_type.capitalize%> Dashboard</h1>
-
-<!--What the designer sees -->
-
-<%if current_user.user_type == "designer"%>
-    <div class="card">
-        <%=link_to "View My Listings", listings_path%>
-        <%=link_to "Create New Listing", new_listing_path%>
-    </div>
-
-    <div class="card">
-       <%=link_to "View My Quotes", my_quotes_path(@user_id)%>
-   </div>
-
-<!--What the printer sees -->
-<%else%>
-
-    <div class="card">
-       <%=link_to "View All Listings", listings_path%>
-   </div>
-
-   <div class="card">
-       <%=link_to "View My Quotes", my_quotes_path(@user_id)%>
-   </div>
-        
+    <!-- end of sidebar -->
     
-<%end%>
+    <!-- start of main content -->
+    <div class="col-md-9 col-sm-12">
+        <h1 class="page-header"><%=current_user.user_type.capitalize%> Dashboard</h1>
+
+        <h2><%="Hi, #{current_user.first_name.capitalize}"%></h2>
+
+    
+        <!--What the designer sees -->
+        
+        <%if current_user.user_type == "designer"%>
+            <div>
+                <a class="button_link" href="<%= new_listing_path %>">
+                    Create New Listing <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>    
+            <div class="card">
+                <h3>My Jobs Summary</h3>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <p><%= Listing.where(user_id: @user_id).count %></p>
+                        <p>Active Listings</p>
+                    </div>
+                    <div class="col-sm-3">
+                        <p><%= Quote.where(user_id: @user_id).count %></p>
+                        <p>Quotes</p>
+                    </div>
+                    <div class="col-sm-3">
+                        <p><%= Listing.where(user_id: @user_id).count %></p>
+                        <p>Completed Jobs</p>
+                    </div>
+
+                </div>
+            </div>
+            
+            <div>
+                <a class="button_link" href="<%= listings_path %>">
+                    View My Listings <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            <div>
+                <a class="button_link" href="<%= my_quotes_path(@user_id) %>">
+                    View My Quotes <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            <div>
+                <a class="button_link" href="<%= jobs_path %>">
+                    View My Jobs <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        
+        <!--What the printer sees -->
+        <%else%>
+        
+            <div class="card">
+                <%=link_to "View All Listings", listings_path%>
+            </div>
+        
+            <div class="card">
+                <%=link_to "View My Quotes", my_quotes_path(@user_id)%>
+            </div>
+                
+            
+        <%end%>
+    </div>
+    <!-- end of main content -->
+</main>
+
