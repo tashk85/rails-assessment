@@ -29,8 +29,15 @@ describe("Quote functionality", function() {
         cy.get("input[value='Log in'").click()
 
         cy.visit("/my_quotes")
-        cy.contains("Show").click()
+        cy.contains("View Quote").click()
         cy.contains("Accept Quote").click({force:true})
+        cy.get('[data-test="button-FormStripeCart-PayWithCreditCard"]').click()
+        // cy.get("input[id='cardNumber']").type("4242424242424242")
+        // .click().type("4242424242424242")
+        // cy.get("input[id='cardExpire'").click().type("1234")
+        // cy.get("input[id='cardCVC'").click().type("1234")
+        // cy.get("input[id='billingName'").click().type("Jimmy")
+        
 
 
 
