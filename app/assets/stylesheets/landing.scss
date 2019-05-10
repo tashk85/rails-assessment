@@ -4,7 +4,7 @@
     background-image: url(asset-path('3d_printing_hero_image.jpg'));
     background-position: center;
     background-size: cover;
-    height: 450px;
+    height: 300px;
 }
 
 .hero_signup {
@@ -24,6 +24,11 @@
     .h1 {
         margin-top: 3.85rem;
     }
+    
+    .hero_image {
+        height: 450px;
+    }
+
     .hero_signup {
         min-height: 280px;
         margin: 0;
@@ -85,6 +90,20 @@
     }
 }
 
+.video-responsive{
+    overflow:hidden;
+    padding-bottom:56.25%;
+    position:relative;
+    height:0;
+}
+.video-responsive iframe{
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    position:absolute;
+}
+
 .secondary_signup {
     text-align: center;
 }
@@ -99,6 +118,14 @@
     .method {
         flex-direction: row;
         justify-content: space-around;
+    }
+
+    .video-responsive{
+        padding-bottom:25%;
+    }
+
+    .video-responsive iframe {
+        max-height: 500px;
     }
 
 }
