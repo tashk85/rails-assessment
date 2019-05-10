@@ -190,9 +190,25 @@ As Esperanza, I want to print a necklace with my own design so that I can give i
 
 ### Wireframes
 
+[Wireframe Sketches](.docs/screenshots/Wireframes/Wireframe-Sketches-1.jpg)
+
+[Wireframe Sketches](.docs/screenshots/Wireframes/Wireframe-Sketches-2.jpg)
+
+[Wireframe Sketches](.docs/screenshots/Wireframes/Wireframe-Sketches-3.jpg)
+
+[Wireframe Sketches](.docs/screenshots/Wireframes/Wireframe-Sketches-4.jpg)
+
+[Wireframe Sketches](.docs/screenshots/Wireframes/Wireframe-Sketches-5.jpg)
+
+[Wireframe Sketches](.docs/screenshots/Wireframes/Wireframe-Sketches-6.jpg)
+
+[Wireframe Sketches](.docs/screenshots/Wireframes/Wireframe-Sketches-7.jpg)
+
+[Wireframe Sketches](.docs/screenshots/Wireframes/Wireframe-Sketches-8.jpg)
+
 [Designer Desktop Wireframe](./docs/screenshots/Wireframes/Desktop-Wireframes_Designer.pdf)
 
-[Printer Desktop Wireframe](./docs/screenshots/Wireframes/Desktop-Wireframes_Printer%20(2).pdf)
+[Printer Desktop Wireframe](./docs/screenshots/Wireframes/Desktop-Wireframes_Printer.pdf)
 
 [Designer Mobile Wireframe](./docs/screenshots/Wireframes/Mobile-Wireframes_Designer.pdf)
 
