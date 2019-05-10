@@ -2,10 +2,6 @@ class QuotesController < ApplicationController
     def index
         #shows all quotes
         @quotes = Quote.all
-
-
-
-       
     end
 
     def show
@@ -27,7 +23,6 @@ class QuotesController < ApplicationController
                 quantity: 1,
             }],
             success_url: "http://localhost:3000/payments/success?quote_id=#{@quote.id}", #make these links dynamic
-            # success_url: "http://localhost:3000/jobs/#{Job.find_by_quote_id(@quote.id).id}", #make these links dynamic
             cancel_url: 'http://localhost:3000/cancel',
         )
         @stripe_session_id = stripe_session.id
@@ -77,19 +72,11 @@ class QuotesController < ApplicationController
         @user_id = current_user.id
         @quotes = Quote.all
 
-        #Determine which quotes have been made into a job by searching the relevant tables
-
+        #Determine which quotes have been made into a job
         set_quote_arrays
 
+        #Set total quote amounts so we can display a message if it = 0
         @amount_of_user_quotes = @past_quotes.count + @open_quotes.count
-        # p @amount_of_user_quotes
-
-
-
-
-        
-
-        
     end
 
     def edit
@@ -118,10 +105,11 @@ class QuotesController < ApplicationController
         #Determine which quotes have been made into a job by searching the relevant tables
 
         if current_user.user_type == "printer"
-            #return quotes with an active job
+            #return quotes that belong to the user, and the associated job also belong to the user
             @past_quotes = Quote.joins(:printer).where(printers:{user_id:current_user.id}, has_job:true)
             @open_quotes = Quote.joins(:printer).where(printers:{user_id:current_user.id}, has_job:false)
-
+           
+            #Check if a quote has been assigned to a job that belongs to another printer
 
         elsif current_user.user_type == "designer"
             @past_quotes = Quote.joins(:listing).where(listings:{user_id:current_user.id}, has_job:true)

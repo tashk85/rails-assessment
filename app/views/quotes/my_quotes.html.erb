@@ -10,6 +10,7 @@
     <div class="card">
         <p>Quote Id: <%= quote.id %></p>
         <p>Printer Id: <%= quote.printer_id %></p>
+        <p>Printer Postcode: <%=quote.printer.user.postcode%><p>
         <p>Listing Id: <%= quote.listing_id %></p>
         <p>Total Price: $<%= number_with_precision(quote.total_price, precision: 2) %></p>
         <p>Job Size (cubic cm): <%= quote.job_size %></p>
@@ -25,9 +26,6 @@
    
 <%end%>
 
-
-
-
 <h2> Past Quotes </h2>
 
 
@@ -39,6 +37,7 @@
     <div class="card">
         <p>Quote Id: <%= quote.id %></p>
         <p>Printer Id: <%= quote.printer_id %></p>
+        <p>Printer Postcode: <%=quote.printer.user.postcode%><p>
         <p>Listing Id: <%= quote.listing_id %></p>
         <p>Total Price: $<%= number_with_precision(quote.total_price, precision: 2) %></p>
         <p>Job Size (cubic cm): <%= quote.job_size %></p>

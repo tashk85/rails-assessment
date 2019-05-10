@@ -32,15 +32,22 @@ class PagesController < ApplicationController
     def create
         #create new a new printer model entry
         if Printer.find_by_user_id(current_user.id) == nil
-            @printer = Printer.create(
-                user_id: current_user.id,
-                abn: params[:printer][:abn],
-                printer_model: params[:printer][:printer_model]
-            )
+            @printer = Printer.create(printer_params)
+                # user_id: current_user.id,
+                # abn: params[:printer][:abn],
+                # printer_model: params[:printer][:printer_model]
+                
+            # )
             
         end
 
-        redirect_to dashboard_path
+        if @printer.errors.any?
+            render "printer_info"
+        else
+            redirect_to dashboard_path
+        end
+
+        
         
         
     end
@@ -48,6 +55,6 @@ class PagesController < ApplicationController
     private 
 
     def printer_params
-        params.require(:printer).permit(:abn, :printer_model)
+        params.require(:printer).permit(:abn, :printer_model, :user_id)
     end
 end

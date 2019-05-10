@@ -15,18 +15,20 @@
                 <%=link_to "Create Quote", new_quote_path(listing: @listing.id)%>
         <%end%>
         
-        <!-- Link to quotes with the amount varying depending on user type -->
+        <!-- Link to quotes with the amount varying depending on user type --
 
         <%if current_user.user_type == "designer"%>
 
-                <!-- set quote_count to 0 if there are none, to the total amount if there are some -->
+                <!-- set quote_count to 0 if there are none, to the total amount if there are some --
                 <%Quote.find_by_listing_id(@listing.id) == nil? ? quote_count = 0 : quote_count = Quote.where(listing_id: @listing.id).count %>
 
         <%else%>
-                <!-- For printers, only show quotes they have personally made on the listing -->
+                <!-- For printers, only show quotes they have personally made on the listing --
                 <%Quote.find_by_listing_id(@listing.id) == nil? ? quote_count = 0 : quote_count = Quote.where(listing_id: @listing.id, printer_id: (Printer.find_by_user_id(current_user.id))).count %>
         <%end%>
 
-        
+        --
         <%=link_to "View Quotes (#{quote_count})", quotes_path(listing: @listing)%>
+        -->
+        <%=link_to "View Quotes", quotes_path(listing: @listing)%>
 </div>

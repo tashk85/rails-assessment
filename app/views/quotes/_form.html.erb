@@ -29,17 +29,17 @@
     <div>
 
         <%= form.label :total_price %>
-        <%= form.number_field :total_price, value: number_to_currency(form.object.total_price.to_f, delimiter: '', unit: ''), step: :any, min: 5 %>
+        <%= form.number_field :total_price, value: number_to_currency(form.object.total_price.to_f, delimiter: '', unit: ''), step: :any, min: 5, max:99999 %>
     </div>
 
     <div>
-        <%= form.label :job_size %>
-        <%= form.text_field :job_size %>
+        <%= form.label :job_size, "Job Size (in cm³)" %>
+        <%= form.number_field :job_size, min:5, max:10000 %>
     </div>
 
     <div>
         <%= form.label :turnaround_time %>
-        <%= form.date_field :turnaround_time %>
+        <%= form.date_field :turnaround_time, min: Date.today %>
     </div>
 
    

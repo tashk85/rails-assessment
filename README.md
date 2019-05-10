@@ -1,4 +1,5 @@
-# 3D PRINTING RAILS APP
+# 3Directions Rails Application
+## By Natasha Khatri and Luke Turner
 
 ## App URL
 
@@ -6,7 +7,9 @@
 https://github.com/luketurnerdev/rails-assessment
 
 ## Description Of Project
-[3D printing service] is a 2 way marketplace that connects designers wishing to print their designs with people who own 3D printing facilities. Users are able to sign up either as a designer or a printer, and [3D printing service] will connect the two parties together, enabling 3D printing transactions to be made.
+3Directions is a 2 way marketplace that connects designers wishing to print their designs with people who own 3D printing facilities. Users are able to sign up either as a designer or a printer, and 3Directions will connect the two parties together, enabling 3D printing transactions to be made.
+
+* These 2 parties will henceforth be referred to as 'designers' and 'printers'.
 
 ### Problem Definition / Purpose
 
@@ -14,7 +17,7 @@ Our app aims to bridge the gap between people who want 3D prints done and the pe
 
 ### Functionality / Features
 
-#### As a designer
+#### Functionality as a designer
 
 Designers will have the ability to:
     
@@ -28,7 +31,7 @@ Designers will have the ability to:
     * Once the payment has been made, they can view the progress of their job as it is being printed, as well as view past jobs
     * The designer can pickup their job from the printer or optionally have it mailed out.
 
-#### As a printer
+#### Functionality as a printer
 
 Printers will have the ability to:
 
@@ -42,6 +45,8 @@ Printers will have the ability to:
 
 ### Screenshots
 
+[insert once styling is done]
+
 ### Tech Stack (e.g. html, css, deployment platform, etc)
 
 - Ruby/Rails
@@ -53,9 +58,10 @@ Printers will have the ability to:
 - Dbeaver for database GUI
 - Heroku for deployment
 - GitKraken / Glo boards for source control and project management
+- Google Sheets / Google docs for extra day planning and organization
 
 ### Instructions on how to setup, configure and use your App.
-1. Open the app in heroku [link ]
+1. Open the app in heroku.
 
 2. Signing up 
 
@@ -146,6 +152,10 @@ As either type of user, you are able to view 'My Quotes' from the dashboard, whi
 
 ## Design Documentation including,
 ### Design Process
+
+![whiteboard-ideas](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/app-idea-brainstorm.jpg "Whiteboard ideas")
+
+
 
 
 ### User Stories
@@ -251,11 +261,51 @@ Our project will be a 2 way marketplace that allows users to sign up either as D
 
 #### *. Describe the network infrastructure the App may be based on.
 
+This application will be 
+
 #### *. Identify and describe the software to be used in your App.
 The application will be built in Ruby on Rails, 
 #### 6. Identify the database to be used in your App and provide a justification for your choice.
 #### 7. Identify and describe the production database setup (i.e. postgres instance).
 #### 8. Describe the architecture of your App.
+
+This is a rails application which employs the MVC architecture:
+
+The Models maintain the data that is being used in the program and provide links between different data tables. We use the following models in our program:
+* User (contains all the users that sign up for the application)
+* Printer (contains all users selecting the user type "printer" - this is linked to user with a foreign key)
+* Listing (contains all listings posted on the application - also serves as a unique identifier for designers, because only designers can post listings)
+* Quotes (contains all quotes that have been made by Printers on Designer's listings. Is linked to both Printer and Listing, as well as User indirectly through these two tables)
+* Jobs (contains all quotes that have been accepted and paid for through Stripe. Jobs are then printed by the printer then marked as complete once they are done)
+
+The following views are used in our program to provide output to the user, with minimal logic (generally limiting logic to an iterator to display data, or a one line if statement where necessary):
+
+* The index page (landing page)
+* The sign up page, which is passed parameters depending on the user type
+* The printer information page (containing extra information only pertaining to printers)
+* The dashboard (what users see when signed in)
+* The listings page
+* Viewing a particular listing
+* Making a new listing
+* The quotes page
+* Viewing a particular quote
+* Making a new quote on a listing
+* Making payments on a quote (handled externally via Stripe)
+* The jobs page
+* Viewing a particular job (including a button available to printers to mark the job as complete)
+* Edit pages for listings and quotes, which appear identical to the 'new' pages, but amend the information instead of creating a new instance
+
+The Controllers in our program are used to provide Ruby logic between the Models and the Views:
+
+* Listings controller - this handles all the logic for the listings, including creating instance variables to be used elsewhere, error handling, authorization and authentication
+
+* Quotes controller - similar functionality to the listings controller, with the added function of creating Stripe sessions such that designers can pay for the quotes
+
+
+
+Rails application using MVC architecture - connected to Postgresql database
+  Heroku
+  “Building Blocks”
 #### 9. Explain the different high-level components (abstractions) in your App.
 #### 10. Detail any third party services that your App will use.
 #### 11. Describe (in general terms) the data structure of marketplace apps that are similar to your own (e.g. eBay, Airbnb).
