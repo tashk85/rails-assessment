@@ -37,4 +37,8 @@ class PaymentsController < ApplicationController
         redirect_to job_path(Job.find_by_quote_id(params[:quote_id]).id)
     end
 
+    def cancel
+
+    end
+
 end 
