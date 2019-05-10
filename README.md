@@ -156,6 +156,8 @@ As either type of user, you are able to view 'My Quotes' from the dashboard, whi
 
 ![whiteboard-ideas](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/app-idea-brainstorm.jpg "Whiteboard ideas")
 
+[Design ideas and planning](./docs/screenshots/Planning/3D printing Project Planning and ideas.pdf)
+
 ![Moodboard](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/screenshots/Planning/pinterest_moodboard.jpg "Pinterest Moodboard screenshot")
 
 ![Font Selection](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/screenshots/Planning/font_selection.png "Google Font selection screenshot")
@@ -403,6 +405,7 @@ When a designer is viewing a particular quote, they are able to choose the 'Acce
 [Printer Mobile Wireframe](./docs/screenshots/Wireframes/Mobile-Wireframes_Printer.pdf)
 
 #### 17. Describe the way tasks are allocated and tracked in your project.
+how tasks were divided
 
 #### 18. Discuss how Agile methodology is being implemented in your project.
   We implemented agile project management into our project through firstly going through the following:
@@ -412,11 +415,16 @@ When a designer is viewing a particular quote, they are able to choose the 'Acce
   * After each task was developed, we tested the process by finding any bugs or errors and incorporating this into our lessons learnt and if improvement was needed.
 
 #### 19. Provide an overview and description of your Source control process.
+git hub / gitkraken
 
 #### 20. Provide an overview and description of your Testing process.
+byebug, automated testing with cypress
 
 #### 21. Discuss and analyse requirements related to information system security.
+credit cards and user info hosted by third party
 
 #### 22. Discuss methods you will use to protect information and data.
+passwords - devise encrypts
+stripe - how they protect payment
 
 #### 23. Research what your legal obligations are in relation to handling user data.
