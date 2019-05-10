@@ -1,8 +1,9 @@
 @import 'general';
 
 .hero_image {
-    background-image: url(asset-path('hero_image_3d_printing.jpg'));
+    background-image: url(asset-path('3d_printing_hero_image.jpg'));
     background-position: center;
+    background-size: cover;
     height: 450px;
 }
 
