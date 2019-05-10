@@ -37,7 +37,7 @@
         <%= form_for :job do |form| %>
             <%= form.hidden_field :status, value: true %>
             <%= form.hidden_field :completed_at, value: Time.now %>
-            <%= form.submit 'Completed Job' %>
+            <%= form.submit 'Mark job as complete' %>
         <% end %>
     <% end %>
     
