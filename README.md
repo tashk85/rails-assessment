@@ -156,7 +156,7 @@ As either type of user, you are able to view 'My Quotes' from the dashboard, whi
 
 ![whiteboard-ideas](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/app-idea-brainstorm.jpg "Whiteboard ideas")
 
-![Moodboard](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/screenshots/Planning/pinterest_moodboard.png "Pinterest Moodboard screenshot")
+![Moodboard](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/screenshots/Planning/pinterest_moodboard.jpg "Pinterest Moodboard screenshot")
 
 ![Font Selection](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/screenshots/Planning/font_selection.png "Google Font selection screenshot")
 
@@ -228,10 +228,9 @@ All 4 of our wireframes (Designer and printer, desktop and mobile) can be found 
 ## Details of Planning process
 ### Project plan & timeline
 
-
+[Project plan & timeline](.docs/screenshots/Planning/Project Plan - 3D Print.pdf)
 
 ### Screenshots of Trello board(s)
-
 
 For this project, we used a combination of approaches to organize tasks to be completed.
 
@@ -279,7 +278,13 @@ Our project will be a 2 way marketplace that allows users to sign up either as D
 
 #### *. Describe the network infrastructure the App may be based on.
 
-This application will be 
+This application is run on the Heroku platform, which is in many ways the same as a web host as they are storing and running your website on the internet using its own servers.
+
+
+
+how people are connecting to the app - the network
+Heroku, HTTPS over the internet, web server that’s running
+Could also talk about how it connects to the database
 
 #### *. Identify and describe the software to be used in your App.
 The application will be built in Ruby on Rails, which utilizes the Ruby programming language and combines this functionality with HTML, CSS and other languages, as well as providing software functionality for managing an application on the web (such as database management).
@@ -293,13 +298,15 @@ This application will be using the PostgresQL database as it is compatible with 
 
 The application runs on PostgresQL, and consists of a series of tables for the models in the app (described further below). This PostgresQL instance then interfaces with Heroku, to create a database on the Heroku server that can be publicly accessed.
 
+The models are accessed through controller methods, which extract and manipulate data as users interact with the app and complete transactions.
+
 Modifications can be made to the deployed database by running heroku commands from the Terminal (such as heroku run rake db:seed) in a similar way that they are run locally.
 
 #### 8. Describe the architecture of your App.
 
 This is a rails application which employs the MVC (Model, View, Controller) architecture:
 
-The Models maintain the data that is being used in the program and provide links between different data tables. We use the following models in our program:
+The Models maintain the data that is being used in the program and provide links between different data tables. We use the following models in our program, connected through Postgresql database:
 * User (contains all the users that sign up for the application)
 * Printer (contains all users selecting the user type "printer" - this is linked to user with a foreign key)
 * Listing (contains all listings posted on the application - also serves as a unique identifier for designers, because only designers can post listings)
@@ -323,6 +330,8 @@ The following views are used in our program to provide output to the user, with 
 * Viewing a particular job (including a button available to printers to mark the job as complete)
 * Edit pages for listings and quotes, which appear identical to the 'new' pages, but amend the information instead of creating a new instance
 
+The views are deployed through Heroku to allow user access.
+
 The Controllers in our program are used to provide Ruby logic between the Models and the Views:
 
 * Listings controller - this handles all the logic for the listings, including creating instance variables to be used elsewhere, error handling, authorization and authentication
@@ -333,9 +342,6 @@ The Controllers in our program are used to provide Ruby logic between the Models
 
 * Jobs Controller - allows users to view all jobs, a particular job, or update the details of a job (if the printer has completed the job, they click a button to update the job status and time of completion)
 
-
-Models are connected to Postgresql database
-The application has been deployed to Heroku
 
 #### 9. Explain the different high-level components (abstractions) in your App.
 
@@ -355,11 +361,25 @@ When a designer is viewing a particular quote, they are able to choose the 'Acce
 
 #### 10. Detail any third party services that your App will use.
 
-3Directions has used the Devise gem for all user authorisation and model setup, we customized the sign-up forms to account for two different user types. Stripe for payments and AWS-SDK-S3 for image uploads and storage.
+* Devise
+3Directions has used the Devise gem for all user authorisation and model setup. We customized the sign-up forms to account for two different user types. Devise was also the basis for how our user model was setup.
+
+* Stripe
+3Directions used Stripe for payment processing. This also requires setting up authentication through use of API keys. We implemented webhooks to be notified about any transactions that occur in our account, this also allows us to use payment information in order to create new instances of jobs in our Model.
+
+* AWS-SDK-S3 
+3Directions used Amazon Simple Storage Service for image/file uploads and storage. We also provided download links to allow printers to view and download the file and determine quote details.
 
 
 #### 11. Describe (in general terms) the data structure of marketplace apps that are similar to your own (e.g. eBay, Airbnb).
+
+
 #### 12. Discuss the database relations to be implemented.
+
+  The User model is the basis from which all 3Directions models are formed. Most models belongs_to a user, which allows access to user information easily and also filters what is visible to each individual user through authorization. Each user has a user_type enum, which allows 3Directions to categorise the user as a printer or designer. 
+
+  The User table is related to all other databases through the has_many relationship. A User can have many listings (directly), quotes or jobs (indirectly through a listing). The Printer table is a join table with the User model. 
+  
 #### 13. Describe your project’s models in terms of the relationships (active record associations) they have with each other.
 
 [Brief sentence about how the models talk to eachother (has_one, has_many etc)]
@@ -384,8 +404,14 @@ When a designer is viewing a particular quote, they are able to choose the 'Acce
 [Printer Mobile Wireframe](./docs/screenshots/Wireframes/Mobile-Wireframes_Printer.pdf)
 
 #### 17. Describe the way tasks are allocated and tracked in your project.
+
 #### 18. Discuss how Agile methodology is being implemented in your project.
+***Have a general overview
+Break down general overview into sprints - after each sprint question: did we miss anything or is there anything we want to improve, did we learn anything?
+Sprint 1 we only focus on this problem/solution ***
+
 #### 19. Provide an overview and description of your Source control process.
+
 #### 20. Provide an overview and description of your Testing process.
 #### 21. Discuss and analyse requirements related to information system security.
 #### 22. Discuss methods you will use to protect information and data.

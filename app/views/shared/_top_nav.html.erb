@@ -26,7 +26,7 @@
         <% else %>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
-                    <li><a href="#howItWorks">How It Works</a></li>
+                    <li><a href="<%= root_path({anchor: "howItWorks" }) %>">How It Works</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="<%= new_user_registration_path(user_type: "printer") %>">Sign Up As A Printer</a></li>
@@ -37,50 +37,3 @@
         <% end %>
     </div>
 </nav>
-
-<!-- <div class="Navbar">
-    <div class="Navbar__Link Navbar__Link-brand">
-    3Directions
-    </div>
-    <div class="Navbar__Link Navbar__Link-toggle">
-        <i class="fas fa-bars"></i>
-    </div>
-    
-    <% if user_signed_in? %>
-        <nav class="Navbar__Items Desktop">
-            <a class="Navbar__Link" href="<%= dashboard_path %>">Dashboard</a>
-            <a class="Navbar__Link" href="<%= listings_path %>">View Listings</a>
-            <a class="Navbar__Link" href="<%= my_quotes_path %>">View Quotes</a>
-            <a class="Navbar__Link" href="<%= jobs_path %>">View Jobs</a>
-        </nav>
-        <nav class="Navbar__Items Navbar__Items--right">
-            <a class="Navbar__Link" href="<%= destroy_user_session_path %>">
-            Log Out
-            </a>
-        </nav>
-    <% else %>
-        <nav class="Navbar__Items">
-            <a class="Navbar__Link" href="#howItWorks">How It Works</a>
-        </nav>
-        <nav class="Navbar__Items Navbar__Items--right">
-            <a class="Navbar__Link" href="<%= new_user_registration_path(user_type: "printer") %>">
-            Sign Up As A Printer
-            </a>
-            <a class="Navbar__Link" href="<%= new_user_registration_path(user_type: "designer") %>">
-            Sign Up As A Designer
-            </a>
-            <a class="Navbar__Link" href="<%= new_user_session_path %>">
-            Login
-            </a>
-        </nav>
-    <% end %>
-</div>
-
-<script>
-    function classToggle() {
-        const navs = document.querySelectorAll('.Navbar__Items')
-        
-        navs.forEach(nav => nav.classList.toggle('Navbar__ToggleShow'));
-    }
-    document.querySelector('.Navbar__Link-toggle').addEventListener('click', classToggle);
-</script> -->
