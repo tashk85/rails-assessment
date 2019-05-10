@@ -1,3 +1,16 @@
-<h1>Edit Quotes</h1>
+<main class="container-fluid">
+    <div class="row">
 
-<%= render "form", quote: @quote %>
+        <%= render "pages/sidebar" %>
+
+        <!-- start of main content -->
+        <div class="col-sm-9">
+
+            <h1 class="h1 page-header">Edit Quotes</h1>
+
+            <%= render "form", quote: @quote %>
+
+        </div>
+        <!-- end of main content -->
+    </div>
+</main>

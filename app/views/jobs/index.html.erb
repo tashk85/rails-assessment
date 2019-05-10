@@ -1,27 +1,45 @@
-<h1>My Jobs</h1>
-
-<% @jobs.each do |job| %>
-
-    <%#if the current user owns the job - if they are the printer or the designer - show it%>
-    <%# If the user is the printer doing the job%>
-
-    <%if Printer.find(job.printer_id).user_id == current_user.id or Listing.find(job.listing_id).user_id == current_user.id%>
-
-        <div class="card">
-            <% if job.status == false %>
-                <p>Status: Active</p>
-            <% else %>
-                <p>Status: Completed</p>
-            <% end %>
-            <p><%= job.created_at.to_time.strftime('%A, %d %b %Y %H:%M') %></p>
-            <p><%= "#{job.listing.user.first_name} #{job.listing.user.last_name}" %></p>
-            <p>Job Id: <%= job.id %></p>
-            <p>Total Price: $<%= number_with_precision(job.quote.total_price, precision: 2) %></p>
-            <%= link_to "Show",job_path(job.id) %>
-        </div>
-    <%end%>
-
+<main class="container-fluid">
+    <div class="row">
     
-<% end %>
+        <%= render "pages/sidebar" %>
 
-<%= link_to "Back to dashboard", dashboard_path %>
+        <!-- start of main content -->
+        <div class="col-sm-9">
+
+            <h1 class="h1 page-header">My Jobs</h1>
+
+            <% @jobs.each do |job| %>
+
+                <%#if the current user owns the job - if they are the printer or the designer - show it%>
+                <%# If the user is the printer doing the job%>
+
+                <%if Printer.find(job.printer_id).user_id == current_user.id or Listing.find(job.listing_id).user_id == current_user.id%>
+
+                    <div class="row card">
+                        <div class="col-md-6">
+                            <% if job.status == false %>
+                                <p class="active">Status: Active</p>
+                            <% else %>
+                                <p class="completed">Status: Completed</p>
+                            <% end %>
+                            <p><%= job.created_at.to_time.strftime('%A, %d %b %Y %H:%M') %></p>
+                            <p><%= "#{job.listing.user.first_name} #{job.listing.user.last_name}" %></p>
+                            <p>Job Id: <%= job.id %></p>
+                            <p>Total Price: $<%= number_with_precision(job.quote.total_price, precision: 2) %></p>
+                        </div>
+                        <div class="col-md-3">
+                            <%= link_to "View Job",job_path(job.id), class: "button_link" %>
+                        </div>
+                    </div>
+                <%end%>
+
+                
+            <% end %>
+
+            <div class="col-md-12 hidden-sm-up">
+                <%= link_to 'Back to Dashboard', dashboard_path, class: "button_link" %>
+            </div>
+        </div>
+        <!-- end of main content -->
+    </div>
+</main>

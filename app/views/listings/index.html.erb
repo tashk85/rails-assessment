@@ -1,40 +1,61 @@
-<%if current_user.user_type == "designer"%>
-    <h1>My Listings</h1>
-<%else%>
-    <h1>All Listings</h1>
-<%end%>
-
-<% if current_user.user_type == "designer" %>
-
-    <!--Display message if there are no listings for the user -->
-    <%if Listing.find_by_user_id(current_user.id) == nil %>
-        <p> It looks like you don't have any listings currently. </p>
-    <%end%>
+<main class="container-fluid">
+    <div class="row">
     
-    <%=link_to "Create new listing", new_listing_path%>
-<% end %>
+        <%= render "pages/sidebar" %>
 
-<%= link_to 'Back to dashboard', dashboard_path%>
+        <!-- start of main content -->
+        <div class="col-sm-9">
 
-<!-- Display listings if they exist and don't already have a job-->
-<%@listings.each do |listing|%>
+            <%if current_user.user_type == "designer"%>
+                <h1 class="h1 page-header">My Listings</h1>
+            <%else%>
+                <h1 class="h1 page-header">All Listings</h1>
+            <%end%>
 
-<%if listing.has_job == false%>
-    <div class="card">
-        <p>Listing ID: <%=listing.id%> </p>
-        <p>Description: <%=listing.description%> </p>
-        <p>Budget: $<%= number_with_precision(listing.budget, precision: 2)%> </p>
-        <p>Due date: <%=listing.due_date%> </p>
-        <p>Created at: <%=listing.created_at.to_time.strftime('%A, %d %b %Y')%> 
-        <br> <br>
-        <!-- Only designers can edit listings -->
-        <%=link_to "Edit", edit_listing_path(listing.id) if current_user.user_type == "designer"%>
-        <%=link_to "Show", listing_path(listing.id)%>
+            <div class="row">
+                <% if current_user.user_type == "designer" %>
+
+                    <!--Display message if there are no listings for the user -->
+                    <%if Listing.find_by_user_id(current_user.id) == nil %>
+                        <p> It looks like you don't have any listings currently. </p>
+                    <%end%>
+                    
+                    <div class="col-md-12">
+                        <a class="button_link" href="<%= new_listing_path %>">
+                            Create New Listing <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div> 
+                <% end %>
+            </div>
+
+            <!-- Display listings if they exist and don't already have a job-->
+            <%@listings.each do |listing|%>
+
+            <%if listing.has_job == false%>
+                <div class="row card">
+                    <div class="col-md-6">
+                        <p class="name"><%=listing.user.first_name%> <%=listing.user.last_name%></p>
+                        <p>Listing id: <%=listing.id%> </p>
+                        <p>Description: <%=listing.description%> </p>
+                    </div>
+                    <!-- Only designers can edit listings -->
+                    <% if current_user.user_type == "designer" %>
+                        <div class="col-md-3">
+                            <%= link_to "Edit Listing", edit_listing_path(listing.id), class: "button_link" %>
+                        </div>
+                    <%end%>
+                    <div class="col-md-3">
+                        <%= link_to "View Listing", listing_path(listing.id), class: "button_link" %>
+                    </div>
+                </div>
+
+            <%end%>
+
+                <%# <p>Due date: <%=listing.due_date.to_time.strftime('%A, %d %b %Y')%>
+                <%#<p>Created at: <%=listing.created_at.to_time.strftime('%A, %d %b %Y')%> 
+
+            <%end%>
+        </div>
+        <!-- end of main content -->
     </div>
-
-<%end%>
-
-    <%# <p>Due date: <%=listing.due_date.to_time.strftime('%A, %d %b %Y')%>
-    <%#<p>Created at: <%=listing.created_at.to_time.strftime('%A, %d %b %Y')%> 
-
-<%end%>
+</main>

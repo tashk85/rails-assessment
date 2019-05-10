@@ -1,69 +1,88 @@
-<h1> My Quotes </h1>
+<main class="container-fluid">
+    <div class="row">
+    
+        <%= render "pages/sidebar" %>
 
-<h2> Open Quotes </h2>
+        <!-- start of main content -->
+        <div class="col-sm-9">
+            <h1 class="h1 page-header"> My Quotes </h1>
 
-<!-- if the quote has a job, DO NOT display it here -->
+            <h2 class="h2"> Open Quotes </h2>
+
+            <!-- if the quote has a job, DO NOT display it here -->
+            <%@open_quotes.each do |quote| %>
+
+                <div class="row card">
+                    <div class="col-md-6">
+                        <p><%= quote.listing.user.first_name %> <%= quote.listing.user.last_name %></p>
+                        <p>Quote Id: <%= quote.id %></p>
+                        <p>Printer Id: <%= quote.printer_id %></p>
+                        <p>Printer Postcode: <%=quote.printer.user.postcode%><p>
+                        <p>Total Price: $<%= number_with_precision(quote.total_price, precision: 2) %></p>
+                    </div>
+                    <%if current_user.user_type == "printer"%>                    
+                    <div class="col-md-3">
+                        <a class="button_link" href="<%= edit_quote_path(quote.id) %>">
+                            Edit
+                        </a>
+                    </div>
+                    <% end %>
+                    <div class="col-md-3">
+                        <a class="button_link" href="<%= quote_path(quote.id) %>">
+                            View Quote
+                        </a>
+                    </div>
+                    <%@amount_of_user_quotes += 1%>
+                </div>
+
+            <%end%>
+
+            <h2 class="h2"> Past Quotes </h2>
+
+            <!-- if the quote has a job, DO display it here -->
+            <%@past_quotes.each do |quote|%>
+
+                <div class="row card">
+                    <div class="col-md-6">
+                        <p><%= quote.listing.user.first_name %> <%= quote.listing.user.last_name %></p>
+                        <p>Quote Id: <%= quote.id %></p>
+                        <p>Printer Id: <%= quote.printer_id %></p>
+                        <p>Printer Postcode: <%=quote.printer.user.postcode%><p>
+                        <p>Total Price: $<%= number_with_precision(quote.total_price, precision: 2) %></p>
+                    </div>
+                    
+                    <%if current_user.user_type == "printer"%>
+                        <div class="col-md-3">    
+                            <%= link_to "Edit", edit_quote_path(quote.id), class: "button_link" %>
+                        </div>
+                    <% end %>
+                    <div class="col-md-3">
+                        <%= link_to "View Quote",quote_path(quote.id), class: "button_link" %>
+                    </div>
+                    <div class="col-md-3">
+                        <%= link_to "Go To Job", job_path(Job.find_by_quote_id(quote.id)), class: "button_link"%>
+                    </div>
+                    
+                    <%@amount_of_user_quotes += 1%>
+                </div>
+
+            <%end%>
 
 
-<%@open_quotes.each do |quote| %>
 
-    <div class="card">
-        <p>Quote Id: <%= quote.id %></p>
-        <p>Printer Id: <%= quote.printer_id %></p>
-        <p>Printer Postcode: <%=quote.printer.user.postcode%><p>
-        <p>Listing Id: <%= quote.listing_id %></p>
-        <p>Total Price: $<%= number_with_precision(quote.total_price, precision: 2) %></p>
-        <p>Job Size (cubic cm): <%= quote.job_size %></p>
-        <p>Turnaround Time: <%= quote.turnaround_time %></p>
-        
-        <%if current_user.user_type == "printer"%>
-            <%= link_to "Edit", edit_quote_path(quote.id) %>
-        <% end %>
-        <%= link_to "Show",quote_path(quote.id) %>
-        <%@amount_of_user_quotes += 1%>
+
+            <!-- Display no quotes message -->
+
+            <%if @amount_of_user_quotes == 0%>
+
+                <p>You don't have any quotes at the moment.</p>
+
+            <%end%>
+
+            <div class="col-md-12 hidden-sm-up">
+                <%= link_to 'Back to Dashboard', dashboard_path, class: "button_link" %>
+            </div>
+        </div>
+        <!-- end of main content -->
     </div>
-
-   
-<%end%>
-
-<h2> Past Quotes </h2>
-
-
-<!-- if the quote has a job, DO display it here -->
-
-
-<%@past_quotes.each do |quote|%>
-
-    <div class="card">
-        <p>Quote Id: <%= quote.id %></p>
-        <p>Printer Id: <%= quote.printer_id %></p>
-        <p>Printer Postcode: <%=quote.printer.user.postcode%><p>
-        <p>Listing Id: <%= quote.listing_id %></p>
-        <p>Total Price: $<%= number_with_precision(quote.total_price, precision: 2) %></p>
-        <p>Job Size (cubic cm): <%= quote.job_size %></p>
-        <p>Turnaround Time: <%= quote.turnaround_time %></p>
-
-        
-        <%if current_user.user_type == "printer"%>
-            <%= link_to "Edit", edit_quote_path(quote.id) %>
-        <% end %>
-        <%= link_to "Show",quote_path(quote.id) %>
-        <%= link_to "Go To Job", job_path(Job.find_by_quote_id(quote.id))%>
-        <%@amount_of_user_quotes += 1%>
-    </div>
-
-<%end%>
-
-
-
-
-<!-- Display no quotes message -->
-
-<%if @amount_of_user_quotes == 0%>
-
-    <p>You don't have any quotes at the moment.</p>
-
-<%end%>
-
- <%= link_to "Back to dashboard", dashboard_path %>
-
+</main>
