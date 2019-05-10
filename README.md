@@ -279,13 +279,9 @@ Our project will be a 2 way marketplace that allows users to sign up either as D
 
 #### *. Describe the network infrastructure the App may be based on.
 
-This application is run on the Heroku platform, which is in many ways the same as a web host as they are storing and running your website on the internet using its own servers.
+This application is deployed on the Heroku platform, which is in many ways the same as a web host as they are storing and running your website on the internet using its own servers.
 
-
-
-how people are connecting to the app - the network
-Heroku, HTTPS over the internet, web server that’s running
-Could also talk about how it connects to the database
+The user will enter the 3Directions URL into their browser, this will send a HTTP request to the Internet Service Provider (ISP). The ISP will request the IP address from the Domain Name Server (DNS) to find the linked IP address and web server before it retrieves the data to load on the browser. Following this, the ISP will request to load files from the Heroku Web Server, which stores the app.
 
 #### *. Identify and describe the software to be used in your App.
 The application will be built in Ruby on Rails, which utilizes the Ruby programming language and combines this functionality with HTML, CSS and other languages, as well as providing software functionality for managing an application on the web (such as database management).
@@ -409,13 +405,18 @@ When a designer is viewing a particular quote, they are able to choose the 'Acce
 #### 17. Describe the way tasks are allocated and tracked in your project.
 
 #### 18. Discuss how Agile methodology is being implemented in your project.
-***Have a general overview
-Break down general overview into sprints - after each sprint question: did we miss anything or is there anything we want to improve, did we learn anything?
-Sprint 1 we only focus on this problem/solution ***
+  We implemented agile project management into our project through firstly going through the following:
+  * Planning, including developing user stories for types of users, wireframes, ERD and user flows.
+  * We tracked our progress through use of GitKraken Glo Board, where we divided it into columns based on ideas, to do tasks, testing, development and completed tasks.
+  * We collaborated on the project through daily team meetings, Slack conversations and phone calls where we set tasks and goals for the day.
+  * After each task was developed, we tested the process by finding any bugs or errors and incorporating this into our lessons learnt and if improvement was needed.
 
 #### 19. Provide an overview and description of your Source control process.
 
 #### 20. Provide an overview and description of your Testing process.
+
 #### 21. Discuss and analyse requirements related to information system security.
+
 #### 22. Discuss methods you will use to protect information and data.
+
 #### 23. Research what your legal obligations are in relation to handling user data.
