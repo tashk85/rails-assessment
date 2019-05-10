@@ -52,7 +52,7 @@
                             <p>Quotes</p>
                         </div>
                         <div class="col-xs-4  col-sm-4 summary">
-                            <h3><%= Job.joins(:listing).where(listings: {user_id: 6}).where(jobs: {status: true}).count %></h3>
+                            <h3><%= Job.joins(:listing).where(listings: {user_id: @user_id}).where(jobs: {status: true}).count %></h3>
                             <p>Completed Jobs</p>
                         </div>
 
