@@ -255,6 +255,7 @@ The glo board was separated into several cards:
 ![Glo board screenshot 1]https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/screenshots/Planning/Glo2.png( "Glo board screenshot")
 
 On a daily basis, we used Google Sheets to organize tasks for the day. Each day we would list the tasks to be completed by each team member by the end of the day. We coloured in the cell yellow when it was in progress, and green when it was complete. At times we shifted tasks to the next day's sheet when they weren't completed by the end of the day.
+
 The spreadsheet can be viewed here: https://docs.google.com/spreadsheets/d/1dflTU3Hk8w90SW6gPZDRxiEa19axQ65TlZpEr7AAzqA/edit?usp=sharing
 
 ![Google sheets - daily tasks](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/screenshots/Planning/Daily%20Tasks%20Sheet.png "Google sheets daily tasks")
@@ -293,6 +294,8 @@ This application will be using the PostgresQL database as it is compatible with 
 #### 7. Identify and describe the production database setup (i.e. postgres instance).
 
 The application runs on PostgresQL, and consists of a series of tables for the models in the app (described further below). This PostgresQL instance then interfaces with Heroku, to create a database on the Heroku server that can be publicly accessed.
+
+The database is initially created with rails db:create, migrations run with db:migrate, and seeded with db:seed.
 
 The models are accessed through controller methods, which extract and manipulate data as users interact with the app and complete transactions.
 
