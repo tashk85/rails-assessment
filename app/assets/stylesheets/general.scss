@@ -1,9 +1,85 @@
-@import 'reset';
+$headings: 'Montserrat', sans-serif;
+$body_text: 'Raleway', sans-serif;
+
+$dark-blue: #01b0f5;
+$mid-blue: #00cafa;
+$light-blue: #9becff;
+$pale-blue: #d9f8ff;
+$light-grey: #f5f5f5;
+$white: #fff;
+
+html {
+    font-family: $body_text;
+    font-size: 16px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+main {
+    height: 100%;
+    // overflow:auto;
+}
+
+.h1, .h2, .h3 {
+    font-family: $headings;
+}
+
+h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    line-height: 1.1;
+    padding-bottom: 1.25rem;
+}
+
+@media (min-width: 768px) {
+    h1 {
+        text-align: left;
+    }
+}
+
+h2 {
+    font-size: 2rem;
+    line-height: 1.1;
+    padding-bottom: 1rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+    line-height: 1;
+    padding: 1rem 0;
+    margin: 0;
+}
+
+p, a {
+    font-family: $body_text;
+}
+
+a {
+    display: block;
+}
+
+.btn-primary {
+    padding: 16px;
+
+}
+
+.btn.btn-primary.btn-block,
+.button_link {
+    background-color: $dark-blue;
+    color: #fff;
+    padding: 15px 25px;
+    text-align: center;
+    margin-bottom: 1rem;
+    border: none;
+    border-radius: 0;
+
+    &:hover, &:active {
+        background-color: $mid-blue;
+      }
+}
 
 .card {
     border: 2px solid black;
     margin: 10px;
     padding: 0 10px;
 }
-
-@import 'navbar';

@@ -1,42 +1,119 @@
-<header>
-    <div class="Navbar">
-        <div class="Navbar__Link Navbar__Link-brand">
-        3Directions
+<main class="container-fluid">
+    <!-- Main banner image and buttons -->
+    <section class="showcase">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6 col-md-push-6">
+                    <div class=".img-responsive hero_image"></div>
+                </div>
+                <div class="col-md-6 col-md-pull-6">
+                    <div>
+                        <h1 class="h1">Connecting Printers &amp; Designers</h1>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 hero_signup">
+                            <div>
+                                <h2 class="h2">Printer</h2>
+                            </div>
+                            <div>
+                                <p>Find opportunities to use your 3D printer and turn it into your side job.</p>
+                            </div>
+                            <div>
+                                <a class="button_link" href="<%= new_user_registration_path(user_type: "printer") %>">
+                                    Sign Up As a Printer <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 hero_signup">
+                            <div>
+                                <h2 class="h2">Designer</h2>
+                            </div>
+                            <div>
+                                <p>Upload your 3D design and find a reliable printer to bring it to life!</p>
+                            </div>
+                            <div>
+                                <a class="button_link" href="<%= new_user_registration_path(user_type: "designer") %>">
+                                    Sign Up As a Designer <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                
         </div>
-        <div class="Navbar__Link Navbar__Link-toggle">
-            <i class="fas fa-bars"></i>
-        </div>
-        <nav class="Navbar__Items">
-            <a class="Navbar__Link" href="#howItWorks">How It Works</a>
-        </nav>
-        <nav class="Navbar__Items Navbar__Items--right">
-            <a class="Navbar__Link" href="<%= new_user_registration_path(user_type: "printer") %>">
-            Sign Up As A Printer
-            </a>
-            <a class="Navbar__Link" href="<%= new_user_registration_path(user_type: "designer") %>">
-            Sign Up As A Designer
-            </a>
-            <a class="Navbar__Link" href="<%= new_user_session_path %>">
-            Login
-            </a>
-        </nav>
-    </div>
-</header>
-
-<h1> Connecting Printers &amp; Designers </h1>
-
-
-<%=link_to "Sign Up As a Printer", new_user_registration_path(user_type: "printer")%> <br>
-<%=link_to "Sign Up As A Designer", new_user_registration_path(user_type: "designer")%> <br>
-
-<%=link_to "Login", new_user_session_path%>
-
-
-<script>
-    function classToggle() {
-        const navs = document.querySelectorAll('.Navbar__Items')
         
-        navs.forEach(nav => nav.classList.toggle('Navbar__ToggleShow'));
-    }
-    document.querySelector('.Navbar__Link-toggle').addEventListener('click', classToggle);
-</script>
+    </section>
+
+    <div role="separator" class="divider col-xs-12"></div>
+
+    <!-- How it works section -->
+    <section id="howItWorks" class="mx-auto">
+        <h2 class="h2">How It Works</h2>
+        <div class="row howItWorks">
+            <div class="col-sm-4">
+                <div class="howItWorks_image">
+                    <%= image_tag "How-It-Works_step1.png", alt: "Step 1", class: "img-responsive img-circle" %>
+                </div>
+                <div>
+                    <p>Upload your design</p>
+                    <p>Provide some details and upload your file.</p>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="howItWorks_image">
+                    <%= image_tag "How-It-Works_step2.png", alt: "Step 2", class: "img-responsive img-circle" %>
+                </div>
+                <div>
+                    <p>Choose a quote</p>
+                    <p>Receive multiple quotes from 3D printers to get your job done.</p>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="howItWorks_image">
+                    <%= image_tag "How-It-Works_step3.png", alt: "Step 3", class: "img-responsive img-circle" %>
+                </div>
+                <div>
+                    <p>Get it printed</p>
+                    <p>Complete the transaction and bring your design to life!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What is 3D printing section -->
+    <section class="whatIs">
+        <div class="row">
+            <div class="col-xs-12 col-md-5">
+                <h2 class="h2">What is 3D Printing?</h2>
+                <p>Ut labore et dolore roipi mana aliqua. Enim adeop minim veeniam nostruklad Ut labore et dolore roipi mana aliqua. Enim adeop minim veeniam nostruklad Ut labore et dolore roipi mana aliqua.</p>
+            </div>
+            <div class="col-xs-12 col-md-7">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/3LBTkLsjHGQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 secondary_signup">
+                <a class="btn btn-primary btn-block" href="<%= new_user_registration_path(user_type: "printer") %>">
+                    Sign Up As a Printer <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        
+            <div class="col-xs-12 col-sm-6 secondary_signup">
+                <a class="btn btn-primary btn-block" href="<%= new_user_registration_path(user_type: "designer") %>">
+                    Sign Up As a Designer <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+        
+    </section>
+    
+        
+</main>
+
+
+
+

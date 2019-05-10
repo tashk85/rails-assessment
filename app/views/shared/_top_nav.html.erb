@@ -1,0 +1,86 @@
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>                        
+            </button>
+            <a class="navbar-brand" href="<%= root_path %>">
+                <%= image_tag "3Directions_Logo.png", alt: "3Directions Logo", class: "img-responsive" %>
+            </a>
+        </div>
+        
+        <% if user_signed_in? %>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav desktop">
+                    <li><a href="<%= new_user_registration_path(user_type: "printer") %>">Dashboard</a></li>
+                    <li><a href="<%= new_user_registration_path(user_type: "designer") %>">View Listings</a></li>
+                    <li><a href="<%= new_user_session_path %>">View Quotes</a></li>
+                    <li><a href="<%= new_user_session_path %>">View Jobs</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><%= link_to "Log Out", destroy_user_session_path, method: "DELETE" if user_signed_in? %></li>
+                </ul>
+            </div>
+        <% else %>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li><a href="#howItWorks">How It Works</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="<%= new_user_registration_path(user_type: "printer") %>">Sign Up As A Printer</a></li>
+                    <li><a href="<%= new_user_registration_path(user_type: "designer") %>">Sign Up As A Designer</a></li>
+                    <li><a href="<%= new_user_session_path %>">Login</a></li>
+                </ul>
+            </div>
+        <% end %>
+    </div>
+</nav>
+
+<!-- <div class="Navbar">
+    <div class="Navbar__Link Navbar__Link-brand">
+    3Directions
+    </div>
+    <div class="Navbar__Link Navbar__Link-toggle">
+        <i class="fas fa-bars"></i>
+    </div>
+    
+    <% if user_signed_in? %>
+        <nav class="Navbar__Items Desktop">
+            <a class="Navbar__Link" href="<%= dashboard_path %>">Dashboard</a>
+            <a class="Navbar__Link" href="<%= listings_path %>">View Listings</a>
+            <a class="Navbar__Link" href="<%= my_quotes_path %>">View Quotes</a>
+            <a class="Navbar__Link" href="<%= jobs_path %>">View Jobs</a>
+        </nav>
+        <nav class="Navbar__Items Navbar__Items--right">
+            <a class="Navbar__Link" href="<%= destroy_user_session_path %>">
+            Log Out
+            </a>
+        </nav>
+    <% else %>
+        <nav class="Navbar__Items">
+            <a class="Navbar__Link" href="#howItWorks">How It Works</a>
+        </nav>
+        <nav class="Navbar__Items Navbar__Items--right">
+            <a class="Navbar__Link" href="<%= new_user_registration_path(user_type: "printer") %>">
+            Sign Up As A Printer
+            </a>
+            <a class="Navbar__Link" href="<%= new_user_registration_path(user_type: "designer") %>">
+            Sign Up As A Designer
+            </a>
+            <a class="Navbar__Link" href="<%= new_user_session_path %>">
+            Login
+            </a>
+        </nav>
+    <% end %>
+</div>
+
+<script>
+    function classToggle() {
+        const navs = document.querySelectorAll('.Navbar__Items')
+        
+        navs.forEach(nav => nav.classList.toggle('Navbar__ToggleShow'));
+    }
+    document.querySelector('.Navbar__Link-toggle').addEventListener('click', classToggle);
+</script> -->
