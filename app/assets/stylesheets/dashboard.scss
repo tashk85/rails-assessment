@@ -1,0 +1,45 @@
+@import 'general';
+
+// sidebar
+.sidebar {
+    display: none;
+}
+
+.hidden-sm-down {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .sidebar {
+        display: block;
+        float: left;
+        padding: 36px;
+        min-height: 100vh;
+        background-color:$light-grey;
+        height:100%;
+    }
+
+    .user_avatar {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .hidden-sm-up {
+        display: none;
+    }
+}
+
+// job summary section
+.my_summary {
+    text-align: center;
+    
+    .row {
+        margin: 15px;
+    }
+}
+
+.summary {
+    padding: 1rem 0;
+    background-color: $pale-blue;
+    text-align: center;   
+}
