@@ -2,6 +2,7 @@
 ## By Natasha Khatri and Luke Turner
 
 ## App URL
+https://threedirections.herokuapp.com
 
 ## GitHub Repository
 https://github.com/luketurnerdev/rails-assessment
@@ -51,7 +52,7 @@ Printers will have the ability to:
 
 - Ruby/Rails
 - HTML
-- CSS
+- CSS (Bootstap, SASS, Flexbox)
 - Javascript
 - PostgresQL database
 - Stripe for payments
@@ -61,7 +62,7 @@ Printers will have the ability to:
 - Google Sheets / Google docs for extra day planning and organization
 
 ### Instructions on how to setup, configure and use your App.
-1. Open the app in heroku.
+1. Open the app in heroku (https://threedirections.herokuapp.com)
 
 2. Signing up 
 
@@ -257,19 +258,27 @@ Currently, there are a lot of amateur and professional designers who are wanting
 
 #### 3. Describe the project will you be conducting and how. your App will address the needs.
 
-Our project will be a 2 way marketplace that allows users to sign up either as Designers or Printers, and connect with eachother to perform printing jobs for an agreed upon price. This provides an easy-to-use platform for one group*to find the other, and complete the task required.
+Our project will be a 2 way marketplace that allows users to sign up either as Designers or Printers, and connect with eachother to perform printing jobs for an agreed upon price. This provides an easy-to-use platform for one group to find the other, and complete the task required.
 
 #### *. Describe the network infrastructure the App may be based on.
 
 This application will be 
 
 #### *. Identify and describe the software to be used in your App.
-The application will be built in Ruby on Rails, 
+The application will be built in Ruby on Rails, which utilizes the Ruby programming language and combines this functionality with HTML, CSS and other languages, as well as providing software functionality for managing an application on the web (such as database management).
+
+The software (including default Rails code) utilizes Object Oriented Programming (OOP), where classes and objects are used to create and manage data within the flow of the program. Methods are defined in the controllers, and are used to manipulate data found in the Models, then display this data to the views.
+
 #### 6. Identify the database to be used in your App and provide a justification for your choice.
+This application will be using the PostgresQL database as it is compatible with the other elements of our tech stack such as Heroku and Dbeaver. It is also widely supported in the community and thus has many resources available for it.
 #### 7. Identify and describe the production database setup (i.e. postgres instance).
+
+The application runs on PostgresQL, and consists of a series of tables for the models in the app (described further below). This PostgresQL instance then interfaces with Heroku, to create a database on the Heroku server that can be publicly accessed.
+
+Modifications can be made to the deployed database by running heroku commands from the Terminal (such as heroku run rake db:seed) in a similar way that they are run locally.
 #### 8. Describe the architecture of your App.
 
-This is a rails application which employs the MVC architecture:
+This is a rails application which employs the MVC (Model, View, Controller) architecture:
 
 The Models maintain the data that is being used in the program and provide links between different data tables. We use the following models in our program:
 * User (contains all the users that sign up for the application)
@@ -301,16 +310,39 @@ The Controllers in our program are used to provide Ruby logic between the Models
 
 * Quotes controller - similar functionality to the listings controller, with the added function of creating Stripe sessions such that designers can pay for the quotes
 
+* Payments controller - Once a stripe session has been entered, the output from the external Stripe page is fed into this controller. It determines if a user's payment was successful or not, and displays the appropriate page. It also handles the creation of new jobs as a result of successful payments.
+
+* Jobs Controller - allows users to view all jobs, a particular job, or update the details of a job (if the printer has completed the job, they click a button to update the job status and time of completion)
+
 
 
 Rails application using MVC architecture - connected to Postgresql database
   Heroku
   “Building Blocks”
 #### 9. Explain the different high-level components (abstractions) in your App.
+
+1. Posting a listing
+
+When a designer signs up for the website, they are then able to post new listings for printing jobs to be completed. When they do, the Listing model is updated with the details that they have listed. This table is also linked to the User table such that the designer can be linked to this particular listing in the database (a user can have_many listings)
+
+2. Making and receiving quotes 
+
+Once a listing is created, printers are able to offer quotes on those listings. This utilizes the Listing model, and associates it with a new entry in the Quote model (a listing can have_many quotes). Other information is also included, such as Job size, total price they want to offer, and the time that they'll be able to have it completed by.
+
+3. Paying for quotes and creating jobs
+
+When a designer is viewing a particular quote, they are able to choose the 'Accept Quote' option, which will take them to a stripe payment page. If their payment is successful, a job will be created in relation to that listing, and also that printer. (A printer can have_many jobs, but a listing can only have_one job.) 
+
+
+
 #### 10. Detail any third party services that your App will use.
 #### 11. Describe (in general terms) the data structure of marketplace apps that are similar to your own (e.g. eBay, Airbnb).
 #### 12. Discuss the database relations to be implemented.
 #### 13. Describe your project’s models in terms of the relationships (active record associations) they have with each other.
+
+[Brief sentence about how the models talk to eachother (has_one, has_many etc)]
+
+
 #### 14. Provide your database schema design.
 #### 15. Provide User stories for your App.
 #### 16. Provide Wireframes for your App.
