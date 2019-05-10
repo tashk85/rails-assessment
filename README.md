@@ -156,7 +156,9 @@ As either type of user, you are able to view 'My Quotes' from the dashboard, whi
 
 ![whiteboard-ideas](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/app-idea-brainstorm.jpg "Whiteboard ideas")
 
+![Moodboard](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/screenshots/Planning/pinterest_moodboard.png "Pinterest Moodboard screenshot")
 
+![Font Selection](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/screenshots/Planning/font_selection.png "Google Font selection screenshot")
 
 
 ### User Stories
@@ -217,7 +219,6 @@ As Esperanza, I want to print a necklace with my own design so that I can give i
 
 
 All 4 of our wireframes (Designer and printer, desktop and mobile) can be found in PDF form at this google drive link as a backup https://drive.google.com/drive/folders/1P3Ci6tQ2-w5G4fJ94v-8zAnKt8SM1ZVI?usp=sharing 
-
 
 
 ### Database Entity Relationship Diagrams
@@ -287,11 +288,13 @@ The software (including default Rails code) utilizes Object Oriented Programming
 
 #### 6. Identify the database to be used in your App and provide a justification for your choice.
 This application will be using the PostgresQL database as it is compatible with the other elements of our tech stack such as Heroku and Dbeaver. It is also widely supported in the community and thus has many resources available for it.
+
 #### 7. Identify and describe the production database setup (i.e. postgres instance).
 
 The application runs on PostgresQL, and consists of a series of tables for the models in the app (described further below). This PostgresQL instance then interfaces with Heroku, to create a database on the Heroku server that can be publicly accessed.
 
 Modifications can be made to the deployed database by running heroku commands from the Terminal (such as heroku run rake db:seed) in a similar way that they are run locally.
+
 #### 8. Describe the architecture of your App.
 
 This is a rails application which employs the MVC (Model, View, Controller) architecture:
@@ -331,10 +334,9 @@ The Controllers in our program are used to provide Ruby logic between the Models
 * Jobs Controller - allows users to view all jobs, a particular job, or update the details of a job (if the printer has completed the job, they click a button to update the job status and time of completion)
 
 
+Models are connected to Postgresql database
+The application has been deployed to Heroku
 
-Rails application using MVC architecture - connected to Postgresql database
-  Heroku
-  “Building Blocks”
 #### 9. Explain the different high-level components (abstractions) in your App.
 
 1. Posting a listing
@@ -352,6 +354,10 @@ When a designer is viewing a particular quote, they are able to choose the 'Acce
 
 
 #### 10. Detail any third party services that your App will use.
+
+3Directions has used the Devise gem for all user authorisation and model setup, we customized the sign-up forms to account for two different user types. Stripe for payments and AWS-SDK-S3 for image uploads and storage.
+
+
 #### 11. Describe (in general terms) the data structure of marketplace apps that are similar to your own (e.g. eBay, Airbnb).
 #### 12. Discuss the database relations to be implemented.
 #### 13. Describe your project’s models in terms of the relationships (active record associations) they have with each other.
@@ -360,8 +366,23 @@ When a designer is viewing a particular quote, they are able to choose the 'Acce
 
 
 #### 14. Provide your database schema design.
+![Entity relationship diagram](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/screenshots/ERD/3D%20Printing%20ERD.png "Entity relationship diagram")
+
 #### 15. Provide User stories for your App.
+* As Jemima, I want to make use of my 3D printer to make extra money without much effort.
+* As Alex, I want to bring my CAD designs to life so that I can prototype them to my clients.
+* As Fredrich, I want to print my designs quickly and cheaply to avoid using the printers at my University.
+* As Esperanza, I want to print a necklace with my own design so that I can give it as a gift.
+
 #### 16. Provide Wireframes for your App.
+[Designer Desktop Wireframe](./docs/screenshots/Wireframes/Desktop-Wireframes_Designer.pdf)
+
+[Printer Desktop Wireframe](./docs/screenshots/Wireframes/Desktop-Wireframes_Printer.pdf)
+
+[Designer Mobile Wireframe](./docs/screenshots/Wireframes/Mobile-Wireframes_Designer.pdf)
+
+[Printer Mobile Wireframe](./docs/screenshots/Wireframes/Mobile-Wireframes_Printer.pdf)
+
 #### 17. Describe the way tasks are allocated and tracked in your project.
 #### 18. Discuss how Agile methodology is being implemented in your project.
 #### 19. Provide an overview and description of your Source control process.
