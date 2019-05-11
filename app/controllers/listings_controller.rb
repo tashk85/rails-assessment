@@ -1,9 +1,10 @@
 class ListingsController < ApplicationController
     before_action :authenticate_user!
-    before_action :set_listing, only: [:show, :edit, :update]
+    before_action :set_listing, only: [:show, :edit, :update, :destroy]
     before_action :authorize_user, only: [:new, :create, :edit, :update]
    
     def index
+        # byebug
         if current_user.user_type == "printer"
             @listings = Listing.all
         else
@@ -52,6 +53,13 @@ class ListingsController < ApplicationController
         # deletes a listing
         Listing.find(params[:id]).destroy
         
+        redirect_to listings_path
+    end
+
+    def destroy
+        p 'hit destroy method'
+        @listing = Listing.find(params[:id])
+        @listing.destroy
         redirect_to listings_path
     end
 
