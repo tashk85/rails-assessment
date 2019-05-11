@@ -35,10 +35,12 @@
                             </a>
                         </div>
                         <div class="col-xs-4  col-sm-4 summary">
+
                             <a href="<%= jobs_path %>">
                                 <h3><%= Job.joins(:listing).where(listings: {user_id: @user_id}).where(jobs: {status: true}).count %></h3>
                                 <p>Completed Jobs</p>
                             </a>
+
                         </div>
 
                     </div>
