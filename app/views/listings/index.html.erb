@@ -17,7 +17,7 @@
 
                     <!--Display message if there are no listings for the user -->
                     <%if Listing.find_by_user_id(current_user.id) == nil %>
-                        <p> It looks like you don't have any listings currently. </p>
+                        <p class="subtitle"> It looks like you don't have any listings currently. </p>
                     <%end%>
                     
                     <div class="col-md-12">
@@ -34,9 +34,12 @@
             <%if listing.has_job == false%>
                 <div class="row card">
                     <div class="col-md-6">
-                        <p class="name"><%=listing.user.first_name%> <%=listing.user.last_name%></p>
-                        <p>Listing id: <%=listing.id%> </p>
-                        <p>Description: <%=listing.description%> </p>
+                        <% if current_user.user_type == "printer" %>
+                            <p>Designer Name: <span class="data"><%= "#{listing.user.first_name} #{listing.user.last_name}" %></span></p>
+                        <%end%>
+                        <p>Listing Id: <span class="data"><%=listing.id%></span> </p>
+                        <p><span class="data"><%= listing.created_at.to_time.strftime('%A, %d %b %Y') %></span> </p>
+                        <p>Description: <span class="data"><%=listing.description%></span> </p>
                     </div>
                     <!-- Only designers can edit listings -->
                     <% if current_user.user_type == "designer" %>

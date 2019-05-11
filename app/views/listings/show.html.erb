@@ -9,10 +9,10 @@
 
                         <div class="row card">
                                 <div class="col-md-6">
-                                        <p><%= @listing.created_at.to_time.strftime('%A, %d %b %Y') %> </p>
-                                        <p>Description: <%= @listing.description %> </p>
-                                        <p>Budget: $<%= number_with_precision(@listing.budget, precision: 2) %> </p>
-                                        <p>Due Date: <%= @listing.due_date %> </p>
+                                        <p><span class="data"><%= @listing.created_at.to_time.strftime('%A, %d %b %Y') %></span></p>
+                                        <p>Description: <span class="data"><%= @listing.description %></span> </p>
+                                        <p>Budget: <span class="data">$<%= number_with_precision(@listing.budget, precision: 2) %></span> </p>
+                                        <p>Due Date: <span class="data"><%= @listing.due_date.to_time.strftime('%d %b %Y') %></span></p>
                                         <%= image_tag url_for(@listing.design_file), class: "listing_image" if @listing.design_file.attached? %>
                                         <%= link_to "Download #{@listing.design_file.filename}", rails_blob_path(@listing.design_file, disposition: "attachment") if @listing.design_file.attached? %>
                                 </div>
