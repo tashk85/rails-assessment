@@ -12,13 +12,12 @@
 
                 <p class="subtitle">You don't have any jobs at the moment.</p>
 
-            <%end%>
+            <% end %>
 
             <% @jobs.each do |job| %>
 
                 <%#if the current user owns the job - if they are the printer or the designer - show it%>
                 <%# If the user is the printer doing the job%>
-
                 <%if Printer.find(job.printer_id).user_id == current_user.id or Listing.find(job.listing_id).user_id == current_user.id%>
 
                     <div class="row card">
@@ -43,9 +42,9 @@
                             <%= link_to "View Job",job_path(job.id), class: "button_link" %>
                         </div>
                     </div>
+
                 <%end%>
 
-                
             <% end %>
 
             <div class="col-md-12 hidden-sm-up">
