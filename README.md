@@ -46,7 +46,31 @@ Printers will have the ability to:
 
 ### Screenshots
 
-[insert once styling is done]
+[Home / Landing Page](./docs/screenshots/App/1_Landing-Page.jpg)
+[Sign Up Page for Printers](./docs/screenshots/App/2_Signup_page-Printer.jpg)
+[Sign Up Page for Designers](./docs/screenshots/App/3_Signup_page-Designer.jpg)
+[Log In Page](./docs/screenshots/App/4_Login-Page.jpg)
+[Designer Dashboard](./docs/screenshots/App/5_Dashboard-Designer.jpg)
+[Create A New Listing](./docs/screenshots/App/6_Designer-Create-Listing.jpg)
+[View all Listings](./docs/screenshots/App/7_Designer-View-Listings.jpg)
+[View A Listing](./docs/screenshots/App/8_Designer-View-a-Listing.jpg)
+[Edit A Listing](./docs/screenshots/App/9_Designer-Edit-a-Listing.jpg)
+[Designer - View A Quote](./docs/screenshots/App/10_Designer-View-a-Quote.jpg)
+[Designer - View Quotes for a Listing](./docs/screenshots/App/11_Designer-View-Quotes-for-a-Listing.jpg)
+[Designer - View all Quotes](./docs/screenshots/App/12_Designer-View-Quotes.jpg)
+[Designer - View all Jobs (No Jobs)](./docs/screenshots/App/13_Designer-View-Jobs.jpg)
+[Designer - View all Jobs](./docs/screenshots/App/14_Designer-View-Jobs.jpg)
+[Designer - View A Job](./docs/screenshots/App/15_Designer-View-a-Job.jpg)
+[Printer Dashboard](./docs/screenshots/App/16_Dashboard-Printer.jpg)
+[Printer - View all Listings](./docs/screenshots/App/17_Printer-View-Listings.jpg)
+[Printer - View A Listing](./docs/screenshots/App/18_Printer-View-a-Listing.jpg)
+[Printer - Create A New Quote](./docs/screenshots/App/19_Printer-Create-A-New-Quote.jpg)
+[Printer - View A Quote](./docs/screenshots/App/21_Printer-View-A-Quote.jpg)
+[Printer - Edit A Quote](./docs/screenshots/App/22_Printer-Edit-A-Quote.jpg)
+[Printer - View all Quotes](./docs/screenshots/App/20_Printer-View-My-Quotes.jpg)
+[Printer - View all Jobs](./docs/screenshots/App/23_Printer-View-Jobs.jpg)
+[Printer - View A Job](./docs/screenshots/App/24_Printer-View-A-Job.jpg)
+
 
 ### Tech Stack (e.g. html, css, deployment platform, etc)
 
