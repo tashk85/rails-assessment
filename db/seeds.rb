@@ -106,12 +106,12 @@ if Job.count == 0
     count = 0
     jobs = []
     #loop through listings
-    for i in 1..Listing.count
+    for i in 1..2
         current_listing = Listing.find(i)
         #if a quote exists
         if current_listing.quotes.count > 0
             # make a job using the first quote on the listing, then exit loop
-            # Job.create(listing_id:2, printer_id:2, quote_id:4, status:false, stripe_transaction_id:123)
+
             Job.create(
             listing_id: current_listing.id,
             printer_id: current_listing.quotes.first.printer_id,
