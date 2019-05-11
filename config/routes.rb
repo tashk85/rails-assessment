@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   patch "/listings/:id", to: "listings#update"
   put "/listings/:id", to: "listings#update"
   post "/listings/new", to: "listings#create", as: "create_listing"
+  delete "/listings/:id", to: "listings#destroy"
 
   ### Quotes ###
   

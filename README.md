@@ -415,16 +415,33 @@ how tasks were divided
   * After each task was developed, we tested the process by finding any bugs or errors and incorporating this into our lessons learnt and if improvement was needed.
 
 #### 19. Provide an overview and description of your Source control process.
-git hub / gitkraken
+  Our source control process has involved using Git version control. We initialized a new Git repo for our project directory, and each time files were added or changed Git tracked these modifications. We then linked our local repository to a remote repository set up on one of our Github accounts to store our code remotely. 
+
+  For project workflow, we decided to create a new branch 'dev' which would be where all working changes would be pushed. As we allocated and divided tasks, we created new branches off the 'dev' branch where we would push our code until the task was complete.
+
+  Once task was complete, we would do a pull request and merge into the 'dev' branch. If there were any merge conflicts, these would be resolved before confirming the merge. Then each of us would pull to ensure we had everything up to date. 
+
+  We also used GitKraken to visualise our commit history and branches. 
 
 #### 20. Provide an overview and description of your Testing process.
-byebug, automated testing with cypress
+  byebug, automated testing with cypress
 
 #### 21. Discuss and analyse requirements related to information system security.
 credit cards and user info hosted by third party
 
 #### 22. Discuss methods you will use to protect information and data.
+  3Directions has used authorization, whereby
+
 passwords - devise encrypts
+hashes and stores a password in the database to validate the authenticity of a user while signing in. The authentication can be done both through POST requests or HTTP Basic Authentication.
+
 stripe - how they protect payment
 
+do not store credit card details yourself. can use a third party who takes a small fee to take care of payments for you. You have to be pci compliant, a lot of rules around how that data is stored, encrypted and transferred over the wire.
+Stripe is developer focused, Stripe Checkout - use to collect payment. Stripe will redirect us to a checkout page, pay, stripe will process the payment and redirect back to our website.
+
 #### 23. Research what your legal obligations are in relation to handling user data.
+
+
+PCI compliant - if your database is hacked and a hacker steals the credit card details, you are liable. dont want to deal with the information yourself. 
+Privacy Act - keeping people's information private and secure. more leniant with who is liable if information is hacked.
