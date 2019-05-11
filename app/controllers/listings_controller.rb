@@ -13,7 +13,6 @@ class ListingsController < ApplicationController
     end
 
     def show
-
         id = params[:id]
         @listing = Listing.find(id)
     end
@@ -51,10 +50,10 @@ class ListingsController < ApplicationController
     end
 
     def destroy
-        # byebug
-        # @listing = Listing.find(params[:id])
-        # @listing.destroy
-        # redirect_to listings_path
+        p 'hit destroy method'
+        @listing = Listing.find(params[:id])
+        @listing.destroy
+        redirect_to listings_path
     end
 
     private
