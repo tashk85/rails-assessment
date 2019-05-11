@@ -5,47 +5,44 @@
     <% end %>
 <% end %>
 
-<%= form_with model: quote, local: true do |form| %>
-    <!-- If there were previous errors -->
-    <%if @listing%>
-        <%= form.hidden_field :listing_id, value: @listing %>
+<div class="listing-form">
+    <%= form_with model: quote, local: true do |form| %>
+        <!-- If there were previous errors -->
+        <%if @listing%>
+            <%= form.hidden_field :listing_id, value: @listing %>
 
-    <%elsif params[:listing] != nil%>
+        <%elsif params[:listing] != nil%>
 
-        <!-- When there are no errors-->
+            <!-- When there are no errors-->
+            <%= form.hidden_field :listing_id, value: params[:listing] %>
 
-        <%= form.hidden_field :listing_id, value: params[:listing] %>
+        <%else%>
 
-    <%else%>
+            <!-- When editing an existing quote-->
+            <%= form.hidden_field :listing_id, value: @quote[:listing_id] %>
 
-        <!-- When editing an existing quote-->
-        <%= form.hidden_field :listing_id, value: @quote[:listing_id] %>
+        <%end%>
+        <%= form.hidden_field :printer_id, value: Printer.find_by_user_id(current_user.id).id%> 
+        <%= form.hidden_field :has_job, value: "0" %>   
 
+        <div class="form-group form-align">
 
-    <%end%>
-    <%= form.hidden_field :printer_id, value: Printer.find_by_user_id(current_user.id).id%> 
-    <%= form.hidden_field :has_job, value: "0" %>   
+            <%= form.label :total_price %>
+            <%= form.number_field :total_price, value: number_to_currency(form.object.total_price.to_f, delimiter: '', unit: ''), step: :any, min: 5, max:99999 %>
+        </div>
 
-    <div class="form-group">
+        <div class="form-group form-align">
+            <%= form.label :job_size, "Job Size (in cm³)" %>
+            <%= form.number_field :job_size, min:5, max:10000 %>
+        </div>
 
-        <%= form.label :total_price %>
-        <%= form.number_field :total_price, value: number_to_currency(form.object.total_price.to_f, delimiter: '', unit: ''), step: :any, min: 5, max:99999 %>
-    </div>
+        <div class="form-group form-align">
+            <%= form.label :turnaround_time %>
+            <%= form.date_field :turnaround_time, min: Date.today %>
+        </div>
 
-    <div class="form-group">
-        <%= form.label :job_size, "Job Size (in cm³)" %>
-        <%= form.number_field :job_size, min:5, max:10000 %>
-    </div>
-
-    <div class="form-group">
-        <%= form.label :turnaround_time %>
-        <%= form.date_field :turnaround_time, min: Date.today %>
-    </div>
-
-   
-
-
-    <div>
-        <%= form.submit class: 'button_link' %>
-    </div>
-<% end %>
+        <div>
+            <%= form.submit class: 'button_link' %>
+        </div>
+    <% end %>
+</div>

@@ -81,6 +81,26 @@ a {
     padding-bottom: 2rem;
 }
 
+.listing-form {
+    display: flex;
+    justify-content: center;
+}
+
+.form-align {
+    display: flex;
+    flex-direction: column;
+
+    label {
+        align-self: flex-start;
+        padding-bottom: 0.2rem;
+        font-weight: 800;
+    }
+}
+.upload_file {
+    display: flex;
+    justify-content: center;
+}
+
 .card {
     background-color: $pale-blue;
     margin: 10px;

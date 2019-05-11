@@ -1,7 +1,10 @@
 class QuotesController < ApplicationController
+
     def index
         #shows all quotes
         @quotes = Quote.all
+
+        @listing_id = params[:listing]
     end
 
     def show
