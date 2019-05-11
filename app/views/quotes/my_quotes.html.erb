@@ -29,8 +29,8 @@
                         <% else %>
                             <p>Designer Name:<span class="data"><%= "#{quote.listing.user.first_name} #{quote.listing.user.last_name}" %></span></p>
                         <% end %>
-                        <p>Quote Id: <span class="data"><%= quote.id %></span></p>
-                        <p>Printer Id: <span class="data"><%= quote.printer_id %></span></p>
+                        <p>Quote Id. <span class="data"><%= quote.id %></span></p>
+                        <p>Printer Id. <span class="data"><%= quote.printer_id %></span></p>
                         <p>Printer Postcode: <span class="data"><%=quote.printer.user.postcode%></span><p>
                         <p>Total Price: <span class="data">$<%= number_with_precision(quote.total_price, precision: 2) %></span></p>
                     </div>
@@ -62,8 +62,8 @@
                         <% else %>
                             <p>Designer Name:<span class="data"><%= "#{quote.listing.user.first_name} #{quote.listing.user.last_name}" %></span></p>
                         <% end %>
-                        <p>Quote Id: <span class="data"><%= quote.id %></span></p>
-                        <p>Printer Id: <span class="data"><%= quote.printer_id %></span></p>
+                        <p>Quote Id. <span class="data"><%= quote.id %></span></p>
+                        <p>Printer Id. <span class="data"><%= quote.printer_id %></span></p>
                         <p>Printer Postcode: <span class="data"><%=quote.printer.user.postcode%></span><p>
                         <p>Total Price: <span class="data">$<%= number_with_precision(quote.total_price, precision: 2) %></span></p>
                     </div>

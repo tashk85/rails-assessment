@@ -4,7 +4,8 @@ class QuotesController < ApplicationController
         #shows all quotes
         @quotes = Quote.all
 
-        @listing_id = params[:listing]
+        @no_quotes_for_listing = Listing.find(params[:listing]).quotes.count
+        # byebug
     end
 
     def show

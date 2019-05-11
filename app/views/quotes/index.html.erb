@@ -7,20 +7,9 @@
         <div class="col-sm-9">
             <h1 class="h1 page-header">View Quotes for this Listing</h1>
 
-            <% if Listing.find(@listing_id).quotes.count == 0 %>
-                
-                <%if current_user.user_type == "designer"%>
+            <% if @no_quotes_for_listing == 0 and current_user.user_type == "designer"%>
 
-                    <p class="subtitle">There are no quotes attached to this listing.</p>
-
-                <% else %>
-
-                    <p class="subtitle"> You have not made any quotes for this listing. </p>
-                    <div class="col-md-12">
-                        <%=link_to "Create Quote", new_quote_path(listing: params[:listing]), class: "button_link" %>
-                    </div>
-
-                <%end%>
+                <p class="subtitle">There are no quotes attached to this listing.</p>
 
                 <div class="col-md-12 hidden-sm-up">
                     <%= link_to 'Back to Listings', listings_path, class: "button_link" %>
@@ -33,60 +22,65 @@
             </div>
 
 
-            <%@amount_of_user_quotes = 0%>
+            <% @amount_of_user_quotes = 0 %>
 
             <%if current_user.user_type == "designer"%>
+            <!-- if user is a designer, show all quotes for this listing -->
                 <% @quotes.each do |quote| %>
-                <!-- if user is a designer, show all quotes for this listing -->
                     <%if quote.listing_id == params[:listing].to_i%>
-                    <div class="row card">
-                        <div class="col-md-6">
-                            <% if current_user.user_type == "designer" %>
-                                <p>Printer Name: <span class="data"><%= "#{quote.printer.user.first_name} #{quote.printer.user.last_name}" %></span></p>
-                            <% else %>
-                                <p>Designer Name:<span class="data"><%= "#{quote.listing.user.first_name} #{quote.listing.user.last_name}" %></span></p>
-                            <% end %>
-                            <p>Quote Id: <span class="data"><%= quote.id %></span></p>
-                            <p>Printer Id: <span class="data"><%= quote.printer_id %></span></p>
-                            <p>Printer Postcode: <span class="data"><%=quote.printer.user.postcode%></span><p>
-                            <p>Total Price: <span class="data">$<%= number_with_precision(quote.total_price, precision: 2) %></span></p>
+                        <div class="row card">
+                            <div class="col-md-6">
+                                <% if current_user.user_type == "designer" %>
+                                    <p>Printer Name: <span class="data"><%= "#{quote.printer.user.first_name} #{quote.printer.user.last_name}" %></span></p>
+                                <% else %>
+                                    <p>Designer Name:<span class="data"><%= "#{quote.listing.user.first_name} #{quote.listing.user.last_name}" %></span></p>
+                                <% end %>
+                                <p>Quote Id. <span class="data"><%= quote.id %></span></p>
+                                <p>Printer Id. <span class="data"><%= quote.printer_id %></span></p>
+                                <p>Printer Postcode: <span class="data"><%=quote.printer.user.postcode%></span><p>
+                                <p>Total Price: <span class="data">$<%= number_with_precision(quote.total_price, precision: 2) %></span></p>
+                            </div>
+                            <div class="col-md-3">
+                                <%= link_to "View Quote",quote_path(quote.id), class: "button_link" %>
+                            </div>
+                
+                            <% @amount_of_user_quotes += 1 %>
                         </div>
-                        <div class="col-md-3">
-                            <%if current_user.user_type == "printer"%>
-                                <%= link_to "Edit Quote", edit_quote_path(quote.id), class: "button_link" %>
-                            <% end %>
-                            <%= link_to "View Quote",quote_path(quote.id), class: "button_link" %>
-                        </div>
-            
-                        <%@amount_of_user_quotes += 1%>
-                    </div>
                     <%end%>
                 <% end %>
-
 
             <%else%>
 
                 <% @quotes.each do |quote| %>
-                    <%if quote.listing_id == params[:listing].to_i%>
+                    <%if quote.listing_id == params[:listing]%>
+                    <!-- check for quotes that have a listing id that match params listing id -->
+                        <% if Printer.find(quote.printer_id).user_id == current_user.id %>
+                        <!-- if user is a printer, show all quotes they have made for this listing -->
+                            
+                            <div class="row card">
+                                <div class="col-md-6">
+                                <p>Quote Id. <span class="data"><%= quote.id %></span></p>
+                                <p>Printer Id. <span class="data"><%= quote.printer_id %></span></p>
+                                <p>Total Price: <span class="data">$<%= number_with_precision(quote.total_price, precision: 2) %></span></p>
+                                </div>
+                                <div class="col-md-3">
+                                    <%= link_to "Edit Quote", edit_quote_path(quote.id), class: "button_link" %>
+                                    <!-- Only show edit link for printers -->  
+                                    <%= link_to "View Quote",quote_path(quote.id), class: "button_link" %>
+                                </div>
+                            <%@amount_of_user_quotes += 1%>
+                            </div>
 
-                        <%if Printer.find(quote.printer_id).user_id == current_user.id%>
-                            <!-- if user is a printer, show all quotes they have made for this listing -->
-                            <div class="card">
-                                <p>Quote Id: <%= quote.id %></p>
-                                <p>Printer Id: <%= quote.printer_id %></p>
-                                <p>Listing Id: <%= quote.listing_id %></p>
-                                <p>Total Price: $<%= number_with_precision(quote.total_price, precision: 2) %></p>
-                                <p>Job Size (cubic cm): <%= quote.job_size %></p>
-                                <p>Turnaround Time: <%= quote.turnaround_time %></p>
-                                <%= link_to "Edit", edit_quote_path(quote.id) %>
-                                <!-- Only show edit link for printers -->  
-                                <%= link_to "Show",quote_path(quote.id) %>
-                                <%@amount_of_user_quotes += 1%>
+                        <% else %>
+                            <p class="subtitle"> You have not made any quotes for this listing. </p>
+                            <div class="col-md-12">
+                                <%=link_to "Create Quote", new_quote_path(listing: params[:listing]), class: "button_link" %>
                             </div>
                         <%end%>
 
                     <%end%>
                 <% end %>
+
             <%end%>
 
         </div>

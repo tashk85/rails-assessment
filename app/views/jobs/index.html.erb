@@ -28,10 +28,10 @@
                             <% if current_user.user_type == "designer" %>
                                 <p>Printer Name: <span class="data"><%= "#{job.printer.user.first_name} #{job.printer.user.last_name}" %></span></p>
                             <% else %>
-                                <p>Designer Name:<span class="data"><%= "#{job.listing.user.first_name} #{job.listing.user.last_name}" %></span></p>
+                                <p>Designer Name: <span class="data"><%= "#{job.listing.user.first_name} #{job.listing.user.last_name}" %></span></p>
                             <% end %>
 
-                            <p>Job Id: <span class="data"><%= job.id %></span></p>
+                            <p>Job Id. <span class="data"><%= job.id %></span></p>
                             <p>Total Price: <span class="data">$<%= number_with_precision(job.quote.total_price, precision: 2) %></span></p>
                             <% if job.status == false %>
                                 <p>Status: <span class="active data">Active</span></p>
