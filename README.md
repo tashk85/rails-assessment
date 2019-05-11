@@ -476,10 +476,14 @@ Stripe payments were attempted to be automated, but I (Luke) was having trouble 
 #### 21. Discuss and analyse requirements related to information system security.
 credit cards and user info hosted by third party
 
+The most sensitive information stored in our application is user's credit card details. These are all handled externally via Stripe, meaning that we do not have access to these records and in the event of a data breach. Stripe has had an excellent track record when it comes to protection of sensitive data, and thus they are a trustworthy holder of this information.
+
 #### 22. Discuss methods you will use to protect information and data.
   3Directions has used authorization, whereby
 
-passwords - devise encrypts
+In terms of password protection, filtration of user's passwords is built directly into devise. This is evident when debugging, as the paramater will read something along the lines of 'password:[FILTERED]' instead of the password itself. This is much safer than storing the password in plain text, where it is liable to be intercepted by hackers.
+
+
 hashes and stores a password in the database to validate the authenticity of a user while signing in. The authentication can be done both through POST requests or HTTP Basic Authentication.
 
 stripe - how they protect payment
