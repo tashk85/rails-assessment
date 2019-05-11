@@ -57,11 +57,12 @@ class ListingsController < ApplicationController
     end
 
     def destroy
-        p 'hit destroy method'
-        @listing = Listing.find(params[:id])
-        @listing.destroy
+        # deletes a listing
+        Listing.find(params[:id]).destroy
         redirect_to listings_path
     end
+
+    
 
     private
 
