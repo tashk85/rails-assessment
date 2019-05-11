@@ -51,7 +51,7 @@
                     <div class="row">
                         <div class="col-xs-4 col-sm-4 summary">
                             <a href="<%= listings_path %>">
-                                <h3><%= Listing.where(user_id: @user_id).count %></h3>
+                                <h3><%= Listing.all.count %></h3>
                                 <p>Listings</p>
                             </a>
                         </div>
