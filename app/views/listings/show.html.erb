@@ -19,9 +19,9 @@
                                 <% if current_user.user_type == "designer" %>
                                         <div class="col-md-3">
                                                 <%= link_to "Edit Listing", edit_listing_path(@listing.id), class: "button_link" %>
-                                              
-                                                <%= link_to "Delete Listing", destroy_listing_path, class: "button_link"%>
-                                                
+                                                <% if @listing.quotes.count == 0 %>
+                                                        <%= link_to("Delete Listing", listing_path(@listing.id), class: "button_link", method: :delete, data: { confirm: 'Are you sure?' }) %>
+                                                <%end%>
                                         </div>
                                 <%end%>
 

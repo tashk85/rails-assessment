@@ -21,6 +21,9 @@
                     <%if current_user.user_type == "printer"%>
                         <div class="col-md-3">
                             <%= link_to "Edit Quote", edit_quote_path(@quote.id), class: "button_link" %>
+                            <% if @quote.has_job == false %>
+                                <%= link_to("Delete Quote", quote_path(@quote.id), class: "button_link", method: :delete, data: { confirm: 'Are you sure?' }) %>
+                            <%end%>
                         </div>    
                     <% end %>
 

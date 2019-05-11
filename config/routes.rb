@@ -18,7 +18,6 @@ Rails.application.routes.draw do
   get "/listings", to: "listings#index", as: "listings"
   post "/listings", to: "listings#create"
   get "/listings/new", to: "listings#new", as: "new_listing"
-  delete "/listings/:id", to: "listings#destroy", as: "destroy_listing"
   get "/listings/:id", to: "listings#show", as: "listing"
   get "/listings/:id/edit", to: "listings#edit", as: "edit_listing"
   patch "/listings/:id", to: "listings#update"
@@ -46,6 +45,7 @@ Rails.application.routes.draw do
   patch "/quotes/:id", to: "quotes#update"
   put "/quotes/:id", to: "quotes#update"
   get "/quotes/:id/edit", to: "quotes#edit", as: "edit_quote"
+  delete "/quotes/:id", to: "quotes#destroy"
 
   ### Jobs ###
 

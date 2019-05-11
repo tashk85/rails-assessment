@@ -95,6 +95,13 @@ class QuotesController < ApplicationController
         end
     end
 
+    def destroy
+        # deletes a listing
+        Quote.find(params[:id]).destroy
+        
+        redirect_to quotes_path
+    end
+
     private
     def quote_params
         params.require(:quote).permit(:total_price, :job_size, :turnaround_time, :printer_id, :listing_id)

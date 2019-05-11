@@ -56,13 +56,6 @@ class ListingsController < ApplicationController
         redirect_to listings_path
     end
 
-    def destroy
-        p 'hit destroy method'
-        @listing = Listing.find(params[:id])
-        @listing.destroy
-        redirect_to listings_path
-    end
-
     private
 
     def set_listing
