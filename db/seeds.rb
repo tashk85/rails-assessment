@@ -106,7 +106,7 @@ if Job.count == 0
     count = 0
     jobs = []
     #loop through listings
-    for i in 1..Listing.count
+    for i in 1..2
         current_listing = Listing.find(i)
         #if a quote exists
         if current_listing.quotes.count > 0
