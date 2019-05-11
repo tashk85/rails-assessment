@@ -22,8 +22,8 @@ class QuotesController < ApplicationController
                 currency: 'aud',
                 quantity: 1,
             }],
-            success_url: "http://localhost:3000/payments/success?quote_id=#{@quote.id}", #make these links dynamic
-            cancel_url: 'http://localhost:3000/cancel',
+            success_url: "https://threedirections.herokuapp.com/payments/success?quote_id=#{@quote.id}", #make these links dynamic
+            cancel_url: 'https://threedirections.herokuapp.com/cancel',
         )
         @stripe_session_id = stripe_session.id
 
