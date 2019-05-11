@@ -8,6 +8,12 @@
 
             <h1 class="h1 page-header">My Jobs</h1>
 
+            <%if @amount_of_user_jobs == 0%>
+
+                <p class="subtitle">You don't have any jobs at the moment.</p>
+
+            <%end%>
+
             <% @jobs.each do |job| %>
 
                 <%#if the current user owns the job - if they are the printer or the designer - show it%>
@@ -17,15 +23,21 @@
 
                     <div class="row card">
                         <div class="col-md-6">
-                            <% if job.status == false %>
-                                <p class="active">Status: Active</p>
+                            <p><span class="data"><%= job.created_at.to_time.strftime('%A, %d %b %Y') %></span></p>
+                            
+                            <% if current_user.user_type == "designer" %>
+                                <p>Printer Name: <span class="data"><%= "#{job.printer.user.first_name} #{job.printer.user.last_name}" %></span></p>
                             <% else %>
-                                <p class="completed">Status: Completed</p>
+                                <p>Designer Name:<span class="data"><%= "#{job.listing.user.first_name} #{job.listing.user.last_name}" %></span></p>
                             <% end %>
-                            <p><%= job.created_at.to_time.strftime('%A, %d %b %Y %H:%M') %></p>
-                            <p><%= "#{job.listing.user.first_name} #{job.listing.user.last_name}" %></p>
-                            <p>Job Id: <%= job.id %></p>
-                            <p>Total Price: $<%= number_with_precision(job.quote.total_price, precision: 2) %></p>
+
+                            <p>Job Id: <span class="data"><%= job.id %></span></p>
+                            <p>Total Price: <span class="data">$<%= number_with_precision(job.quote.total_price, precision: 2) %></span></p>
+                            <% if job.status == false %>
+                                <p>Status: <span class="active data">Active</span></p>
+                            <% else %>
+                                <p>Status: <span class="completed data">Completed</span></p>
+                            <% end %>
                         </div>
                         <div class="col-md-3">
                             <%= link_to "View Job",job_path(job.id), class: "button_link" %>

@@ -13,12 +13,10 @@ html {
     font-size: 16px;
     text-align: center;
     box-sizing: border-box;
+    height: 100%;
 }
 
-main {
-    height: 100%;
-    // overflow:auto;
-}
+
 
 .h1, .h2, .h3 {
     font-family: $headings;
@@ -78,6 +76,10 @@ a {
       }
 }
 
+.subtitle {
+    padding-bottom: 2rem;
+}
+
 .card {
     background-color: $pale-blue;
     margin: 10px;
@@ -85,6 +87,9 @@ a {
     text-align: left;
     line-height: 1.5;
 
+    p {
+        font-size: 0.9rem;
+    }
     .name {
         font-size: 1.25rem;
     }
@@ -95,6 +100,11 @@ a {
 
     .completed {
         color: green;
+    }
+
+    .data {
+        font-size: 1rem;
+        font-weight: 800;
     }
 
 }

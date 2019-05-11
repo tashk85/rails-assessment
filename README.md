@@ -279,13 +279,13 @@ Currently, there are a lot of amateur and professional designers who are wanting
 
 Our project will be a 2 way marketplace that allows users to sign up either as Designers or Printers, and connect with eachother to perform printing jobs for an agreed upon price. This provides an easy-to-use platform for one group to find the other, and complete the task required.
 
-#### *. Describe the network infrastructure the App may be based on.
+#### 4. Describe the network infrastructure the App may be based on.
 
 This application is deployed on the Heroku platform, which is in many ways the same as a web host as they are storing and running your website on the internet using its own servers.
 
 The user will enter the 3Directions URL into their browser, this will send a HTTP request to the Internet Service Provider (ISP). The ISP will request the IP address from the Domain Name Server (DNS) to find the linked IP address and web server before it retrieves the data to load on the browser. Following this, the ISP will request to load files from the Heroku Web Server, which stores the app.
 
-#### *. Identify and describe the software to be used in your App.
+#### 5. Identify and describe the software to be used in your App.
 The application will be built in Ruby on Rails, which utilizes the Ruby programming language and combines this functionality with HTML, CSS and other languages, as well as providing software functionality for managing an application on the web (such as database management).
 
 The software (including default Rails code) utilizes Object Oriented Programming (OOP), where classes and objects are used to create and manage data within the flow of the program. Methods are defined in the controllers, and are used to manipulate data found in the Models, then display this data to the views.

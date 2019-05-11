@@ -1,4 +1,9 @@
 <h2 class="h2">Sign up As A <%= params[:user_type].capitalize %></h2>
+<% if params[:user_type] == "printer" %>
+  <p class="subtitle">Monetize your 3D Printer!</p>
+<% else %>
+  <p class="subtitle">Start 3D Printing Today!</p>
+<% end %>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>

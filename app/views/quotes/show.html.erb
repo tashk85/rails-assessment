@@ -9,12 +9,12 @@
 
                 <div class="row card">
                     <div class="col-md-6">
-                        <p>Printer id. <%= @quote.printer_id %></p>
-                        <p>Printer Postcode: <%=@quote.printer.user.postcode%><p>
-                        <p>Listing id. <%= @quote.listing_id %></p>
-                        <p>Total Price: $<%= number_with_precision(@quote.total_price, precision: 2) %></p>
-                        <p>Job Size (cubic cm): <%= @quote.job_size %></p>
-                        <p>Turnaround Time: <%= @quote.turnaround_time %></p>
+                        <p>Printer id. <span class="data"><%= @quote.printer_id %></span></p>
+                        <p>Printer Postcode: <span class="data"><%=@quote.printer.user.postcode%></span><p>
+                        <p>Listing id. <span class="data"><%= @quote.listing_id %></span></p>
+                        <p>Total Price: <span class="data">$<%= number_with_precision(@quote.total_price, precision: 2) %></span></p>
+                        <p>Job Size (cubic cm): <span class="data"><%= @quote.job_size %></span></p>
+                        <p>Turnaround Time: <span class="data"><%= @quote.turnaround_time.to_time.strftime('%A, %d %b %Y') %></span></p>
                     </div>
 
                     <!-- Only printers can edit quotes -->
