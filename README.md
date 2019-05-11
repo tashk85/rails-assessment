@@ -371,19 +371,38 @@ When a designer is viewing a particular quote, they are able to choose the 'Acce
 * AWS-SDK-S3 
 3Directions used Amazon Simple Storage Service for image/file uploads and storage. We also provided download links to allow printers to view and download the file and determine quote details.
 
+* Cypress
+
+Cypress is used for automated testing. We also used the cypress-file-upload npm plugin to automate file uploads, as this is necessary for creating listings.
+
 
 #### 11. Describe (in general terms) the data structure of marketplace apps that are similar to your own (e.g. eBay, Airbnb).
+
+Our app employs similar functionality to other marketplace applications:
+
+* Uber --> We have emulated the '2 user type' model, but instead of having Rider and Drivers, we have Designers and Printers. This is reflected in the signup process and the control of who can see what information.
+
+* Gumtree --> Users are able to sign up and post listings, and post their preferred price. Buyers then pay them (after optional negotation) for the goods / services. Our application follows a similar model, but reversed: The listings are services to be completed, and the people making offers are completing the service.
+
+* Airtasker --> People post tasks to be completed, and 'experts' contact them to complete the job. Very similar to us, except that we offer quotes which can be accepted or not, instead of using a messaging system to negotiate directly with the other party.
+
+
 
 
 #### 12. Discuss the database relations to be implemented.
 
   The User model is the basis from which all 3Directions models are formed. Most models belongs_to a user, which allows access to user information easily and also filters what is visible to each individual user through authorization. Each user has a user_type enum, which allows 3Directions to categorise the user as a printer or designer. 
 
-  The User table is related to all other databases through the has_many relationship. A User can have many listings (directly), quotes or jobs (indirectly through a listing). The Printer table is a join table with the User model. 
+  The User table is related to all other databases through the has_many relationship. A User can have many listings (directly), quotes or jobs (indirectly through a listing). The Printer table is a join table with the User model, to allow printers to be uniquely identified as a special type of user (they have extra attributes: ABN and Printer Model).
   
 #### 13. Describe your project’s models in terms of the relationships (active record associations) they have with each other.
 
-[Brief sentence about how the models talk to eachother (has_one, has_many etc)]
+
+* A user [has_many] listings, to allow designers to post as many listing as they'd like. A Listing [belongs_to] a user, to get their unique user id.
+* A listing and a printer [has_many] quotes, such that printers can give competitive offers and the designer can choose to accept the one they want to. A Quote [belongs_to] a listing AND a printer, to identify the buyer and seller of the potential print job. 
+* A listing [has_one] job, since once a quote is accepted, that listing and that job are uniquely linked (i.e., no one else can pay for it after this association is made). A job [belongs_to] a listing AND a printer, which in turn links to the user id's associated with both parties. It also [belongs_to] the quote it was generated from.
+* A listing also has a [has_one_attached] association for files. This is to associate the design file that is uploaded with the listing, instead of it being a record in the Listing table.
+
 
 
 #### 14. Provide your database schema design.
@@ -405,26 +424,59 @@ When a designer is viewing a particular quote, they are able to choose the 'Acce
 [Printer Mobile Wireframe](./docs/screenshots/Wireframes/Mobile-Wireframes_Printer.pdf)
 
 #### 17. Describe the way tasks are allocated and tracked in your project.
-how tasks were divided
+
+The allocation of tasks was predictated on the stages of the assignment that had already been completed.
+
+At the beginning, we employed pair programming for the initial setup of the app: creating the database, creating the models, creating the controllers, and implementing a few initial views that we knew we would need. All these links and associations were tested in the console to ensure that we could move on to our separate tasks.
+
+We then decided to split off into different tasks that had a low chance of creating merge conflicts (working on separate files). This seemed to work well apart from a few github hiccups that were eventually solved. We then worked on creating all the functionality required for Listings, as they are the backbone of the app that preface the other features (quotes, jobs). We both worked on separate aspects of Listings until they were working properly. Then, while Tash was working on getting quotes similarly functional, Luke implemented authorization and authentication to listings, to ensure only designers could make listings, etc. Tash handled the AWS and Stripe implementation.
+
+When the three main aspects (listings, quotes and jobs) were implemented, Luke handled more back-end bug fixes and user experience changes, while Tash began on the styling. Towards the end of the project, Luke handled the heroku deployment and the Cypress testing.
+
+Overall the tasks were devided evenly and I think we both played to our strengths and didn't feel that it was unfair at any stage. There was also significant time spent pair programming to help eachother 'rubber ducky' the issues we were having.
 
 #### 18. Discuss how Agile methodology is being implemented in your project.
+
   We implemented agile project management into our project through firstly going through the following:
+
   * Planning, including developing user stories for types of users, wireframes, ERD and user flows.
   * We tracked our progress through use of GitKraken Glo Board, where we divided it into columns based on ideas, to do tasks, testing, development and completed tasks.
   * We collaborated on the project through daily team meetings, Slack conversations and phone calls where we set tasks and goals for the day.
   * After each task was developed, we tested the process by finding any bugs or errors and incorporating this into our lessons learnt and if improvement was needed.
+  * Daily standup meetings with our tutor to help us to verbalize and track the tasks to be completed, current progress and any roadbloacks to achieving the tasks (mainly in the second week)
 
 #### 19. Provide an overview and description of your Source control process.
-git hub / gitkraken
+We used git, github and gitKraken for our source control process.
+
+We initialized the repo on the master branch, then almost immediately branched off into 'dev'. Dev was to be an ongoing branch with working code. We then split off from here for different features to be implemented, such as 'luke-listings' or 'tash-quotes'. Once these were working well, they were merged back into dev, and dev continued being functional.
+
+Towards the end we started pulling back into master, so that we could begin to deploy to Heroku (heroku only accepts the master branch as a source branch.)
+
+GitKraken was used as a GUI to have a visual representation of the branches that were created, and to easily revert back to a previous commit. This was helpful in identifying where something was working, and which commit broke it. Once this was determined, it was fairly easy to revert to said working commit, and then manually fix any changes that were necessary.
 
 #### 20. Provide an overview and description of your Testing process.
 byebug, automated testing with cypress
+
+Throughout most of the development process, we used simple terminal outputs to test and debug the program, such as byebug and printing out params to the screen. This could be done to the terminal running the rails server, or on the rails error page itself.
+
+Byebug in particular was a helpful tool for determining exactly which line of code caused the issue, and from here we generally ran database queries to help us find out what should have been created/updated etc in the database. Most of the time the statement that we used in the code was not querying the database with the right syntax, or the params required were not present because they had not been passed in.
+
+Cypress was used later in the process to automate the majority of website functions that a user can perform. We setup tests to:
+
+* Create users - both types, with randomly generated numbers implemented into their emails
+* Login as either type
+* Create, edit and view listings
+* Create, edit and view quotes
+* View, and update the status of jobs
+
+Stripe payments were attempted to be automated, but I (Luke) was having trouble implementing it with the external Stripe page. For the purposes of testing, I manually entered the credit card information. Cypress is a very powerful tool, and probably would have saved us a lot of time creating users, listings, quotes etc in the early stages of the assessment.
+
 
 #### 21. Discuss and analyse requirements related to information system security.
 credit cards and user info hosted by third party
 
 #### 22. Discuss methods you will use to protect information and data.
 passwords - devise encrypts
-stripe - how they protect payment
+stripe - how they protect payments
 
 #### 23. Research what your legal obligations are in relation to handling user data.

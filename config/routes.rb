@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   #use custom registrations controller
   devise_for :users, path: "/", path_names: {sign_in: "login", sign_up: "signup"}, controllers: {:registrations => "registrations"}
-  # get "/", to: "pages#index", as: "root"
+
   root to: "pages#index"
   # get "/", to: "pages#index", as: "root"
   get "/dashboard", to: "pages#dashboard", as: "dashboard"
@@ -18,11 +18,15 @@ Rails.application.routes.draw do
   get "/listings", to: "listings#index", as: "listings"
   post "/listings", to: "listings#create"
   get "/listings/new", to: "listings#new", as: "new_listing"
+  delete "/listings/:id", to: "listings#destroy", as: "destroy_listing"
   get "/listings/:id", to: "listings#show", as: "listing"
   get "/listings/:id/edit", to: "listings#edit", as: "edit_listing"
   patch "/listings/:id", to: "listings#update"
   put "/listings/:id", to: "listings#update"
   post "/listings/new", to: "listings#create", as: "create_listing"
+
+
+
 
   ### Quotes ###
   
