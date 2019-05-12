@@ -79,7 +79,7 @@ Printers will have the ability to:
 
 - Ruby/Rails
 - HTML
-- CSS (Bootstap, SASS, Flexbox)
+- CSS (Bootstrap, SASS, Flexbox)
 - Javascript
 - PostgresQL database
 - Stripe for payments
@@ -87,6 +87,7 @@ Printers will have the ability to:
 - Heroku for deployment
 - GitKraken / Glo boards for source control and project management
 - Google Sheets / Google docs for extra day planning and organization
+- Cypress for automated testing
 
 ### Instructions on how to setup, configure and use your App.
 1. Open the app in heroku (https://threedirections.herokuapp.com)
@@ -188,7 +189,7 @@ When clicking on a specific job, you will see all information related to the lis
 ## Design Documentation including,
 ### Design Process
 
-[Whiteboard Ideas Brainstorm](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/app-idea-brainstorm.jpg)
+[Whiteboard Ideas Brainstorm](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/screenshots/Planning/app-idea-brainstorm.jpg)
 
 [Design ideas and planning](./docs/screenshots/Planning/3D-printing_Project-Planning-and-ideas.pdf)
 
@@ -229,21 +230,21 @@ As Esperanza, I want to print a necklace with my own design so that I can give i
 
 ### Wireframes
 
-[Wireframe Sketches](.docs/screenshots/Wireframes/Wireframe-Sketches-1.jpg)
+[Wireframe Sketches](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/screenshots/Wireframes/Wireframe-Sketches-1.jpg)
 
-[Wireframe Sketches](.docs/screenshots/Wireframes/Wireframe-Sketches-2.jpg)
+[Wireframe Sketches](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/screenshots/Wireframes/Wireframe-Sketches-2.jpg)
 
-[Wireframe Sketches](.docs/screenshots/Wireframes/Wireframe-Sketches-3.jpg)
+[Wireframe Sketches](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/screenshots/Wireframes/Wireframe-Sketches-3.jpg)
 
-[Wireframe Sketches](.docs/screenshots/Wireframes/Wireframe-Sketches-4.jpg)
+[Wireframe Sketches](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/screenshots/Wireframes/Wireframe-Sketches-4.jpg)
 
-[Wireframe Sketches](.docs/screenshots/Wireframes/Wireframe-Sketches-5.jpg)
+[Wireframe Sketches](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/screenshots/Wireframes/Wireframe-Sketches-5.jpg)
 
-[Wireframe Sketches](.docs/screenshots/Wireframes/Wireframe-Sketches-6.jpg)
+[Wireframe Sketches](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/screenshots/Wireframes/Wireframe-Sketches-6.jpg)
 
-[Wireframe Sketches](.docs/screenshots/Wireframes/Wireframe-Sketches-7.jpg)
+[Wireframe Sketches](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/screenshots/Wireframes/Wireframe-Sketches-7.jpg)
 
-[Wireframe Sketches](.docs/screenshots/Wireframes/Wireframe-Sketches-8.jpg)
+[Wireframe Sketches](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/screenshots/Wireframes/Wireframe-Sketches-8.jpg)
 
 [Designer Desktop Wireframe](./docs/screenshots/Wireframes/Desktop-Wireframes_Designer.pdf)
 
