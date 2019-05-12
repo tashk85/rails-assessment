@@ -1,17 +1,36 @@
 class QuotesController < ApplicationController
 
     def index
+        #Splits quotes into open and past
+        set_quote_arrays
+
+        # byebug
         #shows all quotes
         @quotes = Quote.all
 
-        @no_quotes_for_listing = Listing.find(params[:listing]).quotes.count
+        # @no_quotes_for_listing = Listing.find(params[:listing]).quotes.count
+
+
+        if current_user.user_type == "printer"
+            #For printer, return all of THEIR quotes on this listing
+
+            @quotes_for_listing = Listing.find(params[:listing]).quotes.where(printer_id:Printer.find_by_user_id(current_user.id))
+
+        else
+            #For a designer, return all quotes on this listing
+            @quotes_for_listing = Listing.find(params[:listing]).quotes
+
+        end
         # byebug
     end
 
     def show
+        set_quote_arrays
+
         # view a single quote by setting id from params
         id = params[:id]
         @quote = Quote.find(id)
+        
 
         ### Create stripe session ###
 
@@ -134,7 +153,6 @@ class QuotesController < ApplicationController
             redirect_to root_path
         end 
         @amount_of_user_quotes = @past_quotes + @open_quotes
-        # byebug
     end
 
 

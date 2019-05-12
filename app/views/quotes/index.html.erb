@@ -7,31 +7,33 @@
         <div class="col-sm-9">
             <h1 class="h1 page-header">View Quotes for this Listing</h1>
 
-            <%if @amount_of_user_quotes == 0 %>
+            <%if @quotes_for_listing.count == 0 %>
                 
                 <%if current_user.user_type == "designer"%>
 
                     <p class="subtitle">There are no quotes attached to this listing.</p>
 
                 <% else %>
-                    <p class="subtitle">There are no quotes attached to this listing.</p>
+                    <p class="subtitle">You have no quotes attached to this listing.</p>
 
                 <div class="col-md-12 hidden-sm-up">
                     <%= link_to 'Back to Listings', listings_path, class: "button_link" %>
                 </div>
 
-            <%end%>
+                <%end%>
             
             <div class="col-md-12 hidden-sm-up">
                 <%= link_to 'Back to Dashboard', dashboard_path, class: "button_link" %>
             </div>
 
+        <%end%>
 
-            <% @amount_of_user_quotes = 0 %>
+
+        
 
             <%if current_user.user_type == "designer"%>
             <!-- if user is a designer, show all quotes for this listing -->
-                <% @quotes.each do |quote| %>
+                <% @quotes_for_listing.each do |quote| %>
                     <%if quote.listing_id == params[:listing].to_i%>
                         <div class="row card">
                             <div class="col-md-6">
@@ -56,7 +58,7 @@
 
             <%else%>
 
-                <% @quotes.each do |quote| %>
+                <% @quotes_for_listing.each do |quote| %>
                     <%if quote.listing_id == params[:listing]%>
                     <!-- check for quotes that have a listing id that match params listing id -->
                         <% if Printer.find(quote.printer_id).user_id == current_user.id %>
