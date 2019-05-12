@@ -14,10 +14,10 @@
         <% if user_signed_in? %>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav desktop">
-                    <li><a href="<%= new_user_registration_path(user_type: "printer") %>">Dashboard</a></li>
-                    <li><a href="<%= new_user_registration_path(user_type: "designer") %>">View Listings</a></li>
-                    <li><a href="<%= new_user_session_path %>">View Quotes</a></li>
-                    <li><a href="<%= new_user_session_path %>">View Jobs</a></li>
+                    <li><a href="<%= dashboard_path %>">Dashboard</a></li>
+                    <li><a href="<%= listings_path %>">View Listings</a></li>
+                    <li><a href="<%= my_quotes_path %>">View My Quotes</a></li>
+                    <li><a href="<%= jobs_path %>">View Jobs</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><%= link_to "Log Out", destroy_user_session_path, method: "DELETE" if user_signed_in? %></li>

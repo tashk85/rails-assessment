@@ -46,13 +46,40 @@ Printers will have the ability to:
 
 ### Screenshots
 
-[insert once styling is done]
+[Home / Landing Page](./docs/screenshots/App/1_Landing-Page.jpg)
+[Sign Up Page for Printers](./docs/screenshots/App/2_Signup_page-Printer.jpg)
+[Sign Up Page for Designers](./docs/screenshots/App/3_Signup_page-Designer.jpg)
+[Log In Page](./docs/screenshots/App/4_Login-Page.jpg)
+[Designer Dashboard](./docs/screenshots/App/5_Dashboard-Designer.jpg)
+[Create A New Listing](./docs/screenshots/App/6_Designer-Create-Listing.jpg)
+[View all Listings](./docs/screenshots/App/7_Designer-View-Listings.jpg)
+[View A Listing](./docs/screenshots/App/8_Designer-View-a-Listing.jpg)
+[Edit A Listing](./docs/screenshots/App/9_Designer-Edit-a-Listing.jpg)
+[Designer - View A Quote](./docs/screenshots/App/10_Designer-View-a-Quote.jpg)
+[Designer - View Quotes for a Listing](./docs/screenshots/App/11_Designer-View-Quotes-for-a-Listing.jpg)
+[Designer - View all Quotes](./docs/screenshots/App/12_Designer-View-Quotes.jpg)
+[Designer - Accept A Quote](./docs/screenshots/App/10_Designer-Accept-a-Quote.jpg)
+[Designer - View A Job](./docs/screenshots/App/13_Designer-View-a-Job.jpg)
+[Designer - View all Jobs](./docs/screenshots/App/14_Designer-View-Jobs.jpg)
+[Designer - View all Jobs (No Jobs)](./docs/screenshots/App/13_Designer-View-Jobs.jpg)
+
+[Printer Dashboard](./docs/screenshots/App/16_Dashboard-Printer.jpg)
+[Printer - View all Listings](./docs/screenshots/App/17_Printer-View-Listings.jpg)
+[Printer - View A Listing](./docs/screenshots/App/18_Printer-View-a-Listing.jpg)
+[Printer - Create A New Quote](./docs/screenshots/App/19_Printer-Create-A-New-Quote.jpg)
+[Printer - View A Quote](./docs/screenshots/App/21_Printer-View-A-Quote.jpg)
+[Printer - Edit A Quote](./docs/screenshots/App/22_Printer-Edit-A-Quote.jpg)
+[Printer - View all Quotes](./docs/screenshots/App/20_Printer-View-My-Quotes.jpg)
+[Printer - View all Jobs](./docs/screenshots/App/23_Printer-View-Jobs.jpg)
+[Printer - View An Active Job](./docs/screenshots/App/24_Printer-View-An-Active-Job.jpg)
+[Printer - View A Completed Job](./docs/screenshots/App/25_Printer-View-A-Completed-Job.jpg)
+
 
 ### Tech Stack (e.g. html, css, deployment platform, etc)
 
 - Ruby/Rails
 - HTML
-- CSS (Bootstap, SASS, Flexbox)
+- CSS (Bootstrap, SASS, Flexbox)
 - Javascript
 - PostgresQL database
 - Stripe for payments
@@ -60,6 +87,7 @@ Printers will have the ability to:
 - Heroku for deployment
 - GitKraken / Glo boards for source control and project management
 - Google Sheets / Google docs for extra day planning and organization
+- Cypress for automated testing
 
 ### Instructions on how to setup, configure and use your App.
 1. Open the app in heroku (https://threedirections.herokuapp.com)
@@ -142,23 +170,32 @@ Once the information has been entered (if there are no errors), you will be take
 
 Editing an existing quote takes you to the same form as creating a new one, and you may amend any information that you wish to. You will need to fill in all fields.
 
-5. Viewing 'My Quotes'
+#### Viewing 'My Quotes'
 
 As either type of user, you are able to view 'My Quotes' from the dashboard, which will bring up:
 
 * All quotes on any of your listings (as a designer)
 * All quotes that you have made on any listings (as a printer)
 
+#### Viewing 'My Jobs'
+
+As a printer, you will be able to view all jobs that a designer has accepted based on your quote. 
+
+#### Viewing a specific job
+
+When clicking on a specific job, you will see all information related to the listing and quote details. From here you are able to indicate if the job has been completed by clicking the 'Mark Job As Complete' button.
 
 
 ## Design Documentation including,
 ### Design Process
 
-![whiteboard-ideas](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/app-idea-brainstorm.jpg "Whiteboard ideas")
+[Whiteboard Ideas Brainstorm](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/screenshots/Planning/app-idea-brainstorm.jpg)
 
-![Moodboard](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/screenshots/Planning/pinterest_moodboard.jpg "Pinterest Moodboard screenshot")
+[Design ideas and planning](./docs/screenshots/Planning/3D-printing_Project-Planning-and-ideas.pdf)
 
-![Font Selection](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/screenshots/Planning/font_selection.png "Google Font selection screenshot")
+[Pinterest Moodboard screenshot](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/screenshots/Planning/pinterest_moodboard.jpg)
+
+[Google Font selection screenshot](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/screenshots/Planning/font_selection.png)
 
 
 ### User Stories
@@ -179,35 +216,35 @@ As Fredrich, I want to print my designs quickly and cheaply to avoid using the p
 
 As Esperanza, I want to print a necklace with my own design so that I can give it as a gift.
 
-### Workflow Diagram of the user journey/s.
+### Workflow Diagram of User Journeys.
 
 1. Designer
 
-![designer-flow](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/screenshots/workflows/Designer%20Workflow%200.1.jpg "Designer workflow")
+[Designer Workflow](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/screenshots/workflows/Designer%20Workflow%200.1.jpg)
 
 
 2. Printer
 
-![printer-flow](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/screenshots/workflows/Printer_userflow%20(1).jpg "Printer workflow")
+[Printer Workflow](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/screenshots/workflows/Printer_userflow%20(1).jpg)
 
 
 ### Wireframes
 
-[Wireframe Sketches](.docs/screenshots/Wireframes/Wireframe-Sketches-1.jpg)
+[Wireframe Sketches](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/screenshots/Wireframes/Wireframe-Sketches-1.jpg)
 
-[Wireframe Sketches](.docs/screenshots/Wireframes/Wireframe-Sketches-2.jpg)
+[Wireframe Sketches](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/screenshots/Wireframes/Wireframe-Sketches-2.jpg)
 
-[Wireframe Sketches](.docs/screenshots/Wireframes/Wireframe-Sketches-3.jpg)
+[Wireframe Sketches](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/screenshots/Wireframes/Wireframe-Sketches-3.jpg)
 
-[Wireframe Sketches](.docs/screenshots/Wireframes/Wireframe-Sketches-4.jpg)
+[Wireframe Sketches](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/screenshots/Wireframes/Wireframe-Sketches-4.jpg)
 
-[Wireframe Sketches](.docs/screenshots/Wireframes/Wireframe-Sketches-5.jpg)
+[Wireframe Sketches](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/screenshots/Wireframes/Wireframe-Sketches-5.jpg)
 
-[Wireframe Sketches](.docs/screenshots/Wireframes/Wireframe-Sketches-6.jpg)
+[Wireframe Sketches](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/screenshots/Wireframes/Wireframe-Sketches-6.jpg)
 
-[Wireframe Sketches](.docs/screenshots/Wireframes/Wireframe-Sketches-7.jpg)
+[Wireframe Sketches](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/screenshots/Wireframes/Wireframe-Sketches-7.jpg)
 
-[Wireframe Sketches](.docs/screenshots/Wireframes/Wireframe-Sketches-8.jpg)
+[Wireframe Sketches](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/screenshots/Wireframes/Wireframe-Sketches-8.jpg)
 
 [Designer Desktop Wireframe](./docs/screenshots/Wireframes/Desktop-Wireframes_Designer.pdf)
 
@@ -222,15 +259,15 @@ All 4 of our wireframes (Designer and printer, desktop and mobile) can be found 
 
 
 ### Database Entity Relationship Diagrams
-![Entity relationship diagram](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/screenshots/ERD/3D%20Printing%20ERD.png "Entity relationship diagram")
+[Entity Relationship Diagram](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/screenshots/ERD/3D%20Printing%20ERD.png)
 
 
 ## Details of Planning process
-### Project plan & timeline
+### Project Plan & Timeline
 
-[Project plan & timeline](.docs/screenshots/Planning/Project Plan - 3D Print.pdf)
+[Project Plan & Timeline](./docs/screenshots/Planning/Project-Plan-and-Timeline_3Directions.pdf)
 
-### Screenshots of Trello board(s)
+### Screenshots of Trello Board(s)
 
 For this project, we used a combination of approaches to organize tasks to be completed.
 
@@ -250,14 +287,15 @@ The glo board was separated into several cards:
 
 6. Stretch goals - Features to implement if there is enough time.
 
-![Glo board screenshot 1](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/screenshots/Planning/Glo1.png "Glo board screenshot")
+[Glo board screenshot 1](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/screenshots/Planning/Glo1.png)
 
-![Glo board screenshot 1]https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/screenshots/Planning/Glo2.png( "Glo board screenshot")
+[Glo board screenshot 2](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/screenshots/Planning/Glo2.png)
 
 On a daily basis, we used Google Sheets to organize tasks for the day. Each day we would list the tasks to be completed by each team member by the end of the day. We coloured in the cell yellow when it was in progress, and green when it was complete. At times we shifted tasks to the next day's sheet when they weren't completed by the end of the day.
+
 The spreadsheet can be viewed here: https://docs.google.com/spreadsheets/d/1dflTU3Hk8w90SW6gPZDRxiEa19axQ65TlZpEr7AAzqA/edit?usp=sharing
 
-![Google sheets - daily tasks](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/screenshots/Planning/Daily%20Tasks%20Sheet.png "Google sheets daily tasks")
+[Google Sheets - daily tasks](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/screenshots/Planning/Daily%20Tasks%20Sheet.png "Google sheets daily tasks")
 
 
 ## Short Answer Questions
@@ -269,24 +307,20 @@ We are addressing the need that amateur and professional designers have to print
 
 Currently, there are a lot of amateur and professional designers who are wanting their designs printed but cannot due to accessibility and price. For example, a designer might find several 3D printing services online, but they may be too far away from them to pickup, or too expensive / fragile to ship. This service would allow them access to a variety of different printers from different locations, allowing them to make their own decision.
 
- There is also a market of people who own 3D printers but do not have a reason to use them on a regular basis (e.g.,they have been sitting around in a garage). These people may have spent a lot of money purchasing said printers upon their first release, as a hobbyist, and this service would provide them with a way to make some of that money back without much effort.
+There is also a market of people who own 3D printers but do not have a reason to use them on a regular basis (e.g.,they have been sitting around in a garage). These people may have spent a lot of money purchasing said printers upon their first release, as a hobbyist, and this service would provide them with a way to make some of that money back without much effort.
 
 
 #### 3. Describe the project will you be conducting and how. your App will address the needs.
 
 Our project will be a 2 way marketplace that allows users to sign up either as Designers or Printers, and connect with eachother to perform printing jobs for an agreed upon price. This provides an easy-to-use platform for one group to find the other, and complete the task required.
 
-#### *. Describe the network infrastructure the App may be based on.
+#### 4. Describe the network infrastructure the App may be based on.
 
-This application is run on the Heroku platform, which is in many ways the same as a web host as they are storing and running your website on the internet using its own servers.
+This application is deployed on the Heroku platform, which is in many ways the same as a web host as they are storing and running your website on the internet using its own servers.
 
+The user will enter the 3Directions URL into their browser, this will send a HTTP request to the Internet Service Provider (ISP). The ISP will request the IP address from the Domain Name Server (DNS) to find the linked IP address and web server before it retrieves the data to load on the browser. Following this, the ISP will request to load files from the Heroku Web Server, which stores the app.
 
-
-how people are connecting to the app - the network
-Heroku, HTTPS over the internet, web server that’s running
-Could also talk about how it connects to the database
-
-#### *. Identify and describe the software to be used in your App.
+#### 5. Identify and describe the software to be used in your App.
 The application will be built in Ruby on Rails, which utilizes the Ruby programming language and combines this functionality with HTML, CSS and other languages, as well as providing software functionality for managing an application on the web (such as database management).
 
 The software (including default Rails code) utilizes Object Oriented Programming (OOP), where classes and objects are used to create and manage data within the flow of the program. Methods are defined in the controllers, and are used to manipulate data found in the Models, then display this data to the views.
@@ -297,6 +331,8 @@ This application will be using the PostgresQL database as it is compatible with 
 #### 7. Identify and describe the production database setup (i.e. postgres instance).
 
 The application runs on PostgresQL, and consists of a series of tables for the models in the app (described further below). This PostgresQL instance then interfaces with Heroku, to create a database on the Heroku server that can be publicly accessed.
+
+The database is initially created with rails db:create, migrations run with db:migrate, and seeded with db:seed.
 
 The models are accessed through controller methods, which extract and manipulate data as users interact with the app and complete transactions.
 
@@ -370,23 +406,38 @@ When a designer is viewing a particular quote, they are able to choose the 'Acce
 * AWS-SDK-S3 
 3Directions used Amazon Simple Storage Service for image/file uploads and storage. We also provided download links to allow printers to view and download the file and determine quote details.
 
+* Cypress
+Cypress is used for automated testing. We also used the cypress-file-upload npm plugin to automate file uploads, as this is necessary for creating listings.
+
 
 #### 11. Describe (in general terms) the data structure of marketplace apps that are similar to your own (e.g. eBay, Airbnb).
+
+Our app employs similar functionality to other marketplace applications:
+
+* Uber --> We have emulated the '2 user type' model, but instead of having Rider and Drivers, we have Designers and Printers. This is reflected in the signup process and the control of who can see what information.
+
+* Gumtree --> Users are able to sign up and post listings, and post their preferred price. Buyers then pay them (after optional negotation) for the goods / services. Our application follows a similar model, but reversed: The listings are services to be completed, and the people making offers are completing the service.
+
+* Airtasker --> People post tasks to be completed, and 'experts' contact them to complete the job. Very similar to us, except that we offer quotes which can be accepted or not, instead of using a messaging system to negotiate directly with the other party.
 
 
 #### 12. Discuss the database relations to be implemented.
 
   The User model is the basis from which all 3Directions models are formed. Most models belongs_to a user, which allows access to user information easily and also filters what is visible to each individual user through authorization. Each user has a user_type enum, which allows 3Directions to categorise the user as a printer or designer. 
 
-  The User table is related to all other databases through the has_many relationship. A User can have many listings (directly), quotes or jobs (indirectly through a listing). The Printer table is a join table with the User model. 
+  The User table is related to all other databases through the has_many relationship. A User can have many listings (directly), quotes or jobs (indirectly through a listing). The Printer table is a join table with the User model, to allow printers to be uniquely identified as a special type of user (they have extra attributes: ABN and Printer Model).
   
+
 #### 13. Describe your project’s models in terms of the relationships (active record associations) they have with each other.
 
-[Brief sentence about how the models talk to eachother (has_one, has_many etc)]
+* A user [has_many] listings, to allow designers to post as many listing as they'd like. A Listing [belongs_to] a user, to get their unique user id.
+* A listing and a printer [has_many] quotes, such that printers can give competitive offers and the designer can choose to accept the one they want to. A Quote [belongs_to] a listing AND a printer, to identify the buyer and seller of the potential print job. 
+* A listing [has_one] job, since once a quote is accepted, that listing and that job are uniquely linked (i.e., no one else can pay for it after this association is made). A job [belongs_to] a listing AND a printer, which in turn links to the user id's associated with both parties. It also [belongs_to] the quote it was generated from.
+* A listing also has a [has_one_attached] association for files. This is to associate the design file that is uploaded with the listing, instead of it being a record in the Listing table.
 
 
 #### 14. Provide your database schema design.
-![Entity relationship diagram](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/screenshots/ERD/3D%20Printing%20ERD.png "Entity relationship diagram")
+[Entity relationship diagram](./docs/screenshots/ERD/3D%20Printing%20ERD.png)
 
 #### 15. Provide User stories for your App.
 * As Jemima, I want to make use of my 3D printer to make extra money without much effort.
@@ -405,14 +456,70 @@ When a designer is viewing a particular quote, they are able to choose the 'Acce
 
 #### 17. Describe the way tasks are allocated and tracked in your project.
 
+The allocation of tasks was predictated on the stages of the assignment that had already been completed.
+
+At the beginning, we employed pair programming for the initial setup of the app: creating the database, creating the models, creating the controllers, and implementing a few initial views that we knew we would need. All these links and associations were tested in the console to ensure that we could move on to our separate tasks.
+
+We then decided to split off into different tasks that had a low chance of creating merge conflicts (working on separate files). This seemed to work well apart from a few github hiccups that were eventually solved. We then worked on creating all the functionality required for Listings, as they are the backbone of the app that preface the other features (quotes, jobs). We both worked on separate aspects of Listings until they were working properly. Then, while Tash was working on getting quotes similarly functional, Luke implemented authorization and authentication to listings, to ensure only designers could make listings, etc. Tash handled the AWS and Stripe implementation.
+
+When the three main aspects (listings, quotes and jobs) were implemented, Luke handled more back-end bug fixes and user experience changes, while Tash began on the styling. Towards the end of the project, Luke handled the heroku deployment and the Cypress testing.
+
+Overall the tasks were devided evenly and I think we both played to our strengths and didn't feel that it was unfair at any stage. There was also significant time spent pair programming to help eachother 'rubber ducky' the issues we were having.
+
 #### 18. Discuss how Agile methodology is being implemented in your project.
-***Have a general overview
-Break down general overview into sprints - after each sprint question: did we miss anything or is there anything we want to improve, did we learn anything?
-Sprint 1 we only focus on this problem/solution ***
+
+We implemented agile project management into our project through firstly going through the following:
+
+* Planning, including developing user stories for types of users, wireframes, ERD and user flows.
+* We tracked our progress through use of GitKraken Glo Board, where we divided it into columns based on ideas, to do tasks, testing, development and completed tasks.
+* We collaborated on the project through daily team meetings, Slack conversations and phone calls where we set tasks and goals for the day.
+* After each task was developed, we tested the process by finding any bugs or errors and incorporating this into our lessons learnt and if improvement was needed.
+* Daily standup meetings with our tutor to help us to verbalize and track the tasks to be completed, current progress and any roadblocks to achieving the tasks (mainly in the second week).
 
 #### 19. Provide an overview and description of your Source control process.
 
+We used git, github and gitKraken for our source control process.
+
+We initialized the repo on the master branch, then almost immediately branched off into 'dev'. Dev was to be an ongoing branch with working code. We then split off from here for different features to be implemented, such as 'luke-listings' or 'tash-quotes'. Once these were working well, they were merged back into dev, and dev continued being functional.
+
+Towards the end we started pulling back into master, so that we could begin to deploy to Heroku (heroku only accepts the master branch as a source branch.)
+
+GitKraken was used as a GUI to have a visual representation of the branches that were created, and to easily revert back to a previous commit. This was helpful in identifying where something was working, and which commit broke it. Once this was determined, it was fairly easy to revert to said working commit, and then manually fix any changes that were necessary.
+
 #### 20. Provide an overview and description of your Testing process.
+
+Throughout most of the development process, we used simple terminal outputs to test and debug the program, such as byebug and printing out params to the screen. This could be done to the terminal running the rails server, or on the rails error page itself.
+
+Byebug in particular was a helpful tool for determining exactly which line of code caused the issue, and from here we generally ran database queries to help us find out what should have been created/updated etc in the database. Most of the time the statement that we used in the code was not querying the database with the right syntax, or the params required were not present because they had not been passed in.
+
+Cypress was used later in the process to automate the majority of website functions that a user can perform. We setup tests to:
+
+* Create users - both types, with randomly generated numbers implemented into their emails
+* Login as either type
+* Create, edit and view listings
+* Create, edit and view quotes
+* View, and update the status of jobs
+
+Stripe payments were attempted to be automated, but I (Luke) was having trouble implementing it with the external Stripe page. For the purposes of testing, I manually entered the credit card information. Cypress is a very powerful tool, and probably would have saved us a lot of time creating users, listings, quotes etc in the early stages of the assessment.
+
+
 #### 21. Discuss and analyse requirements related to information system security.
+
+The most sensitive information stored in our application is a user's credit card details. These are all handled externally via Stripe, meaning that we do not have access to these records in the event of a data breach. Stripe has had an excellent track record when it comes to protection of sensitive data, and thus they are a trustworthy holder of this information.
+
 #### 22. Discuss methods you will use to protect information and data.
+
+In terms of password protection, encryption of user's passwords is built directly into Devise. This is evident when debugging, as the parameter will read something along the lines of 'password:[FILTERED]' instead of the password itself. This is much safer than storing the password in plain text, where it is liable to be intercepted by hackers.
+
+For payment, we are using the third-party software Stripe, which handles the online payment system. When a user is paying for their job, they are redirected to Stripe for payment and then redirected back to the 3Directions website. This means we do not have to store any credit card details on our application as Stripe provides the technical, fraud prevention and banking infrastructure for a small fee. 
+
+
 #### 23. Research what your legal obligations are in relation to handling user data.
+
+The legal obligations in Australia are based around PCI DSS (Payment Card Industry Data Security Standards), which provides protection to customer's credit or debit card information and the Privacy Act, which regulates how personal information is stored and handled.
+
+Since 3Directions accepts payments, our obligation is to ensure that we are complying with providing customers a secure payment environment. By implementing Stripe as our payment gateway, we are ensuring that maximum security is provided when processing and storing credit or debit card information on transactions.
+
+In order to prevent a data breach, we have used third-party applications such as Devise and Stripe to store the most sensitive information such as passwords and payment details. The 3Directions application does not store any addresses or sensitive personal information, which means that if a data breach were to occur the information combined would not be likely to cause serious financial or reputational damage.
+
+In any case of data breach, our obligation would be to notify customers, provide potential strategies for how we would contain, assess and manage the breach and identifying any weaknesses in data handling that led to the breach.

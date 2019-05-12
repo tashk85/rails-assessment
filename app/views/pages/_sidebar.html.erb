@@ -1,0 +1,26 @@
+<!-- start of sidebar -->
+<div class="col-sm-3 hidden-sm-down sidebar">
+    <div class="user_avatar">
+        <%if current_user.user_type == "designer"%>
+            <div class="howItWorks_image">
+                <%= image_tag "Designer-Avatar.png", alt: "Designer Avatar", class: "img-responsive img-circle" %>
+            </div>
+        <% else %>
+            <div class="howItWorks_image">
+                <%= image_tag "Printer-Avatar.png", alt: "Printer Avatar", class: "img-responsive img-circle" %>
+            </div>
+        <% end %>
+        <h3><%= "#{current_user.first_name.capitalize} #{current_user.last_name.capitalize}"%></h3>
+    </div>
+        <ul class="nav nav-pills nav-stacked">
+            <li><a href="<%= dashboard_path %>">Dashboard</a></li>
+            <% if current_user.user_type == "designer" %>
+                <li><a href="<%= listings_path %>">View My Listings</a></li>
+            <% else %>
+                <li><a href="<%= listings_path %>">View All Listings</a></li>
+            <% end %>
+            <li><a href="<%= my_quotes_path(@user_id) %>">View My Quotes</a></li>
+            <li><a href="<%= jobs_path %>">View My Jobs</a></li>
+        </ul>
+</div>
+<!-- end of sidebar -->

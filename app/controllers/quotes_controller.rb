@@ -1,13 +1,32 @@
 class QuotesController < ApplicationController
+
     def index
+        #Splits quotes into open and past
+
         #shows all quotes
         @quotes = Quote.all
+
+        # @no_quotes_for_listing = Listing.find(params[:listing]).quotes.count
+
+
+        if current_user.user_type == "printer"
+            #For printer, return all of THEIR quotes on this listing
+
+            @quotes_for_listing = Listing.find(params[:listing]).quotes.where(printer_id:Printer.find_by_user_id(current_user.id))
+
+        else
+            #For a designer, return all quotes on this listing
+            @quotes_for_listing = Listing.find(params[:listing]).quotes
+
+        end
     end
 
     def show
+
         # view a single quote by setting id from params
         id = params[:id]
         @quote = Quote.find(id)
+        
 
         ### Create stripe session ###
 
@@ -94,6 +113,13 @@ class QuotesController < ApplicationController
         end
     end
 
+    def destroy
+        # deletes a listing
+        Quote.find(params[:id]).destroy
+        
+        redirect_to quotes_path
+    end
+
     private
     def quote_params
         params.require(:quote).permit(:total_price, :job_size, :turnaround_time, :printer_id, :listing_id)
@@ -107,6 +133,7 @@ class QuotesController < ApplicationController
             #return quotes that belong to the user, and the associated job also belong to the user
             @past_quotes = Quote.joins(:printer).where(printers:{user_id:current_user.id}, has_job:true)
             @open_quotes = Quote.joins(:printer).where(printers:{user_id:current_user.id}, has_job:false)
+
            
             #Check if a quote has been assigned to a job that belongs to another printer
 
@@ -120,6 +147,7 @@ class QuotesController < ApplicationController
         else
             redirect_to root_path
         end 
+        @amount_of_user_quotes = @past_quotes + @open_quotes
     end
 
 

@@ -34,6 +34,10 @@
         margin: 0;
         padding: 1.5rem;
         background-color: $white;
+
+        p {
+            height: 50px;
+        }
     }
 }
 
@@ -64,7 +68,7 @@
 }
 
 .howItWorks_image {
-    background-color: #276EF1;
+    background-color: $dark-blue;
     width: 150px;
     height: 150px;
     border-radius: 75px;
@@ -108,7 +112,7 @@
     text-align: center;
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 992px) {
     .whatIs {
         .h2, p {
             text-align: left;
@@ -126,6 +130,10 @@
 
     .video-responsive iframe {
         max-height: 500px;
+    }
+
+    .secondary_signup {
+        text-align: left;
     }
 
 }

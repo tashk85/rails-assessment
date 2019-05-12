@@ -1,6 +1,26 @@
-<h1> New Listing </h1>
+<main class="container-fluid">
+    <div class="row">
 
-<%= render "form", listing: @listing %>
-<%=link_to "Back to listings", listings_path%>
+        <%= render "pages/sidebar" %>
 
-<%=link_to "Back to dashboard", dashboard_path%>
+        <!-- start of main content -->
+        <div class="col-sm-9">
+
+            <h1 class="h1 page-header"> New Listing </h1>
+
+            <%= render "form", listing: @listing %>
+            <div class="col-md-12 hidden-sm-up">
+                <a class="button_link" href="<%= listings_path %>">
+                        Back to Listings
+                </a>
+            </div>
+            <div class="col-md-12 hidden-sm-up">
+                <a class="button_link" href="<%= dashboard_path %>">
+                        Back to Dashboard
+                </a>
+            </div>
+
+        </div>
+        <!-- end of main content -->
+    </div>
+</main>

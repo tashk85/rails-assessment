@@ -1,34 +1,69 @@
-<h1> Listing id: <%= @listing.id %></h1>
+<main class="container-fluid">
+        <div class="row">
 
-<div class="card">
-        <p>Listing ID: <%= @listing.id %> </p>
-        <p>Description: <%= @listing.description %> </p>
-        <p>Budget: $<%= number_with_precision(@listing.budget, precision: 2) %> </p>
-        <p>Due date: <%= @listing.due_date %> </p>
-        <p>Created at: <%= @listing.created_at.to_time.strftime('%A, %d %b %Y') %> </p>
-        <%= image_tag url_for(@listing.design_file) if @listing.design_file.attached? %>
-        <%= link_to @listing.design_file.filename, rails_blob_path(@listing.design_file, disposition: "attachment") if @listing.design_file.attached? %>
-        <%=link_to "Edit", edit_listing_path(@listing.id) if current_user.user_type == "designer"%>
-        <%=link_to "Back", listings_path%>
+                <%= render "pages/sidebar" %>
 
-        <%if current_user.user_type == "printer"%>
-                <%=link_to "Create Quote", new_quote_path(listing: @listing.id)%>
-        <%end%>
-        
-        <!-- Link to quotes with the amount varying depending on user type --
+                <!-- start of main content -->
+                <div class="col-sm-9">
+                        <h1 class="h1 page-header"> Listing Id. <%= @listing.id %></h1>
 
-        <%if current_user.user_type == "designer"%>
+                        <div class="row card">
+                                <div class="col-md-6">
+                                        <p><span class="data"><%= @listing.created_at.to_time.strftime('%A, %d %b %Y') %></span></p>
+                                        <p>Description: <span class="data"><%= @listing.description %></span> </p>
+                                        <p>Budget: <span class="data">$<%= number_with_precision(@listing.budget, precision: 2) %></span> </p>
+                                        <p>Due Date: <span class="data"><%= @listing.due_date.to_time.strftime('%d %b %Y') %></span></p>
+                                        <%= image_tag url_for(@listing.design_file), class: "listing_image" if @listing.design_file.attached? %>
+                                        <%= link_to "Download #{@listing.design_file.filename}", rails_blob_path(@listing.design_file, disposition: "attachment") if @listing.design_file.attached? %>
+                                </div>
+                                <% if current_user.user_type == "designer" %>
+                                        <div class="col-md-3">
+                                                <%= link_to "Edit Listing", edit_listing_path(@listing.id), class: "button_link" %>
+                                                <% if @listing.quotes.count == 0 %>
+                                                        <%= link_to("Delete Listing", listing_path(@listing.id), class: "button_link", method: :delete, data: { confirm: 'Are you sure you want to delete this listing?' }) %>
+                                                <%end%>
+                                        </div>
+                                <%end%>
 
-                <!-- set quote_count to 0 if there are none, to the total amount if there are some --
-                <%Quote.find_by_listing_id(@listing.id) == nil? ? quote_count = 0 : quote_count = Quote.where(listing_id: @listing.id).count %>
+                                <%if current_user.user_type == "printer"%>
+                                        <div class="col-md-3">
+                                                <%= link_to "Create Quote",new_quote_path(listing: @listing.id), class: "button_link" %>
+                                        </div>
+                                <%end%>
+                                
+                                <!-- Link to quotes with the amount varying depending on user type --
 
-        <%else%>
-                <!-- For printers, only show quotes they have personally made on the listing --
-                <%Quote.find_by_listing_id(@listing.id) == nil? ? quote_count = 0 : quote_count = Quote.where(listing_id: @listing.id, printer_id: (Printer.find_by_user_id(current_user.id))).count %>
-        <%end%>
+                                <%if current_user.user_type == "designer"%>
 
-        --
-        <%=link_to "View Quotes (#{quote_count})", quotes_path(listing: @listing)%>
-        -->
-        <%=link_to "View Quotes", quotes_path(listing: @listing)%>
-</div>
+                                        <!-- set quote_count to 0 if there are none, to the total amount if there are some --
+                                        <%Quote.find_by_listing_id(@listing.id) == nil? ? quote_count = 0 : quote_count = Quote.where(listing_id: @listing.id).count %>
+
+                                <%else%>
+                                        <!-- For printers, only show quotes they have personally made on the listing --
+                                        <%Quote.find_by_listing_id(@listing.id) == nil? ? quote_count = 0 : quote_count = Quote.where(listing_id: @listing.id, printer_id: (Printer.find_by_user_id(current_user.id))).count %>
+                                <%end%>
+
+                                --
+                                <%=link_to "View Quotes (#{quote_count})", quotes_path(listing: @listing)%>
+                                -->
+                                <div class="col-md-3">
+                                        <%= link_to "View Quotes", quotes_path(listing: @listing), class: "button_link" %>
+                                </div>
+                                
+                        </div>
+                        <div class="col-md-3 hidden-xs">
+                                <%= link_to "Back to Listings", listings_path, class: "button_link" %>       
+                        </div>
+                        <div class="col-md-12 hidden-sm-up">
+                                <%= link_to 'Back to Listings', listings_path, class: "button_link" %>
+                        </div>
+                        <div class="col-md-12 hidden-sm-up">
+                                <%= link_to 'Back to My Quotes', my_quotes_path, class: "button_link" %>
+                        </div>
+                        <div class="col-md-12 hidden-sm-up">
+                                <%= link_to 'Back to Dashboard', dashboard_path, class: "button_link" %>
+                        </div>
+                </div>
+                <!-- end of main content -->
+        </div>
+</main>

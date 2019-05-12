@@ -1,33 +1,12 @@
 <main class="container-fluid">
     <div class="row">
 
-        <!-- start of sidebar -->
-        <div class="col-sm-3 hidden-sm-down sidebar">
-            <div class="user_avatar">
-                <%if current_user.user_type == "designer"%>
-                    <div class="howItWorks_image">
-                        <%= image_tag "Designer-Avatar.png", alt: "Designer Avatar", class: "img-responsive img-circle" %>
-                    </div>
-                <% else %>
-                    <div class="howItWorks_image">
-                        <%= image_tag "Printer-Avatar.png", alt: "Printer Avatar", class: "img-responsive img-circle" %>
-                    </div>
-                <% end %>
-                <h3><%= "#{current_user.first_name.capitalize} #{current_user.last_name.capitalize}"%></h3>
-            </div>
-                <ul class="nav nav-pills nav-stacked">
-                    <li><a href="<%= dashboard_path %>">Dashboard</a></li>
-                    <li><a href="<%= listings_path %>">View My Listings</a></li>
-                    <li><a href="<%= my_quotes_path(@user_id) %>">View My Quotes</a></li>
-                    <li><a href="<%= jobs_path %>">View My Jobs</a></li>
-                </ul>
-            
-        </div>
-        <!-- end of sidebar -->
+        <%= render "pages/sidebar" %>
         
         <!-- start of main content -->
         <div class="col-sm-9">
-            <h1 class="page-header"><%=current_user.user_type.capitalize%> Dashboard</h1>
+            <!-- <%= render "shared/notice" %> -->
+            <h1 class="h1 page-header"><%=current_user.user_type.capitalize%> Dashboard</h1>
 
             <h2><%="Hi, #{current_user.first_name.capitalize}"%></h2>
 
@@ -44,50 +23,103 @@
                     <h3>My Jobs Summary</h3>
                     <div class="row">
                         <div class="col-xs-4 col-sm-4 summary">
-                            <h3><%= Listing.where(user_id: @user_id).count %></h3>
-                            <p>Active Listings</p>
+                            <a href="<%= listings_path %>">
+                                <h3><%= @active_listings %></h3>
+                                <% if @active_listings == 1 %>
+                                    <p>Listing</p>
+                                <% else %>
+                                    <p>Listings</p>
+                                <% end %>
+                            </a>
                         </div>
                         <div class="col-xs-4 col-sm-4 summary">
-                            <h3><%= Quote.joins(:listing).where(listings: {user_id: @user_id}).count %></h3>
-                            <p>Quotes</p>
+                            <a href="<%= my_quotes_path(@user_id) %>">
+                                <h3><%= @open_quotes %></h3>
+                                <% if @open_quotes == 1 %>
+                                    <p>Quote</p>
+                                <% else %>
+                                    <p>Quotes</p>
+                                <% end %>
+                            </a>
                         </div>
                         <div class="col-xs-4  col-sm-4 summary">
-                            <h3><%= Job.joins(:listing).where(listings: {user_id: @user_id}).where(jobs: {status: true}).count %></h3>
-                            <p>Completed Jobs</p>
+
+                            <a href="<%= jobs_path %>">
+                                <h3><%= @completed_jobs %></h3>
+                                <% if @completed_jobs == 1 %>
+                                    <p>Completed Job</p>
+                                <% else %>
+                                    <p>Completed Jobs</p>
+                                <% end %>
+                            </a>
+
                         </div>
 
                     </div>
                 </div>
-                
-                <div class="col-md-12 hidden-sm-up">
-                    <a class="button_link" href="<%= listings_path %>">
-                        View My Listings <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-                <div class="col-md-12 hidden-sm-up">
-                    <a class="col-md-12 hidden-sm-up button_link" href="<%= my_quotes_path(@user_id) %>">
-                        View My Quotes <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-                <div class="col-md-12 hidden-sm-up">
-                    <a class="button_link" href="<%= jobs_path %>">
-                        View My Jobs <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
             
             <!--What the printer sees -->
             <%else%>
-            
-                <div class="card">
-                    <%=link_to "View All Listings", listings_path%>
+                <div class="my_summary">
+                    <h3>My Jobs Summary</h3>
+                    <div class="row">
+                        <div class="col-xs-4 col-sm-4 summary">
+                            <a href="<%= listings_path %>">
+                                <h3><%= @listings_count %></h3>
+                                <% if @listings_count == 1 %>
+                                    <p>Listing</p>
+                                <% else %>
+                                    <p>Listings</p>
+                                <% end %>
+                            </a>
+                        </div>
+                        <div class="col-xs-4 col-sm-4 summary">
+                            <a href="<%= my_quotes_path(@user_id) %>">
+                                <h3><%= @open_quotes %></h3>
+                                <% if @open_quotes == 1 %>
+                                    <p>Quote</p>
+                                <% else %>
+                                    <p>Quotes</p>
+                                <% end %>
+                            </a>
+                            <!-- Quote.joins(:printer).where(printers: {user_id: @user_id}).count -->
+                        </div>
+                        <div class="col-xs-4  col-sm-4 summary">
+                            <a href="<%= jobs_path %>">
+                                <h3><%= @completed_jobs %></h3>
+                                <% if @completed_jobs == 1 %>
+                                    <p>Completed Job</p>
+                                <% else %>
+                                    <p>Completed Jobs</p>
+                                <% end %>
+                            </a>
+                        </div>
+
+                    </div>
                 </div>
-            
-                <div class="card">
-                    <%=link_to "View My Quotes", my_quotes_path(@user_id)%>
-                </div>
-                    
-                
             <%end%>
+
+            <div class="col-md-12 hidden-sm-up">
+                <% if current_user.user_type == "designer" %>
+                    <a class="button_link" href="<%= listings_path %>">
+                        View My Listings <i class="fas fa-arrow-right"></i>
+                    </a>
+                <% else %>
+                    <a class="button_link" href="<%= listings_path %>">
+                        View All Listings <i class="fas fa-arrow-right"></i>
+                    </a>
+                <% end %>
+            </div>
+            <div class="col-md-12 hidden-sm-up">
+                <a class="col-md-12 hidden-sm-up button_link" href="<%= my_quotes_path(@user_id) %>">
+                    View My Quotes <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            <div class="col-md-12 hidden-sm-up">
+                <a class="button_link" href="<%= jobs_path %>">
+                    View My Jobs <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
         </div>
         <!-- end of main content -->
     </div>

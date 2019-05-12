@@ -1,37 +1,37 @@
-<%if @printer.errors.any?%>
-
-  <% @printer.errors.full_messages.each do |error| %>
+<main class="container-fluid">
+  <div class="row">
+    <%= render "shared/notice" %>
+    <%if @printer.errors.any?%>
+      
+      <% @printer.errors.full_messages.each do |error| %>
         <p>*<%= error %></p>
+      <% end %>
+
+    <%end%>
+
+    <h1 class="h1 page-header"> Printer Information</h1>
+
+    <p class="subtitle">Please enter your ABN and printer information.</p>
+
+    <%= form_with model: @printer, url: "/printer_info", local: true do |f| %>
+
+      <%= f.hidden_field :user_id, value: current_user.id %>
+
+      <div class="field  form-group">
+        <%= f.label :abn %><br />
+        <%= f.number_field :abn, autofocus: true %>
+      </div>
+
+      <div class="field  form-group">
+        <%= f.label :printer_model %><br />
+        <%= f.text_field :printer_model, autofocus: true %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Submit Printer Information", class: 'button_link' %>
+      </div>
+
     <% end %>
 
-<%end%>
-<br> <h1> Printer information</h1> <br>
-
-<p>Please enter your ABN and printer information.</p>
-
-
-
-<%= form_with model: @printer, url: "/printer_info", local: true do |f| %>
-
-  <%= f.hidden_field :user_id, value: current_user.id %>
-
-
- <div class="field">
-    <%= f.label :abn %><br />
-    <%= f.number_field :abn, autofocus: true %>
   </div>
-
-   <div class="field">
-    <%= f.label :printer_model %><br />
-    <%= f.text_field :printer_model, autofocus: true %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Submit printer information" %>
-  </div>
-
-
-
-<% end %>
-
-
+</main>

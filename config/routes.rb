@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   #use custom registrations controller
   devise_for :users, path: "/", path_names: {sign_in: "login", sign_up: "signup"}, controllers: {:registrations => "registrations"}
-  # get "/", to: "pages#index", as: "root"
+
   root to: "pages#index"
   # get "/", to: "pages#index", as: "root"
   get "/dashboard", to: "pages#dashboard", as: "dashboard"
@@ -23,6 +23,10 @@ Rails.application.routes.draw do
   patch "/listings/:id", to: "listings#update"
   put "/listings/:id", to: "listings#update"
   post "/listings/new", to: "listings#create", as: "create_listing"
+  delete "/listings/:id", to: "listings#destroy"
+
+
+
 
   ### Quotes ###
   
@@ -41,6 +45,7 @@ Rails.application.routes.draw do
   patch "/quotes/:id", to: "quotes#update"
   put "/quotes/:id", to: "quotes#update"
   get "/quotes/:id/edit", to: "quotes#edit", as: "edit_quote"
+  delete "/quotes/:id", to: "quotes#destroy"
 
   ### Jobs ###
 

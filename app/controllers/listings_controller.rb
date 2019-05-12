@@ -1,9 +1,10 @@
 class ListingsController < ApplicationController
     before_action :authenticate_user!
-    before_action :set_listing, only: [:show, :edit, :update]
+    before_action :set_listing, only: [:show, :edit, :update, :destroy]
     before_action :authorize_user, only: [:new, :create, :edit, :update]
    
     def index
+        # byebug
         if current_user.user_type == "printer"
             @listings = Listing.all
         else
@@ -11,14 +12,25 @@ class ListingsController < ApplicationController
         end
     end
 
-    def show
-        id = params[:id]
-        @listing = Listing.find(id)
-    end
-
     def new
         @listing = Listing.new
         
+    end
+    
+    def create
+        #create new listing
+        @listing = current_user.listings.create(listing_params)
+        if @listing.errors.any?
+            render "new"
+        else
+            redirect_to listing_path(@listing.id)
+        end
+
+    end
+
+    def show
+        id = params[:id]
+        @listing = Listing.find(id)
     end
 
     def update
@@ -33,19 +45,15 @@ class ListingsController < ApplicationController
     end
 
     def edit
-        # shows form for editing an existing quote
+        # shows form for editing an existing listing
         @listing = Listing.find(params[:id])
     end
 
-    def create
-        #create new listing
-        @listing = current_user.listings.create(listing_params)
-        if @listing.errors.any?
-            render "new"
-        else
-            redirect_to listing_path(@listing.id)
-        end
-
+    def destroy
+        # deletes a listing
+        Listing.find(params[:id]).destroy
+        
+        redirect_to listings_path
     end
 
     private

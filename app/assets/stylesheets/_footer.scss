@@ -1,6 +1,7 @@
 @import 'general';
 
 footer {
+    flex-shrink: 0;
     background-color: $dark-blue;
     color: $white;
     position: relative;
@@ -12,6 +13,11 @@ footer {
     .row {
         padding: 2rem;
     }
+}
+
+.footer,
+.push {
+  height: 80px;
 }
 
 .copyright {
