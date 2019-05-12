@@ -16,6 +16,9 @@
 
             <h2 class="h2"> Open Quotes </h2>
 
+            <% if @open_quotes.count == 0 %>
+                <p class="subtitle">You have no open quotes</p>
+            <% end %>
             <!-- if the quote has a job, DO NOT display it here -->
             <%@open_quotes.each do |quote| %>
 
@@ -26,8 +29,8 @@
                         <% else %>
                             <p>Designer Name:<span class="data"><%= "#{quote.listing.user.first_name} #{quote.listing.user.last_name}" %></span></p>
                         <% end %>
-                        <p>Quote Id: <span class="data"><%= quote.id %></span></p>
-                        <p>Printer Id: <span class="data"><%= quote.printer_id %></span></p>
+                        <p>Quote Id. <span class="data"><%= quote.id %></span></p>
+                        <p>Printer Id. <span class="data"><%= quote.printer_id %></span></p>
                         <p>Printer Postcode: <span class="data"><%=quote.printer.user.postcode%></span><p>
                         <p>Total Price: <span class="data">$<%= number_with_precision(quote.total_price, precision: 2) %></span></p>
                     </div>
@@ -45,7 +48,10 @@
             <%end%>
 
             <h2 class="h2"> Past Quotes </h2>
-
+            
+            <% if @past_quotes.count == 0 %>
+                <p class="subtitle">You have no past quotes</p>
+            <% end %>
             <!-- if the quote has a job, DO display it here -->
             <%@past_quotes.each do |quote|%>
 
@@ -56,17 +62,12 @@
                         <% else %>
                             <p>Designer Name:<span class="data"><%= "#{quote.listing.user.first_name} #{quote.listing.user.last_name}" %></span></p>
                         <% end %>
-                        <p>Quote Id: <span class="data"><%= quote.id %></span></p>
-                        <p>Printer Id: <span class="data"><%= quote.printer_id %></span></p>
+                        <p>Quote Id. <span class="data"><%= quote.id %></span></p>
+                        <p>Printer Id. <span class="data"><%= quote.printer_id %></span></p>
                         <p>Printer Postcode: <span class="data"><%=quote.printer.user.postcode%></span><p>
                         <p>Total Price: <span class="data">$<%= number_with_precision(quote.total_price, precision: 2) %></span></p>
                     </div>
                     
-                    <%if current_user.user_type == "printer"%>
-                        <div class="col-md-3">    
-                            <%= link_to "Edit Quote", edit_quote_path(quote.id), class: "button_link" %>
-                        </div>
-                    <% end %>
                     <div class="col-md-3">
                         <%= link_to "View Quote",quote_path(quote.id), class: "button_link" %>
                     </div>

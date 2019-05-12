@@ -46,7 +46,34 @@ Printers will have the ability to:
 
 ### Screenshots
 
-[insert once styling is done]
+[Home / Landing Page](./docs/screenshots/App/1_Landing-Page.jpg)
+[Sign Up Page for Printers](./docs/screenshots/App/2_Signup_page-Printer.jpg)
+[Sign Up Page for Designers](./docs/screenshots/App/3_Signup_page-Designer.jpg)
+[Log In Page](./docs/screenshots/App/4_Login-Page.jpg)
+[Designer Dashboard](./docs/screenshots/App/5_Dashboard-Designer.jpg)
+[Create A New Listing](./docs/screenshots/App/6_Designer-Create-Listing.jpg)
+[View all Listings](./docs/screenshots/App/7_Designer-View-Listings.jpg)
+[View A Listing](./docs/screenshots/App/8_Designer-View-a-Listing.jpg)
+[Edit A Listing](./docs/screenshots/App/9_Designer-Edit-a-Listing.jpg)
+[Designer - View A Quote](./docs/screenshots/App/10_Designer-View-a-Quote.jpg)
+[Designer - View Quotes for a Listing](./docs/screenshots/App/11_Designer-View-Quotes-for-a-Listing.jpg)
+[Designer - View all Quotes](./docs/screenshots/App/12_Designer-View-Quotes.jpg)
+[Designer - Accept A Quote](./docs/screenshots/App/10_Designer-Accept-a-Quote.jpg)
+[Designer - View A Job](./docs/screenshots/App/13_Designer-View-a-Job.jpg)
+[Designer - View all Jobs](./docs/screenshots/App/14_Designer-View-Jobs.jpg)
+[Designer - View all Jobs (No Jobs)](./docs/screenshots/App/13_Designer-View-Jobs.jpg)
+
+[Printer Dashboard](./docs/screenshots/App/16_Dashboard-Printer.jpg)
+[Printer - View all Listings](./docs/screenshots/App/17_Printer-View-Listings.jpg)
+[Printer - View A Listing](./docs/screenshots/App/18_Printer-View-a-Listing.jpg)
+[Printer - Create A New Quote](./docs/screenshots/App/19_Printer-Create-A-New-Quote.jpg)
+[Printer - View A Quote](./docs/screenshots/App/21_Printer-View-A-Quote.jpg)
+[Printer - Edit A Quote](./docs/screenshots/App/22_Printer-Edit-A-Quote.jpg)
+[Printer - View all Quotes](./docs/screenshots/App/20_Printer-View-My-Quotes.jpg)
+[Printer - View all Jobs](./docs/screenshots/App/23_Printer-View-Jobs.jpg)
+[Printer - View An Active Job](./docs/screenshots/App/24_Printer-View-An-Active-Job.jpg)
+[Printer - View A Completed Job](./docs/screenshots/App/25_Printer-View-A-Completed-Job.jpg)
+
 
 ### Tech Stack (e.g. html, css, deployment platform, etc)
 
@@ -142,25 +169,32 @@ Once the information has been entered (if there are no errors), you will be take
 
 Editing an existing quote takes you to the same form as creating a new one, and you may amend any information that you wish to. You will need to fill in all fields.
 
-5. Viewing 'My Quotes'
+#### Viewing 'My Quotes'
 
 As either type of user, you are able to view 'My Quotes' from the dashboard, which will bring up:
 
 * All quotes on any of your listings (as a designer)
 * All quotes that you have made on any listings (as a printer)
 
+#### Viewing 'My Jobs'
+
+As a printer, you will be able to view all jobs that a designer has accepted based on your quote. 
+
+#### Viewing a specific job
+
+When clicking on a specific job, you will see all information related to the listing and quote details. From here you are able to indicate if the job has been completed by clicking the 'Mark Job As Complete' button.
 
 
 ## Design Documentation including,
 ### Design Process
 
-![whiteboard-ideas](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/app-idea-brainstorm.jpg "Whiteboard ideas")
+[Whiteboard Ideas Brainstorm](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/app-idea-brainstorm.jpg)
 
-[Design ideas and planning](./docs/screenshots/Planning/3D printing Project Planning and ideas.pdf)
+[Design ideas and planning](./docs/screenshots/Planning/3D-printing_Project-Planning-and-ideas.pdf)
 
-![Moodboard](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/screenshots/Planning/pinterest_moodboard.jpg "Pinterest Moodboard screenshot")
+[Pinterest Moodboard screenshot](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/screenshots/Planning/pinterest_moodboard.jpg)
 
-![Font Selection](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/screenshots/Planning/font_selection.png "Google Font selection screenshot")
+[Google Font selection screenshot](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/screenshots/Planning/font_selection.png)
 
 
 ### User Stories
@@ -181,16 +215,16 @@ As Fredrich, I want to print my designs quickly and cheaply to avoid using the p
 
 As Esperanza, I want to print a necklace with my own design so that I can give it as a gift.
 
-### Workflow Diagram of the user journey/s.
+### Workflow Diagram of User Journeys.
 
 1. Designer
 
-![designer-flow](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/screenshots/workflows/Designer%20Workflow%200.1.jpg "Designer workflow")
+[Designer Workflow](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/screenshots/workflows/Designer%20Workflow%200.1.jpg)
 
 
 2. Printer
 
-![printer-flow](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/screenshots/workflows/Printer_userflow%20(1).jpg "Printer workflow")
+[Printer Workflow](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/screenshots/workflows/Printer_userflow%20(1).jpg)
 
 
 ### Wireframes
@@ -224,15 +258,15 @@ All 4 of our wireframes (Designer and printer, desktop and mobile) can be found 
 
 
 ### Database Entity Relationship Diagrams
-![Entity relationship diagram](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/screenshots/ERD/3D%20Printing%20ERD.png "Entity relationship diagram")
+[Entity Relationship Diagram](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/screenshots/ERD/3D%20Printing%20ERD.png)
 
 
 ## Details of Planning process
-### Project plan & timeline
+### Project Plan & Timeline
 
-[Project plan & timeline](.docs/screenshots/Planning/Project Plan - 3D Print.pdf)
+[Project Plan & Timeline](./docs/screenshots/Planning/Project-Plan-and-Timeline_3Directions.pdf)
 
-### Screenshots of Trello board(s)
+### Screenshots of Trello Board(s)
 
 For this project, we used a combination of approaches to organize tasks to be completed.
 
@@ -252,15 +286,15 @@ The glo board was separated into several cards:
 
 6. Stretch goals - Features to implement if there is enough time.
 
-![Glo board screenshot 1](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/screenshots/Planning/Glo1.png "Glo board screenshot")
+[Glo board screenshot 1](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/screenshots/Planning/Glo1.png)
 
-![Glo board screenshot 1]https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/screenshots/Planning/Glo2.png( "Glo board screenshot")
+[Glo board screenshot 2](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/screenshots/Planning/Glo2.png)
 
 On a daily basis, we used Google Sheets to organize tasks for the day. Each day we would list the tasks to be completed by each team member by the end of the day. We coloured in the cell yellow when it was in progress, and green when it was complete. At times we shifted tasks to the next day's sheet when they weren't completed by the end of the day.
 
 The spreadsheet can be viewed here: https://docs.google.com/spreadsheets/d/1dflTU3Hk8w90SW6gPZDRxiEa19axQ65TlZpEr7AAzqA/edit?usp=sharing
 
-![Google sheets - daily tasks](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/screenshots/Planning/Daily%20Tasks%20Sheet.png "Google sheets daily tasks")
+[Google Sheets - daily tasks](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/screenshots/Planning/Daily%20Tasks%20Sheet.png "Google sheets daily tasks")
 
 
 ## Short Answer Questions
@@ -272,7 +306,7 @@ We are addressing the need that amateur and professional designers have to print
 
 Currently, there are a lot of amateur and professional designers who are wanting their designs printed but cannot due to accessibility and price. For example, a designer might find several 3D printing services online, but they may be too far away from them to pickup, or too expensive / fragile to ship. This service would allow them access to a variety of different printers from different locations, allowing them to make their own decision.
 
- There is also a market of people who own 3D printers but do not have a reason to use them on a regular basis (e.g.,they have been sitting around in a garage). These people may have spent a lot of money purchasing said printers upon their first release, as a hobbyist, and this service would provide them with a way to make some of that money back without much effort.
+There is also a market of people who own 3D printers but do not have a reason to use them on a regular basis (e.g.,they have been sitting around in a garage). These people may have spent a lot of money purchasing said printers upon their first release, as a hobbyist, and this service would provide them with a way to make some of that money back without much effort.
 
 
 #### 3. Describe the project will you be conducting and how. your App will address the needs.
@@ -372,7 +406,6 @@ When a designer is viewing a particular quote, they are able to choose the 'Acce
 3Directions used Amazon Simple Storage Service for image/file uploads and storage. We also provided download links to allow printers to view and download the file and determine quote details.
 
 * Cypress
-
 Cypress is used for automated testing. We also used the cypress-file-upload npm plugin to automate file uploads, as this is necessary for creating listings.
 
 
@@ -387,16 +420,14 @@ Our app employs similar functionality to other marketplace applications:
 * Airtasker --> People post tasks to be completed, and 'experts' contact them to complete the job. Very similar to us, except that we offer quotes which can be accepted or not, instead of using a messaging system to negotiate directly with the other party.
 
 
-
-
 #### 12. Discuss the database relations to be implemented.
 
   The User model is the basis from which all 3Directions models are formed. Most models belongs_to a user, which allows access to user information easily and also filters what is visible to each individual user through authorization. Each user has a user_type enum, which allows 3Directions to categorise the user as a printer or designer. 
 
   The User table is related to all other databases through the has_many relationship. A User can have many listings (directly), quotes or jobs (indirectly through a listing). The Printer table is a join table with the User model, to allow printers to be uniquely identified as a special type of user (they have extra attributes: ABN and Printer Model).
   
-#### 13. Describe your project’s models in terms of the relationships (active record associations) they have with each other.
 
+#### 13. Describe your project’s models in terms of the relationships (active record associations) they have with each other.
 
 * A user [has_many] listings, to allow designers to post as many listing as they'd like. A Listing [belongs_to] a user, to get their unique user id.
 * A listing and a printer [has_many] quotes, such that printers can give competitive offers and the designer can choose to accept the one they want to. A Quote [belongs_to] a listing AND a printer, to identify the buyer and seller of the potential print job. 
@@ -404,9 +435,8 @@ Our app employs similar functionality to other marketplace applications:
 * A listing also has a [has_one_attached] association for files. This is to associate the design file that is uploaded with the listing, instead of it being a record in the Listing table.
 
 
-
 #### 14. Provide your database schema design.
-![Entity relationship diagram](https://github.com/luketurnerdev/rails-assessment/blob/dev/docs/screenshots/ERD/3D%20Printing%20ERD.png "Entity relationship diagram")
+[Entity relationship diagram](./docs/screenshots/ERD/3D%20Printing%20ERD.png)
 
 #### 15. Provide User stories for your App.
 * As Jemima, I want to make use of my 3D printer to make extra money without much effort.
@@ -437,13 +467,13 @@ Overall the tasks were devided evenly and I think we both played to our strength
 
 #### 18. Discuss how Agile methodology is being implemented in your project.
 
-  We implemented agile project management into our project through firstly going through the following:
+We implemented agile project management into our project through firstly going through the following:
 
-  * Planning, including developing user stories for types of users, wireframes, ERD and user flows.
-  * We tracked our progress through use of GitKraken Glo Board, where we divided it into columns based on ideas, to do tasks, testing, development and completed tasks.
-  * We collaborated on the project through daily team meetings, Slack conversations and phone calls where we set tasks and goals for the day.
-  * After each task was developed, we tested the process by finding any bugs or errors and incorporating this into our lessons learnt and if improvement was needed.
-  * Daily standup meetings with our tutor to help us to verbalize and track the tasks to be completed, current progress and any roadbloacks to achieving the tasks (mainly in the second week)
+* Planning, including developing user stories for types of users, wireframes, ERD and user flows.
+* We tracked our progress through use of GitKraken Glo Board, where we divided it into columns based on ideas, to do tasks, testing, development and completed tasks.
+* We collaborated on the project through daily team meetings, Slack conversations and phone calls where we set tasks and goals for the day.
+* After each task was developed, we tested the process by finding any bugs or errors and incorporating this into our lessons learnt and if improvement was needed.
+* Daily standup meetings with our tutor to help us to verbalize and track the tasks to be completed, current progress and any roadblocks to achieving the tasks (mainly in the second week).
 
 #### 19. Provide an overview and description of your Source control process.
 
@@ -456,7 +486,6 @@ Towards the end we started pulling back into master, so that we could begin to d
 GitKraken was used as a GUI to have a visual representation of the branches that were created, and to easily revert back to a previous commit. This was helpful in identifying where something was working, and which commit broke it. Once this was determined, it was fairly easy to revert to said working commit, and then manually fix any changes that were necessary.
 
 #### 20. Provide an overview and description of your Testing process.
-  byebug, automated testing with cypress
 
 Throughout most of the development process, we used simple terminal outputs to test and debug the program, such as byebug and printing out params to the screen. This could be done to the terminal running the rails server, or on the rails error page itself.
 
@@ -474,26 +503,22 @@ Stripe payments were attempted to be automated, but I (Luke) was having trouble 
 
 
 #### 21. Discuss and analyse requirements related to information system security.
-credit cards and user info hosted by third party
 
-The most sensitive information stored in our application is user's credit card details. These are all handled externally via Stripe, meaning that we do not have access to these records and in the event of a data breach. Stripe has had an excellent track record when it comes to protection of sensitive data, and thus they are a trustworthy holder of this information.
+The most sensitive information stored in our application is a user's credit card details. These are all handled externally via Stripe, meaning that we do not have access to these records in the event of a data breach. Stripe has had an excellent track record when it comes to protection of sensitive data, and thus they are a trustworthy holder of this information.
 
 #### 22. Discuss methods you will use to protect information and data.
-  3Directions has used authorization, whereby
 
-In terms of password protection, filtration of user's passwords is built directly into devise. This is evident when debugging, as the paramater will read something along the lines of 'password:[FILTERED]' instead of the password itself. This is much safer than storing the password in plain text, where it is liable to be intercepted by hackers.
+In terms of password protection, encryption of user's passwords is built directly into Devise. This is evident when debugging, as the parameter will read something along the lines of 'password:[FILTERED]' instead of the password itself. This is much safer than storing the password in plain text, where it is liable to be intercepted by hackers.
 
+For payment, we are using the third-party software Stripe, which handles the online payment system. When a user is paying for their job, they are redirected to Stripe for payment and then redirected back to the 3Directions website. This means we do not have to store any credit card details on our application as Stripe provides the technical, fraud prevention and banking infrastructure for a small fee. 
 
-hashes and stores a password in the database to validate the authenticity of a user while signing in. The authentication can be done both through POST requests or HTTP Basic Authentication.
-
-stripe - how they protect payment
-
-
-do not store credit card details yourself. can use a third party who takes a small fee to take care of payments for you. You have to be pci compliant, a lot of rules around how that data is stored, encrypted and transferred over the wire.
-Stripe is developer focused, Stripe Checkout - use to collect payment. Stripe will redirect us to a checkout page, pay, stripe will process the payment and redirect back to our website.
 
 #### 23. Research what your legal obligations are in relation to handling user data.
 
+The legal obligations in Australia are based around PCI DSS (Payment Card Industry Data Security Standards), which provides protection to customer's credit or debit card information and the Privacy Act, which regulates how personal information is stored and handled.
 
-PCI compliant - if your database is hacked and a hacker steals the credit card details, you are liable. dont want to deal with the information yourself. 
-Privacy Act - keeping people's information private and secure. more leniant with who is liable if information is hacked.
+Since 3Directions accepts payments, our obligation is to ensure that we are complying with providing customers a secure payment environment. By implementing Stripe as our payment gateway, we are ensuring that maximum security is provided when processing and storing credit or debit card information on transactions.
+
+In order to prevent a data breach, we have used third-party applications such as Devise and Stripe to store the most sensitive information such as passwords and payment details. The 3Directions application does not store any addresses or sensitive personal information, which means that if a data breach were to occur the information combined would not be likely to cause serious financial or reputational damage.
+
+In any case of data breach, our obligation would be to notify customers, provide potential strategies for how we would contain, assess and manage the breach and identifying any weaknesses in data handling that led to the breach.

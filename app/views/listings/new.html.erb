@@ -9,12 +9,12 @@
             <h1 class="h1 page-header"> New Listing </h1>
 
             <%= render "form", listing: @listing %>
-            <div class="col-md-3">
+            <div class="col-md-12 hidden-sm-up">
                 <a class="button_link" href="<%= listings_path %>">
                         Back to Listings
                 </a>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-12 hidden-sm-up">
                 <a class="button_link" href="<%= dashboard_path %>">
                         Back to Dashboard
                 </a>

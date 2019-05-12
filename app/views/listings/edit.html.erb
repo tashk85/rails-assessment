@@ -6,10 +6,19 @@
         <!-- start of main content -->
         <div class="col-sm-9">
 
-            <h1> Edit Listing </h1>
+            <h1 class="h1 page-header"> Edit Listing Id. <%=params[:id]%></h1>
 
             <%= render "form", listing: @listing %>
-
+            <div class="col-md-12 hidden-sm-up">
+                <a class="button_link" href="<%= listings_path %>">
+                        Back to Listings
+                </a>
+            </div>
+            <div class="col-md-12 hidden-sm-up">
+                <a class="button_link" href="<%= dashboard_path %>">
+                        Back to Dashboard
+                </a>
+            </div>
         </div>
         <!-- end of main content -->
     </div>

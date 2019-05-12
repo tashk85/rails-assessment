@@ -6,7 +6,7 @@
         <!-- start of main content -->
         <div class="col-sm-9">
 
-            <h1 class="h1 page-header"> Job id. <%= @job.id %></h1>
+            <h1 class="h1 page-header"> Job Id. <%= @job.id %></h1>
 
 
             <div class="row card">
@@ -16,7 +16,7 @@
                     <% else %>
                         <p>Status: <span class="completed data">Completed</span></p>
                     <% end %>
-                    <p>Listing id. <span class="data"><%= @job.listing_id %></span></p>
+                    <p>Listing Id. <span class="data"><%= @job.listing_id %></span></p>
                     <p>Designer Name: <span class="data"><%= "#{@job.listing.user.first_name} #{@job.listing.user.last_name}" %></span></p>
                     <p>Description: <span class="data"><%= @job.listing.description %></span></p>
                     <p>Total Price: <span class="data">$<%= number_with_precision(@job.quote.total_price, precision: 2) %></span>
@@ -28,8 +28,9 @@
                         <span class="data"><%= @job.updated_at.to_time.strftime('%A, %d %b %Y %H:%M') %></span>
                         <% end %>
                     </p>
-                    <p>Quote id: <span class="data"><%= @job.quote_id %></span></p>
+                    <p>Quote Id. <span class="data"><%= @job.quote_id %></span></p>
                     <p>Printer Name: <span class="data"><%= "#{@job.printer.user.first_name} #{@job.printer.user.last_name}" %></span></p>
+                    <p>Printer Id. <span class="data"><%= @job.printer.id %></span></p>
                     <p>ABN: <span class="data"><%= @job.printer.abn %></span></p>
                     <p>Printer Model: <span class="data"><%= @job.printer.printer_model %></span></p>
                 </div>

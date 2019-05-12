@@ -37,7 +37,7 @@
                         <% if current_user.user_type == "printer" %>
                             <p>Designer Name: <span class="data"><%= "#{listing.user.first_name} #{listing.user.last_name}" %></span></p>
                         <%end%>
-                        <p>Listing Id: <span class="data"><%=listing.id%></span> </p>
+                        <p>Listing Id. <span class="data"><%=listing.id%></span> </p>
                         <p><span class="data"><%= listing.created_at.to_time.strftime('%A, %d %b %Y') %></span> </p>
                         <p>Description: <span class="data"><%=listing.description%></span> </p>
                     </div>

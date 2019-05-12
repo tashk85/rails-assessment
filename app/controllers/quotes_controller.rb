@@ -1,7 +1,11 @@
 class QuotesController < ApplicationController
+
     def index
         #shows all quotes
         @quotes = Quote.all
+
+        @no_quotes_for_listing = Listing.find(params[:listing]).quotes.count
+        # byebug
     end
 
     def show

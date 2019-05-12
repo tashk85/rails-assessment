@@ -24,21 +24,33 @@
                     <div class="row">
                         <div class="col-xs-4 col-sm-4 summary">
                             <a href="<%= listings_path %>">
-                                <h3><%= Listing.where(user_id: @user_id).count %></h3>
-                                <p>Active Listings</p>
+                                <h3><%= @active_listings %></h3>
+                                <% if @active_listings == 1 %>
+                                    <p>Listing</p>
+                                <% else %>
+                                    <p>Listings</p>
+                                <% end %>
                             </a>
                         </div>
                         <div class="col-xs-4 col-sm-4 summary">
                             <a href="<%= my_quotes_path(@user_id) %>">
-                                <h3><%= Quote.joins(:listing).where(listings: {user_id: @user_id}).count %></h3>
-                                <p>Quotes</p>
+                                <h3><%= @open_quotes %></h3>
+                                <% if @open_quotes == 1 %>
+                                    <p>Quote</p>
+                                <% else %>
+                                    <p>Quotes</p>
+                                <% end %>
                             </a>
                         </div>
                         <div class="col-xs-4  col-sm-4 summary">
 
                             <a href="<%= jobs_path %>">
-                                <h3><%= Job.joins(:listing).where(listings: {user_id: @user_id}).where(jobs: {status: true}).count %></h3>
-                                <p>Completed Jobs</p>
+                                <h3><%= @completed_jobs %></h3>
+                                <% if @completed_jobs == 1 %>
+                                    <p>Completed Job</p>
+                                <% else %>
+                                    <p>Completed Jobs</p>
+                                <% end %>
                             </a>
 
                         </div>
@@ -53,20 +65,33 @@
                     <div class="row">
                         <div class="col-xs-4 col-sm-4 summary">
                             <a href="<%= listings_path %>">
-                                <h3><%= Listing.all.count %></h3>
-                                <p>Listings</p>
+                                <h3><%= @listings_count %></h3>
+                                <% if @listings_count == 1 %>
+                                    <p>Listing</p>
+                                <% else %>
+                                    <p>Listings</p>
+                                <% end %>
                             </a>
                         </div>
                         <div class="col-xs-4 col-sm-4 summary">
                             <a href="<%= my_quotes_path(@user_id) %>">
-                                <h3><%= Quote.joins(:printer).where(printers: {user_id: @user_id}).count %></h3>
-                                <p>Quotes</p>
+                                <h3><%= @open_quotes %></h3>
+                                <% if @open_quotes == 1 %>
+                                    <p>Quote</p>
+                                <% else %>
+                                    <p>Quotes</p>
+                                <% end %>
                             </a>
+                            <!-- Quote.joins(:printer).where(printers: {user_id: @user_id}).count -->
                         </div>
                         <div class="col-xs-4  col-sm-4 summary">
                             <a href="<%= jobs_path %>">
-                                <h3><%= Job.joins(:listing).where(listings: {user_id: @user_id}).where(jobs: {status: true}).count %></h3>
-                                <p>Completed Jobs</p>
+                                <h3><%= @completed_jobs %></h3>
+                                <% if @completed_jobs == 1 %>
+                                    <p>Completed Job</p>
+                                <% else %>
+                                    <p>Completed Jobs</p>
+                                <% end %>
                             </a>
                         </div>
 
