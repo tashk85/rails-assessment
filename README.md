@@ -58,9 +58,11 @@ Printers will have the ability to:
 [Designer - View A Quote](./docs/screenshots/App/10_Designer-View-a-Quote.jpg)
 [Designer - View Quotes for a Listing](./docs/screenshots/App/11_Designer-View-Quotes-for-a-Listing.jpg)
 [Designer - View all Quotes](./docs/screenshots/App/12_Designer-View-Quotes.jpg)
-[Designer - View all Jobs (No Jobs)](./docs/screenshots/App/13_Designer-View-Jobs.jpg)
+[Designer - Accept A Quote](./docs/screenshots/App/10_Designer-Accept-a-Quote.jpg)
+[Designer - View A Job](./docs/screenshots/App/13_Designer-View-a-Job.jpg)
 [Designer - View all Jobs](./docs/screenshots/App/14_Designer-View-Jobs.jpg)
-[Designer - View A Job](./docs/screenshots/App/15_Designer-View-a-Job.jpg)
+[Designer - View all Jobs (No Jobs)](./docs/screenshots/App/13_Designer-View-Jobs.jpg)
+
 [Printer Dashboard](./docs/screenshots/App/16_Dashboard-Printer.jpg)
 [Printer - View all Listings](./docs/screenshots/App/17_Printer-View-Listings.jpg)
 [Printer - View A Listing](./docs/screenshots/App/18_Printer-View-a-Listing.jpg)
