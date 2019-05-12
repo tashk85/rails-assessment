@@ -2,9 +2,7 @@ class QuotesController < ApplicationController
 
     def index
         #Splits quotes into open and past
-        set_quote_arrays
 
-        # byebug
         #shows all quotes
         @quotes = Quote.all
 
@@ -21,11 +19,9 @@ class QuotesController < ApplicationController
             @quotes_for_listing = Listing.find(params[:listing]).quotes
 
         end
-        # byebug
     end
 
     def show
-        set_quote_arrays
 
         # view a single quote by setting id from params
         id = params[:id]
