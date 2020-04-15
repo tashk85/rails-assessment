@@ -5,7 +5,6 @@ class PaymentsController < ApplicationController
     quote_id = params[:data][:object][:client_reference_id].to_i
     @stripe_transaction_id = params[:data][:object][:payment_intent]
 
-    # check to see if job is already created with this quote id
     if Job.find_by_quote_id(quote_id) != nil
       Job.find_by_quote_id(quote_id).update(
         stripe_transaction_id: @stripe_transaction_id
