@@ -13,14 +13,13 @@ class PaymentsController < ApplicationController
       @quote = Quote.find(quote_id)
 
       @job = Job.create(
-          listing_id: @quote.listing_id,
-          quote_id: quote_id,
-          printer_id: @quote.printer_id,
-          status: false,
-          stripe_transaction_id: @stripe_transaction_id
+        listing_id: @quote.listing_id,
+        quote_id: quote_id,
+        printer_id: @quote.printer_id,
+        status: false,
+        stripe_transaction_id: @stripe_transaction_id
       )
 
-      # need to update has_job column in listing and quote tables
       @quote.update(has_job: true)
       Listing.find(@job.listing_id).update(has_job: true)
     end
